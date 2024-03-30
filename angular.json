@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": ["jsonwebtoken"],
             "outputPath": "dist/dance-scape-ex",
             "index": "src/index.html",
             "main": "src/main.ts",

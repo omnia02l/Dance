@@ -1,0 +1,145 @@
+ <div class="col-12">
+    <div class="card">
+      <p-toast></p-toast>
+      <p-toolbar styleClass="mb-4">
+        <ng-template pTemplate="left">
+          <div class="my-2">
+            <button pButton pRipple type="button" label="Toggle Weekends" class="p-button-rounded" (click)="toggleWeekends()"></button>
+          </div>
+        </ng-template>
+      </p-toolbar>
+      <full-calendar  [options]="options"></full-calendar>
+
+      <p-dialog [(visible)]="addTrainingDialog" [style]="{width: '450px'}" [closable]="false" header="Training Details" [modal]="true" class="p-fluid">
+        <ng-template pTemplate="content">
+          <div class="field col">
+            <label>Coach</label>
+            <p-dropdown [options]="coachesNames" [(ngModel)]="newTraining.coachName" placeholder="Select coach"
+                        [showClear]="true" [ngClass]="{'ng-invalid ng-dirty' : submitted && !newTraining.coachName}"></p-dropdown>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !newTraining.coachName">Coach name is required.</small>
+          </div>
+          <div class="field col">
+            <label>Dance hall</label>
+            <p-dropdown [options]="hallsNames" [(ngModel)]="newTraining.danceHallName" placeholder="Select dance hall"
+                        [showClear]="true" [ngClass]="{'ng-invalid ng-dirty' : submitted && !newTraining.danceHallName}"></p-dropdown>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !newTraining.danceHallName">Hall name is required.</small>
+          </div>
+          <div class="field">
+            <label>Training name</label>
+            <input type="text" pInputText [(ngModel)]="newTraining.trainingName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !newTraining.trainingName}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !newTraining.trainingName">Training name is required.</small>
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <textarea pInputTextarea rows="3" cols="20" [(ngModel)]="newTraining.description" rows="3"
+                      cols="20"></textarea>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="addTrainingDialog = false"></button>
+          <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="createTraining()"></button>
+        </ng-template>
+      </p-dialog>
+
+
+      <p-dialog header="Training Details"  [(visible)]="displayTrainingInformationDialog" [modal]="true" [style]="{width: '550px'}" [baseZIndex]="10000"
+                [draggable]="false" [resizable]="false" [closable]="false">
+        <ng-template pTemplate="content">
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Training name :</h5>
+            <p class="m-0">{{trainingResponse.trainingName}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Description :</h5>
+            <p class="m-0">{{trainingResponse.trainingDescription}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Available :</h5>
+            <p class="m-0">{{trainingResponse.capacity + '    Place(s)'}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Start :</h5>
+            <p class="m-0">{{trainingResponse.start | date : 'medium'}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- End :</h5>
+            <p class="m-0">{{trainingResponse.end | date : 'medium'}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Coach :</h5>
+            <p class="m-0">{{trainingResponse.coachName}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Dance Hall :</h5>
+            <p class="m-0">{{trainingResponse.danceHallName}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Dance hall address :</h5>
+            <p class="m-0">{{trainingResponse.danceHallAddress}}</p>
+          </div>
+          <div class="field">
+            <h5 style="color: #0b5ed7">- Participants :</h5>
+            <p-table [value]="trainingResponse.trainingParticipantList!" [rowHover]="true" [rows]="5" [paginator]="true" [showCurrentPageReport]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Name</th>
+                  <th>Phone number</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-participant>
+                <tr>
+                  <td style="font-weight: bold">{{participant.participantName}}</td>
+                  <td style="font-weight: bold">{{participant.phoneNumber}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple label="Delete" icon="pi pi-trash" (click)="trainingToDeleteId=trainingResponse.id!;deleteTrainingDialog=true"></button>
+          <button pButton pRipple label="Update" icon="pi pi-pencil" (click)="trainingToUpdate=trainingResponse.id!;updateTrainingDialog=true;
+                                                          submitted=false;updatedTrainingInformation={}"></button>
+          <button pButton pRipple label="Close" icon="pi pi-times" (click)="displayTrainingInformationDialog=false"></button>
+        </ng-template>
+      </p-dialog>
+
+      <p-dialog [(visible)]="deleteTrainingDialog" header="Confirm" [modal]="true" [style]="{width:'450px'}">
+        <div class="flex align-items-center justify-content-center">
+          <i class="pi pi-exclamation-triangle mr-3" style="font-size: 2rem"></i>
+          <span>Are you sure you want to delete this training ?</span>
+        </div>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple icon="pi pi-times" class="p-button-text" label="No" (click)="deleteTrainingDialog = false"></button>
+          <button pButton pRipple icon="pi pi-check" class="p-button-text" label="Yes" (click)="confirmDelete()"></button>
+        </ng-template>
+      </p-dialog>
+
+
+      <p-dialog [(visible)]="updateTrainingDialog" [style]="{width: '450px'}" [closable]="false" header="Training Details" [modal]="true" class="p-fluid">
+        <ng-template pTemplate="content">
+          <div class="field col">
+            <label>Coach</label>
+            <p-dropdown [options]="coachesNames" [(ngModel)]="updatedTrainingInformation.coachName" placeholder="Select coach"
+                        [showClear]="true" [ngClass]="{'ng-invalid ng-dirty' : submitted && !updatedTrainingInformation.coachName}"></p-dropdown>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !updatedTrainingInformation.coachName">Coach name is required.</small>
+          </div>
+          <div class="field">
+            <label>Training name</label>
+            <input type="text" pInputText [(ngModel)]="updatedTrainingInformation.name" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !updatedTrainingInformation.name}"/>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !updatedTrainingInformation.name">Training name is required.</small>
+          </div>
+          <div class="field">
+            <label>Description</label>
+            <textarea pInputTextarea rows="3" cols="20" [(ngModel)]="updatedTrainingInformation.description" rows="3"
+                      cols="20"></textarea>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="updateTrainingDialog = false"></button>
+          <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="updateTraining()"></button>
+        </ng-template>
+      </p-dialog>
+
+
+    </div>
+  </div>

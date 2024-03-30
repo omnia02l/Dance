@@ -7,8 +7,9 @@ import {AuthService} from "../../../core/services/auth.service";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
-
+  role!:string;
   constructor(private authService:AuthService) {
+    this.role = this.authService.getFromLocalStorage('role')!;
   }
 
   logout() {

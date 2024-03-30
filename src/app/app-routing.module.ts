@@ -17,6 +17,12 @@ import {
 } from "./BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component";
 import {ProfileComponent} from "./BackOffice/back-all/content-back/accountmanagement/profile/profile.component";
 
+import {
+  TrainingmanagementComponent
+} from "./BackOffice/back-all/content-back/trainingmanagement/trainingmanagement/trainingmanagement.component";
+import {DancehallComponent} from "./BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component";
+import {TrainingComponent} from "./BackOffice/back-all/content-back/trainingmanagement/training/training.component";
+
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -28,8 +34,12 @@ const routes: Routes = [
       {path: 'products/update-product/:productId', component: UpdateProductComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
       {path: 'account-management', component: AccountmanagementComponent},
-
+    
       {path: 'profile', component: ProfileComponent},
+      {path: 'training-management', component: TrainingmanagementComponent},
+      {path: 'dance-hall-management', component: DancehallComponent},
+      {path: 'training', component: TrainingComponent},
+     
     ]
   },
 

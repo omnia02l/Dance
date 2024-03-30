@@ -113,6 +113,11 @@
             <input type="text" pInputText [(ngModel)]="signupRequest.lastName" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.lastName}"/>
             <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.lastName">Last name is required.</small>
           </div>
+          <div class="field col">
+            <label>Role</label>
+            <p-dropdown [options]="option" [(ngModel)]="signupRequest.role" placeholder="Select role"
+                        [showClear]="true"></p-dropdown>
+          </div>
           <div class="field">
             <label>Phone number</label>
             <p-inputMask mask="(+216) 99-999-999" [(ngModel)]="signupRequest.phoneNumber" placeholder="(+216) 99-999-9999"></p-inputMask>
@@ -121,11 +126,6 @@
             <label>Email address</label>
             <input type="text" pInputText [(ngModel)]="signupRequest.email" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !signupRequest.email}"/>
             <small class="ng-dirty ng-invalid" *ngIf="submitted && !signupRequest.email">Email Address is required.</small>
-          </div>
-          <div class="field col">
-            <label>Role</label>
-            <p-dropdown [options]="option" [(ngModel)]="signupRequest.role" placeholder="Select role"
-                        [showClear]="true"></p-dropdown>
           </div>
           <div class="field">
             <label>Password</label>

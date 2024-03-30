@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.form.value.userName, this.form.value.password).subscribe({
       next:(data) => {
         this.authService.setToLocalStorage('accessToken' , data.accessToken);
+        this.authService.setToLocalStorage('role' , data.role);
         this.router.navigate(['admin']);
       },
       error:(err) => {

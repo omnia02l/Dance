@@ -23,7 +23,7 @@ export class AccountmanagementComponent implements OnInit {
   option!: string[];
 
   constructor(private accountService: AccountService, private messageService: MessageService) {
-    this.option = ['admin', 'jury', 'dancer', 'school', 'registred_user', 'coach'];
+    this.option = ['admin', 'jury', 'dancer', 'school', 'registred_user','coach'];
   }
 
   ngOnInit(): void {

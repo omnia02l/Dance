@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
       lastName: this.formBuilder.control(null, [Validators.required]),
       email: this.formBuilder.control(null, [Validators.required]),
       phoneNumber: this.formBuilder.control(null, [Validators.required ,Validators.pattern(/^\d{8}$/)]),
-      role:this.formBuilder.control(null,[Validators.required,Validators.pattern(/^(jury|dancer|school|coach|registred_user)$/)]),
+      role:this.formBuilder.control(null,[Validators.required,Validators.pattern(/^(jury|dancer|school|registred_user)$/)]),
       password: this.formBuilder.control(null, [Validators.required])
     })
   }
