@@ -1,0 +1,35 @@
+<button class="btn btn-primary" (click)="addNewPlace()">Ajouter un Lieu</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>ID Lieu</th>
+      <th>seat number </th>
+      <th>occupation</th>
+      <th>selected</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let place of places; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ place.idPlace }}</td>
+        <td>{{ place.seatNumber}}</td>
+        <td>{{ place.isOccupied }}</td>
+        <td>{{ place.isSelected }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="editPlace(i)">Modifier</button>
+          <button class="btn btn-primary btn-sm"  *ngIf="place.idPlace" (click)="deletePlace(place.idPlace)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input type="number" [(ngModel)]="place.idPlace" name="idPlace-{{i}}" disabled></td>
+        <td><input type="text" [(ngModel)]="place.seatNumber" name="seatNumber-{{i}}"></td>
+        <td><input type="number" [(ngModel)]="place.isOccupied" name="occupation{{i}}"></td>
+        <td><input type="number" [(ngModel)]="place.isSelected" name="selected-{{i}}"></td>
+        <td>
+          <button class="btn btn-primary btn-sm" (click)="onSubmit(place, i)">Sauvegarder</button>
+          <button class="btn btn-primary btn-sm" (click)="cancelEdit()">Annuler</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

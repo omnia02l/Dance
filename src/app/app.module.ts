@@ -7,7 +7,7 @@ import { FrontAllComponent } from './front-office/front-all/front-all.component'
 import { FooterFrontComponent } from './front-office/front-all/footer-front/footer-front.component';
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
 import { HeaderFrontComponent } from './front-office/front-all/header-front/header-front.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackAllComponent } from './BackOffice/back-all/back-all.component';
 import { NavbarComponent } from './BackOffice/back-all/navbar/navbar.component';
 import { SidebarComponent } from './BackOffice/back-all/sidebar/sidebar.component';
@@ -45,6 +45,19 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
+import { TheatrePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/theatre-plan-list/theatre-plan-list.component';
+import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
+import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
+import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
+import { TicketCardListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-card-list/ticket-card-list.component';
+import { TicketScannerListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-scanner-list/ticket-scanner-list.component';
+import { PursacheTransactionListComponent } from './BackOffice/back-all/content-back/componentsTickets/pursache-transaction-list/pursache-transaction-list.component';
+import { PlaceListComponent } from './BackOffice/back-all/content-back/componentsTickets/place-list/place-list.component';
+import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
+import { ReservationPlaceComponent } from './front-office/front-all/content-front/componentsTickets/reservation-place/reservation-place.component';
+import { SeatNumbersComponent } from './front-office/front-all/content-front/componentsTickets/seat-numbers/seat-numbers.component';
+import { TicketCardComponent } from './front-office/front-all/content-front/componentsTickets/ticket-card/ticket-card.component';
+import { BestCustomerComponent } from './front-office/front-all/content-front/componentsTickets/best-customer/best-customer.component';
 
 
 @NgModule({
@@ -68,10 +81,23 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     UpdateCategoryComponent,
     AccountmanagementComponent,
     ProfileComponent,
-   
     TrainingmanagementComponent,
     DancehallComponent,
     TrainingComponent,
+    TheatrePlanListComponent,
+
+    SeatSelectorComponent,
+    PriceListComponent,
+    TicketListComponent,
+    TicketCardListComponent,
+    TicketScannerListComponent,
+    PursacheTransactionListComponent,
+    PlaceListComponent,
+    VenuePlanListComponent,
+    ReservationPlaceComponent,
+    SeatNumbersComponent,
+    TicketCardComponent,
+    BestCustomerComponent,
     
   ],
   imports: [
@@ -94,7 +120,8 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     InputTextareaModule,
     MultiSelectModule,
     FullCalendarModule,
-    InputNumberModule
+    InputNumberModule,
+    ReactiveFormsModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

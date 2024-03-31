@@ -1,0 +1,30 @@
+<button class="btn btn-primary" (click)="addNewTicketCard()">Ajouter une Carte de Ticket</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>ID Carte</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticketCard of ticketCards; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ ticketCard.idCardT }}</td>
+        <td>{{ ticketCard.total }}</td>
+        <td>
+          <button (click)="editTicketCard(i)">Modifier</button>
+          <button *ngIf="ticketCard.idCardT" (click)="deleteTicketCard(ticketCard.idCardT)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input type="number" [(ngModel)]="ticketCard.idCardT" name="idCardT-{{i}}" disabled></td>
+        <td><input type="number" [(ngModel)]="ticketCard.total" name="Total-{{i}}"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="onSubmit(ticketCard, i)">Sauvegarder</button>
+          <button class="btn btn-primary btn-sm"  (click)="cancelEdit()">Annuler</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

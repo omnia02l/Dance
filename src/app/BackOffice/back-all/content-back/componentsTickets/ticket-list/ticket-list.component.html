@@ -1,0 +1,36 @@
+<button  class="btn btn-primary" (click)="addNewTicket()">Ajouter un Ticket</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>Référence</th>
+      <th>Type de Ticket</th>
+      <th>Disponibilité</th>
+      <th>Date d'Expiration</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ ticket.refTicket }}</td>
+        <td>{{ ticket.typeTicket }}</td>
+        <td>{{ ticket.disponibility ? 'Oui' : 'Non' }}</td>
+        <td>{{ ticket.expireDate | date }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="editTicket(i)">Modifier</button>
+          <button class="btn btn-primary btn-sm"  *ngIf="ticket.idTicket" (click)="deleteTicket(ticket.idTicket)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td><input type="text" [(ngModel)]="ticket.refTicket" name="refTicket-{{i}}"></td>
+        <td>
+          <select [(ngModel)]="ticket.typeTicket" name="typeTicket-{{i}}">
+            <option *ngFor="let type of TypeTicketEnum" [value]="type">{{type}}</option>
+          </select>
+        </td>
+        <td><input type="checkbox" [(ngModel)]="ticket.disponibility" name="disponibility-{{i}}"></td>
+        <td><input type="date" [(ngModel)]="ticket.expireDate" name="expireDate-{{i}}"></td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="onSubmit(ticket, i)">Sauvegarder</button>
+          <button class="btn btn-primary btn-sm"  (click)="cancelEdit()">Annuler</button>
+        </td>

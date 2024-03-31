@@ -1,0 +1,117 @@
+
+<html>
+
+<body>
+
+    <main>
+        <nav class="navbar navbar-expand-lg">
+          <div class="container">
+            <a class="navbar-brand" href="index.html">Festava Live</a>
+      
+            <a href="ticket.html" class="btn custom-btn d-lg-none ms-auto me-4">Buy Ticket</a>
+      
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_1">Home</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_2">About</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_3">Artists</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_4">Schedule</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_5">Pricing</a>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" href="index.html#section_6">Contact</a>
+                </li>
+              </ul>
+      
+              <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>
+            </div>
+          </div>
+        </nav>
+      
+        <section class="ticket-section section-padding" *ngIf="ticketCard">
+          <div class="section-overlay"></div>
+          <div class="container">
+            <div class="row">
+              <!-- Div pour le titre -->
+              <div class="col-12 text-center mb-4">
+                <h2 class="">Your Ticket Details</h2>
+              </div>
+              
+              <!-- Div pour chaque ticket -->
+              <div class="col-lg-6 col-10 mx-auto" *ngFor="let ticket of ticketCard.tickets">
+                <div class="custom-form ticket-form mb-5 mb-lg-0">
+                  <div class="ticket-form-body">
+                    <h6>Ticket Type: {{ ticket.typeTicket }}</h6>
+                    <p>Reference: {{ ticket.refTicket }}</p>
+                    <p>Number of Places: {{ ticket.places?.seatNumber }}</p> <!-- Ajustez en fonction de la structure de vos données -->
+                    <p>Price: {{ ticket.price?.price }} TDN</p>
+                    <p>Expiration Date: {{ ticket.expireDate | date:'mediumDate' }}</p>
+                    <div class="form-group">
+                      <label for="ageGroupSelect{{ ticket.idTicket }}">Age Group</label>
+                      <select [(ngModel)]="ticket.selectedTrancheAge" 
+                              (change)="changeAgeGroup(ticket.idTicket!, ticket.selectedTrancheAge!)" 
+                              id="ageGroupSelect{{ ticket.idTicket }}"
+                              class="form-control">
+                        <option *ngFor="let age of TrancheAge | keyvalue" [value]="age.key">
+                          {{ age.value }}
+                        </option>
+                      </select>
+                    </div>
+                    
+                      
+                  </div>
+                </div>
+              </div>
+             
+              <!-- Div pour le total du panier -->
+              <div class="col-12 text-center mt-4">
+                <h3>Total du Panier: {{ ticketCard.total }} TDN</h3>
+              </div>
+            </div>
+          </div>
+          <div> 
+            <div class="col-12 text-center mt-4">
+            <h4>Have a discount code?</h4>
+            <input type="text" [(ngModel)]="discountCode" placeholder="Enter discount code" class="form-control mb-3" style="max-width: 300px; margin: auto;">
+            <button class="btn btn-success" (click)="applyDiscount()">Apply Discount</button>
+          </div>
+        </div>
+        <div class="btn-primary">
+          <button class="btn btn-primary" (click)="goBack()">Back to Seat Selection</button>
+        </div>
+        
+        </section>
+      </main>
+    <!--
+
+T e m p l a t e M o
+
+-->
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/custom.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<button class="btn btn-primary" (click)="addNewPrice()">Ajouter un Prix</button>
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th>Type de Ticket</th>
+      <th>Tranche d'Âge</th>
+      <th>Prix</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let price of prices; let i = index">
+      <ng-container *ngIf="editingIndex !== i; else editMode">
+        <td>{{ price.typeTicket }}</td>
+        <td>{{ price.trancheAge }}</td>
+        <td>{{ price.price }}</td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="editPrice(i)">Modifier</button>
+          <button class="btn btn-primary btn-sm"  *ngIf="price.idPrice" (click)="deletePrice(price.idPrice)">Supprimer</button>
+        </td>
+      </ng-container>
+      <ng-template #editMode>
+        <td>
+          <select [(ngModel)]="price.typeTicket" name="typeTicket-{{i}}">
+            <option *ngFor="let type of TypeTicketEnum" [value]="type">{{type}}</option>
+          </select>
+        </td>
+        <td>
+          <select [(ngModel)]="price.trancheAge" name="trancheAge-{{i}}">
+            <option *ngFor="let age of TrancheAgeEnum" [value]="age">{{age}}</option>
+          </select>
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="price.price" name="price-{{i}}">
+        </td>
+        <td>
+          <button class="btn btn-primary btn-sm"  (click)="onSubmit(price, i)">Sauvegarder</button>
+          <button class="btn btn-primary btn-sm"  (click)="cancelEdit()">Annuler</button>
+        </td>
+        </ng-template>
+        
+    </tr>
+  </tbody>
+</table>
