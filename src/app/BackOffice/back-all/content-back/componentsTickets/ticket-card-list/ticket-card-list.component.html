@@ -1,30 +1,32 @@
-<button class="btn btn-primary" (click)="addNewTicketCard()">Ajouter une Carte de Ticket</button>
-<table class="table mt-3">
-  <thead>
-    <tr>
-      <th>ID Carte</th>
-      <th>Total</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let ticketCard of ticketCards; let i = index">
-      <ng-container *ngIf="editingIndex !== i; else editMode">
+<div class="card">
+  <button pButton label="Ajouter une Carte de Ticket" icon="pi pi-plus" class="p-button-success" (click)="addNewTicketCard()"></button>
+  <p-table [value]="ticketCards" [paginator]="true" [rows]="5" dataKey="idCardT">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID Carte</th>
+        <th>Total</th>
+        <th>Actions</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ticketCard let-i="rowIndex">
+      <tr *ngIf="editingIndex !== i; else editMode">
         <td>{{ ticketCard.idCardT }}</td>
         <td>{{ ticketCard.total }}</td>
         <td>
-          <button (click)="editTicketCard(i)">Modifier</button>
-          <button *ngIf="ticketCard.idCardT" (click)="deleteTicketCard(ticketCard.idCardT)">Supprimer</button>
+          <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editTicketCard(i)"></button>
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteTicketCard(ticketCard.idCardT)"></button>
         </td>
-      </ng-container>
+      </tr>
       <ng-template #editMode>
-        <td><input type="number" [(ngModel)]="ticketCard.idCardT" name="idCardT-{{i}}" disabled></td>
-        <td><input type="number" [(ngModel)]="ticketCard.total" name="Total-{{i}}"></td>
-        <td>
-          <button class="btn btn-primary btn-sm"  (click)="onSubmit(ticketCard, i)">Sauvegarder</button>
-          <button class="btn btn-primary btn-sm"  (click)="cancelEdit()">Annuler</button>
-        </td>
+        <tr>
+          <td>{{ ticketCard.idCardT }}</td>
+          <td><input pInputText type="number" [(ngModel)]="ticketCard.total" name="Total-{{i}}"></td>
+          <td>
+            <button pButton label="Sauvegarder" class="p-button-success mr-2" (click)="onSubmit(ticketCard, i)"></button>
+            <button pButton label="Annuler" class="p-button-warning" (click)="cancelEdit()"></button>
+          </td>
+        </tr>
       </ng-template>
-    </tr>
-  </tbody>
-</table>
+    </ng-template>
+  </p-table>
+</div>

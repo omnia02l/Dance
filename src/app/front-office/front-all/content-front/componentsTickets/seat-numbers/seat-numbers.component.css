@@ -59,7 +59,7 @@ button {
 .seat {
   padding: 5px;
   margin: 2px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
   cursor: pointer;
   /* Autres styles de siège */
 }
@@ -71,4 +71,31 @@ button {
 
 .seat.selected {
   background-color: #4caf50; /* Green color indicating the seat is selected */
+}
+
+/* CSS pour votre bouton personnalisé */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
+  transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
+  text-align: center;
+  text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
+}
+
+/* CSS pour l'état du bouton lorsqu'il est survolé */
+.custom-btn:hover {
+  background-color: orange;
+  color: white;
+}
+
+/* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
+.custom-btn:active, .custom-btn.selected {
+  background-color: white;
+  color: orange;
 }

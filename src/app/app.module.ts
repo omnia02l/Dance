@@ -57,7 +57,10 @@ import { VenuePlanListComponent } from './BackOffice/back-all/content-back/compo
 import { ReservationPlaceComponent } from './front-office/front-all/content-front/componentsTickets/reservation-place/reservation-place.component';
 import { SeatNumbersComponent } from './front-office/front-all/content-front/componentsTickets/seat-numbers/seat-numbers.component';
 import { TicketCardComponent } from './front-office/front-all/content-front/componentsTickets/ticket-card/ticket-card.component';
-import { BestCustomerComponent } from './front-office/front-all/content-front/componentsTickets/best-customer/best-customer.component';
+
+import { VenuePlanDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-dialog/venue-plan-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DiscountDialogComponent } from './front-office/front-all/content-front/componentsTickets/discount-dialog/discount-dialog.component';
 
 
 @NgModule({
@@ -97,7 +100,9 @@ import { BestCustomerComponent } from './front-office/front-all/content-front/co
     ReservationPlaceComponent,
     SeatNumbersComponent,
     TicketCardComponent,
-    BestCustomerComponent,
+
+    VenuePlanDialogComponent,
+    DiscountDialogComponent,
     
   ],
   imports: [
@@ -122,6 +127,7 @@ import { BestCustomerComponent } from './front-office/front-all/content-front/co
     FullCalendarModule,
     InputNumberModule,
     ReactiveFormsModule,
+    MatDialogModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

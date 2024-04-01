@@ -35,8 +35,8 @@ export class SeatNumbersComponent implements OnInit {
 
     ngOnInit(): void {
       this.restoreSelectedSeats();
-      this.refreshSeatNumbers(1); // Start refreshing seat numbers for planId 1
-      this.setupRefreshInterval(1);
+      this.refreshSeatNumbers(6); // Start refreshing seat numbers for planId 1
+      this.setupRefreshInterval(6);
       this.getPrincipal();
     }
     getPrincipal() {

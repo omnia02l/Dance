@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BestCustomerComponent } from './best-customer.component';
+import { DiscountDialogComponent } from './discount-dialog.component';
 
-describe('BestCustomerComponent', () => {
-  let component: BestCustomerComponent;
-  let fixture: ComponentFixture<BestCustomerComponent>;
+describe('DiscountDialogComponent', () => {
+  let component: DiscountDialogComponent;
+  let fixture: ComponentFixture<DiscountDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BestCustomerComponent ]
+      declarations: [ DiscountDialogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BestCustomerComponent);
+    fixture = TestBed.createComponent(DiscountDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -7,6 +7,8 @@ import { Price } from 'src/app/core/models/price.model';
 import { TrancheAge } from 'src/app/core/models/tranche-age.model';
 import { TicketService } from 'src/app/core/services/ticket.service';
 import { AccountService } from 'src/app/core/services/account.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DiscountDialogComponent } from '../discount-dialog/discount-dialog.component';
 
 @Component({
   selector: 'app-ticket-card',
@@ -24,7 +26,8 @@ export class TicketCardComponent implements OnInit {
     public ticketCardService: TicketCardService,
     public ticketService: TicketService,
     private accountService: AccountService,
-    private router: Router
+    private router: Router,
+    private dialog: MatDialog
     
 
   ) {this.price = new Price();}
@@ -94,6 +97,17 @@ export class TicketCardComponent implements OnInit {
     
     goBack(): void {
       this.router.navigate(['/Place']); // Use the navigate method with the path as an argument
+    }
+    openDiscountDialog(): void {
+      const dialogRef = this.dialog.open(DiscountDialogComponent, {
+        width: '300px',
+        data: { userId: this.userId } // Passer l'ID utilisateur si nécessaire
+      });
+    
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The discount dialog was closed', result);
+        // Actualiser les données du ticketCard ici si vous recevez une réponse
+      });
     }
 }
   
