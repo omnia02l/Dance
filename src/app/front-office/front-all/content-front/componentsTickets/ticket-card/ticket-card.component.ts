@@ -21,6 +21,8 @@ export class TicketCardComponent implements OnInit {
   TrancheAge = TrancheAge;
   userId: number | null = null;
   discountCode: string = '';
+  discountApplied: boolean = false;
+  discountError: string = '';
   constructor(
     private route: ActivatedRoute,
     public ticketCardService: TicketCardService,
@@ -75,25 +77,6 @@ export class TicketCardComponent implements OnInit {
       });
     }
   
-  
-    applyDiscount(): void {
-      const userId = +this.route.snapshot.params['userId'];
-      if (userId && this.discountCode) {
-        this.ticketCardService.applyDiscountToMostRecentTicketCard(userId, this.discountCode).subscribe({
-          next: (updatedTicketCard) => {
-            this.ticketCard = updatedTicketCard;
-            // Fetch the updated ticket card details
-            this.getTicketCardDetails(userId);
-            console.log(`Discount code '${this.discountCode}' applied successfully:`, updatedTicketCard);
-          },
-          error: (error) => {
-            console.error(`Error applying discount code '${this.discountCode}':`, error);
-          }
-        });
-      } else {
-        console.error('UserId or DiscountCode is missing');
-      }
-    }
     
     goBack(): void {
       this.router.navigate(['/Place']); // Use the navigate method with the path as an argument
@@ -101,14 +84,24 @@ export class TicketCardComponent implements OnInit {
     openDiscountDialog(): void {
       const dialogRef = this.dialog.open(DiscountDialogComponent, {
         width: '300px',
-        data: { userId: this.userId } // Passer l'ID utilisateur si nécessaire
+        data: { userId: this.userId }
       });
     
       dialogRef.afterClosed().subscribe(result => {
-        console.log('The discount dialog was closed', result);
-        // Actualiser les données du ticketCard ici si vous recevez une réponse
+        if (result) {
+          if (result.discountApplied) {
+            this.discountApplied = result.discountApplied;
+            this.ticketCard = result.ticketCard;
+            // Peut-être voulez-vous rafraîchir les détails ici
+            this.refreshTicketCard();
+          } else {
+            this.discountError = result.discountError;
+          }
+        }
       });
     }
+    
+        
 }
   
 

@@ -1,6 +1,7 @@
 
 
 
+
         <section class="ticket-section section-padding" *ngIf="ticketCard">
           <div class="section-overlay"></div>
           <div class="container">
@@ -9,6 +10,7 @@
               <div class="col-12 text-center mb-4">
                 <h2 class="">Your Ticket Details</h2>
               </div>
+
               
               <!-- Div pour chaque ticket -->
               <div class="col-lg-6 col-10 mx-auto" *ngFor="let ticket of ticketCard.tickets">
@@ -41,6 +43,21 @@
                     <a class="">Total du Panier: {{ ticketCard.total }} TDN</a>
                   </div>
                 </div>
+            </div>
+                      <!-- Success Notification -->
+          <div *ngIf="discountApplied" class="alert alert-success alert-dismissible fade show" role="alert">
+            Discount applied successfully to your ticket card.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="discountApplied=false">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <!-- Error Notification -->
+          <div *ngIf="discountError" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ discountError }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="discountError=''">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <!-- Dans votre fichier ticket-card.component.html ou tout autre fichier HTML pertinent -->
           <div class="col-12 text-center mt-4">
@@ -54,4 +71,4 @@
         </div>
         
         </section>
-   
+ 

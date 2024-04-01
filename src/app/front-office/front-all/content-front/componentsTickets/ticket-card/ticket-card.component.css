@@ -60,4 +60,9 @@
     color: black; /* Change en noir au survol */
     text-decoration-color: black; /* Couleur du soulignement en noir */
   }
-  
+  .alert {
+    /* Styles pour les alertes de notifications */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+  }
