@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { VenuePlan } from 'src/app/core/models/venue-plan.model'; // Ajustez le chemin selon votre structure de projet
 import { VenuePlanService } from 'src/app/core/services/venue-plan.service';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-venue-plan-dialog',
   templateUrl: './venue-plan-dialog.component.html',
@@ -14,8 +14,9 @@ export class VenuePlanDialogComponent {
   numberOfSeatsInRow: number | null = null;
   rowLabels: string[] = ['A', 'B', 'C', 'D', 'E']; 
 
+
   constructor(private venuePlanService: VenuePlanService,
-    public dialogRef: MatDialogRef<VenuePlanDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any)
+    public dialogRef: MatDialogRef<VenuePlanDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private snackBar: MatSnackBar)
      { this.newVenuePlan.seatStructure = {};
      if (data.venuePlan) {
       // If an existing venue plan is passed, create a copy of it for editing
@@ -35,16 +36,27 @@ export class VenuePlanDialogComponent {
     if (this.isValidVenuePlan(this.newVenuePlan)) {
       this.venuePlanService.addVenuePlan(this.newVenuePlan).subscribe({
         next: (result) => {
-          console.log('Plan de salle ajouté avec succès', result);
+          this.snackBar.open('Plan de salle ajouté avec succès!', 'Fermer', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
           this.resetForm();
         },
         error: (error) => {
-          console.error('Erreur lors de l\'ajout du plan de salle', error);
+          this.snackBar.open('Erreur lors de l\'ajout du plan de salle', 'Fermer', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top',
+          });
         }
       });
     } else {
-      // Gérer la validation ou afficher une erreur à l'utilisateur
-      console.error('Le formulaire de plan de salle est invalide');
+      this.snackBar.open('Le formulaire de plan de salle est invalide', 'Fermer', {
+        duration: 3000,
+        horizontalPosition: 'right',
+        verticalPosition: 'top',
+      });
     }
   }
 
@@ -73,6 +85,7 @@ export class VenuePlanDialogComponent {
         // Si un ID est présent, c'est une mise à jour
         this.venuePlanService.modifyVenuePlan(this.newVenuePlan).subscribe({
           next: (result) => {
+            
             console.log('Plan de salle mis à jour avec succès', result);
             this.dialogRef.close(result);
           },
@@ -85,7 +98,7 @@ export class VenuePlanDialogComponent {
         this.venuePlanService.addVenuePlan(this.newVenuePlan).subscribe({
           next: (result) => {
             console.log('Plan de salle ajouté avec succès', result);
-            this.dialogRef.close(result);
+            this.dialogRef.close({ event: 'success', data: this.newVenuePlan });
           },
           error: (error) => {
             console.error("'Erreur lors de l'ajout du plan de salle'", error);
@@ -96,4 +109,5 @@ export class VenuePlanDialogComponent {
       console.error('Le formulaire de plan de salle est invalide');
     }
   }
+  
 }

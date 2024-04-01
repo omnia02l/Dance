@@ -61,6 +61,8 @@ import { TicketCardComponent } from './front-office/front-all/content-front/comp
 import { VenuePlanDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-dialog/venue-plan-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DiscountDialogComponent } from './front-office/front-all/content-front/componentsTickets/discount-dialog/discount-dialog.component';
+import { canActivateRoleGuard } from './core/services/RoleGard/role-guard.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -128,6 +130,7 @@ import { DiscountDialogComponent } from './front-office/front-all/content-front/
     InputNumberModule,
     ReactiveFormsModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {FormGroup} from "@angular/forms";
 import {Router} from "@angular/router";
+import { jwtDecode } from 'jwt-decode';
 
 
 @Injectable({
@@ -59,8 +60,32 @@ export class AuthService {
     localStorage.clear();
     this.router.navigate(['auth/login']);
   }
+//<--------------------------RoLE----------------------->
 
+  public isAuthenticated(): boolean {
+    const token = this.getFromLocalStorage('accessToken');
+    if (!token) return false;
+  
+    try {
+      const date = new Date();
+      const decodedToken: any = jwtDecode(token);
+      return decodedToken.exp > date.getTime() / 1000;
+    } catch (error) {
+      console.error('Error decoding token', error);
+      return false;
+    }
+  }
+  
 
- 
+ // Utility function to decode token
+public decodeToken(token: string): any {
+  try {
+    return jwtDecode(token); // Use the jwtDecode function directly
+  } catch (error) {
+    console.error('Error decoding token', error);
+    return null;
+  }
+}
+
 
 }

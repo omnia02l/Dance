@@ -33,6 +33,7 @@ import { PlaceListComponent } from './BackOffice/back-all/content-back/component
 import { ReservationPlaceComponent } from './front-office/front-all/content-front/componentsTickets/reservation-place/reservation-place.component';
 import { SeatNumbersComponent } from './front-office/front-all/content-front/componentsTickets/seat-numbers/seat-numbers.component';
 import { TicketCardComponent } from './front-office/front-all/content-front/componentsTickets/ticket-card/ticket-card.component';
+import { canActivateRoleGuard } from './core/services/RoleGard/role-guard.service';
 
 
 const routes: Routes = [
