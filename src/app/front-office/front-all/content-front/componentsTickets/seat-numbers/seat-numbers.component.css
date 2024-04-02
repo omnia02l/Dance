@@ -2,7 +2,7 @@
 /* Place this CSS in your component's stylesheet */
 .theater-container {
   position: relative;
-  background-image: url('C:/Users/Asus/Desktop/projet sa front/Dance/src/assets/FrontOffice/images/theathre.png'); /* Replace with your image path */
+ /* background-image: url('./assets/FrontOffice/images/theathre.png'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 600px; /* Adjust based on your image aspect ratio */
