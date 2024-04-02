@@ -1,0 +1,36 @@
+<!-- list-registrations.component.html -->
+<div class="registration-list">
+  <h2>Registration List</h2>
+  <h4>Number of Pending Registrations: {{ pendingRegistrationsCount }}</h4>
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Status</th>
+          <th>Amount Paid</th>
+          <th>Details</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let registration of registrations">
+          <td>{{ registration.idreg }}</td>
+          <td>{{ registration.registration_date }}</td>
+          <td>{{ registration.statusreg }}</td>
+          <td>{{ registration.amountpaid }}</td>
+          <td>
+            <a class="view-details-link" routerLink="/admin/registration-detail/{{ registration.idreg }}">View Details</a>
+          </td>
+          <td>
+            <button class="delete-button" (click)="deleteRegistration(registration.idreg)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Other content goes here -->
+</div>

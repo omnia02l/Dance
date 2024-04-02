@@ -1,0 +1,30 @@
+.fullcalendar-container {
+  background-image: url('C:\Users\Kardo\OneDrive\Bureau\front-integ\Dance\src\assets\FrontOffice\images\R.jpg'); /* Remplacez le chemin par le chemin de votre image */
+  background-size: cover; /* Ajuster la taille de l'image pour couvrir tout le conteneur */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+
+
+  position: relative; /* Position relative pour permettre le positionnement des éléments enfants */
+}
+
+.overlay {
+  position: absolute; /* Position absolue pour superposer l'élément */
+  top: 0; /* Positionner l'élément au sommet */
+  left: 0; /* Positionner l'élément à gauche */
+  width: 100%; /* Prendre toute la largeur */
+  height: 100%; /* Prendre toute la hauteur */
+  background-color: rgba(255, 255, 255, 0.5); /* Couleur de fond semi-transparente */
+}
+
+.fullcalendar {
+  z-index: 1; /* Assurer que le calendrier reste au-dessus de l'overlay */
+}
+
+.background-image {
+  background-image: url('C:\Users\Kardo\OneDrive\Bureau\front-integ\Dance\src\assets\FrontOffice\images\R.jpg'); /* Chemin de l'image */
+  background-size: cover; /* Ajuster la taille de l'image pour couvrir tout le conteneur */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+  position: relative; /* Position relative pour permettre le positionnement des éléments enfants */
+  z-index: 0; /* Assurer que l'image de fond reste en arrière-plan */
+}
+

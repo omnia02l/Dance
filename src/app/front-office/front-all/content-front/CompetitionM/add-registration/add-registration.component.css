@@ -1,0 +1,146 @@
+/* Styles pour le tableau */
+.table {
+  width: 100%; /* Utilise toute la largeur disponible */
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px; /* Augmente légèrement le rembourrage pour plus d'espace */
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
+}
+
+/* Styles pour les lignes impaires du tableau */
+.table tbody tr:nth-child(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Style pour les titres de colonnes */
+.table th {
+  background-color: #f2f2f2; /* Ajoute une couleur de fond légère pour les titres */
+  font-weight: bold; /* Met en gras les titres */
+}
+
+/* Style pour les cellules du tableau */
+.table td {
+  vertical-align: middle; /* Centre le contenu verticalement */
+}
+
+/* Style pour les champs de formulaire dans le tableau */
+.table input[type="text"],
+.table input[type="date"],
+.table select {
+  width: 100%; /* Les champs de formulaire occupent toute la largeur de la cellule */
+  padding: 8px; /* Un peu de rembourrage pour plus d'espace */
+  border: none; /* Supprime les bordures par défaut des champs de formulaire */
+  border-radius: 5px; /* Ajoute des coins arrondis aux champs de formulaire */
+}
+
+/* Style pour les boutons dans le tableau */
+.table button {
+  padding: 8px 15px; /* Un peu plus de rembourrage pour les boutons */
+  border: none; /* Supprime les bordures par défaut */
+  border-radius: 5px; /* Ajoute des coins arrondis aux boutons */
+  background-color: #007bff; /* Couleur de fond bleue pour les boutons */
+  color: #fff; /* Couleur du texte blanc pour les boutons */
+  cursor: pointer; /* Affiche un curseur de type pointer au survol */
+  transition: background-color 0.3s; /* Ajoute une transition fluide pour le changement de couleur de fond */
+}
+
+/* Style pour les boutons au survol */
+.table button:hover {
+  background-color: #0056b3; /* Couleur de fond plus sombre au survol */
+}
+
+/* Styles pour les messages d'erreur */
+.text-danger {
+  color: #dc3545;
+}
+
+/* Styles pour la section "add-dancer-section" */
+.add-dancer-section {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.add-dancer-title {
+  margin-right: 10px;
+  font-weight: bold;
+  color: #ff69b4; /* Couleur rose vif */
+}
+
+/* Classe pour la couleur noire */
+.text-black {
+  color: #000000; /* Couleur noire */
+}
+
+/* Styles pour le bouton "+" */
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: #ff69b4; /* Couleur rose vif */
+  color: white;
+  font-size: 20px;
+}
+
+.btn-circle:hover {
+  background-color: #ff1493; /* Couleur rose plus foncée au survol */
+}
+
+/* Styles pour les boutons "Next" et "Return" */
+.btn-next,
+.btn-return {
+  background-color: #ffcccc; /* Couleur rose pâle */
+  color: #ff0000; /* Couleur rouge */
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  position: relative;
+  font-size: 16px;
+}
+
+.btn-next::after {
+  content: '>'; /* Ajout d'une flèche après le texte */
+  margin-left: 5px;
+}
+
+.btn-return::before {
+  content: '<'; /* Ajout d'une flèche avant le texte */
+  margin-right: 5px;
+}
+
+.btn-next:hover,
+.btn-return:hover {
+  background-color: #ff9999; /* Couleur rose plus foncée au survol */
+}
+
+.btn-return {
+  margin-right: 20px;
+}
+
+/* Styles pour la première partie du formulaire */
+.form-part-1 {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour la deuxième partie du formulaire */
+.form-part-2 {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
