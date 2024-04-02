@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {DanceHall} from "../models/DanceHall";
 import {da} from "@fullcalendar/core/internal-common";
 import {Training, TrainingResponse, UpdateTrainingDatesRequest, UpdateTrainingRequest} from "../models/Training";
+import {Stats} from "../models/stats";
 
 @Injectable({
   providedIn: 'root'
@@ -115,6 +116,9 @@ export class TrainingService {
       params,
       responseType:'text' as 'json'
     });
+  }
+  public getStats(): Observable<Stats> {
+    return this.http.get<Stats>(this.host + "stats")
   }
 
 }

@@ -35,17 +35,16 @@ import {DropdownModule} from "primeng/dropdown";
 import {DataViewModule} from "primeng/dataview";
 import {AuthInterceptor} from "./core/services/Auth.interceptor";
 import { ProfileComponent } from './BackOffice/back-all/content-back/accountmanagement/profile/profile.component';
-
 import {CalendarModule} from "primeng/calendar";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {MultiSelectModule} from "primeng/multiselect";
-
 import { TrainingmanagementComponent } from './BackOffice/back-all/content-back/trainingmanagement/trainingmanagement/trainingmanagement.component';
 import {FullCalendarModule} from "@fullcalendar/angular";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
-
+import {TabMenuModule} from "primeng/tabmenu";
+import {ChartModule} from "primeng/chart";
 
 @NgModule({
   declarations: [
@@ -68,11 +67,9 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     UpdateCategoryComponent,
     AccountmanagementComponent,
     ProfileComponent,
-   
     TrainingmanagementComponent,
     DancehallComponent,
     TrainingComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -94,7 +91,9 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     InputTextareaModule,
     MultiSelectModule,
     FullCalendarModule,
-    InputNumberModule
+    InputNumberModule,
+    TabMenuModule,
+    ChartModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MessageService} from "primeng/api";
+import {MenuItem, MessageService} from "primeng/api";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import {TrainingService} from "../../../../../core/services/training.service";
@@ -20,6 +20,7 @@ export class TrainingComponent implements OnInit {
   trainingResponse: TrainingResponse = {};
   participationStatus!: boolean;
   message!: string;
+  items: MenuItem[];
 
   constructor(private messageService: MessageService, private trainingService: TrainingService) {
     this.listTraining();
@@ -41,6 +42,11 @@ export class TrainingComponent implements OnInit {
       slotDuration: '00:15:00',
       snapDuration: '00:05:00'
     };
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
+    ];
   }
 
   ngOnInit(): void {
