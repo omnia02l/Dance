@@ -23,16 +23,31 @@ import {
 import {DancehallComponent} from "./BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component";
 import {TrainingComponent} from "./BackOffice/back-all/content-back/trainingmanagement/training/training.component";
 
+import { ProductListFrontComponent } from './front-office/front-all/content-front/store/product-list-front/product-list-front.component';
+import { ShopcartComponent } from './front-office/front-all/content-front/store/shopcart/shopcart.component';
+import { ProductSalesComponent } from './BackOffice/back-all/content-back/store/product-sales/product-sales.component';
+import { FileUploaderComponent } from './BackOffice/back-all/content-back/store/file-uploader/file-uploader.component';
+import { RecommendedProductsComponent } from './front-office/front-all/content-front/store/recommended-products/recommended-products.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
-  {path: '', component: FrontAllComponent},
-  {
+  { path: '', component:FrontAllComponent,children: [
+    {path:'produits',component: ProductListFrontComponent},
+    { path: 'shopcart', component: ShopcartComponent },
+    { path: 'file', component: FileUploaderComponent },
+{ path: 'recommended', component: RecommendedProductsComponent },
+
+
+    
+    ]},  {
     path: "admin", component: BackAllComponent, children: [
-      {path: 'products/add-product', component: AddproductComponent},
-      {path: 'products', component: ProductListComponent},
-      {path: 'products/update-product/:productId', component: UpdateProductComponent},
-      {path: 'products/:productId', component: ProductDetailComponent},
+      { path: 'products/add', component: AddproductComponent },
+      { path: 'products', component: ProductListComponent },
+      { path: 'products/update-product/:productId', component: UpdateProductComponent },
+      { path: 'products/:productId', component: ProductDetailComponent },
+      { path: 'categorys', component: CategoryListComponent },
+  { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
+  { path: 'ProductSales', component: ProductSalesComponent },
       {path: 'account-management', component: AccountmanagementComponent},
     
       {path: 'profile', component: ProfileComponent},
@@ -43,8 +58,8 @@ const routes: Routes = [
     ]
   },
 
-  {path: 'admin/categorys', component: CategoryListComponent},
-  {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
+ // {path: 'admin/categorys', component: CategoryListComponent},
+ // {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
 //{ path: 'refresh', redirectTo: '', pathMatch: 'full' },
 ];
 

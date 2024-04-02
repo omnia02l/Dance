@@ -17,7 +17,8 @@ export class Product {
     shoppingCart?: ShoppingCart;
     category?: Category;
     reviews?: Review[];
-  
+    totalRevenue?: number;
+    totalSalesQuantity?: number;
     [key: string]: any;
 
     

@@ -4,6 +4,7 @@ import {AccountService} from "../../../../../core/services/account.service";
 import {UserDTO} from "../../../../../core/models/userDTO";
 import {EditProfileRequest} from "../../../../../core/models/editProfileRequest";
 import {UpdatePasswordRequest} from "../../../../../core/models/updatePasswordRequest";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',

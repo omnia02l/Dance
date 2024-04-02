@@ -13,14 +13,11 @@ import { NavbarComponent } from './BackOffice/back-all/navbar/navbar.component';
 import { SidebarComponent } from './BackOffice/back-all/sidebar/sidebar.component';
 import { FooterBackComponent } from './BackOffice/back-all/footer-back/footer-back.component';
 import { ContentBackComponent } from './BackOffice/back-all/content-back/content-back.component';
-import { ProductListComponent } from './BackOffice/back-all/content-back/store/product-list/product-list.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { AddproductComponent } from './BackOffice/back-all/content-back/store/addproduct/addproduct.component';
 import { UpdateProductComponent } from './BackOffice/back-all/content-back/store/update-product/update-product.component';
 import { ProductDetailComponent } from './BackOffice/back-all/content-back/store/product-detail/product-detail.component';
 import { CategoryListComponent } from './BackOffice/back-all/content-back/store/category/category-list/category-list.component';
 import { AddCategoryComponent } from './BackOffice/back-all/content-back/store/category/add-category/add-category.component';
-import { UpdateCategoryComponent } from './BackOffice/back-all/content-back/store/category/update-category/update-category.component';
 import {ButtonModule} from "primeng/button";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { AccountmanagementComponent } from './BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component';
@@ -47,6 +44,19 @@ import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
 
 
+import { ShopcartComponent } from './front-office/front-all/content-front/store/shopcart/shopcart.component';
+import { ProductService } from './core/services/product.service';
+import { ProductListFrontComponent } from './front-office/front-all/content-front/store/product-list-front/product-list-front.component';
+import { ProductSalesComponent } from './BackOffice/back-all/content-back/store/product-sales/product-sales.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
+import { RecommendedProductsComponent } from './front-office/front-all/content-front/store/recommended-products/recommended-products.component';
+import { AddproductComponent } from './BackOffice/back-all/content-back/store/addproduct/addproduct.component';
+import { ProductListComponent } from './BackOffice/back-all/content-back/store/product-list/product-list.component';
+import { UpdateCategoryComponent } from './BackOffice/back-all/content-back/store/category/update-category/update-category.component';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -65,14 +75,19 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     ProductDetailComponent,
     CategoryListComponent,
     AddCategoryComponent,
-    UpdateCategoryComponent,
     AccountmanagementComponent,
     ProfileComponent,
-   
     TrainingmanagementComponent,
     DancehallComponent,
     TrainingComponent,
-    
+    ShopcartComponent,
+    ProductListFrontComponent,
+    ProductSalesComponent,
+    ProductSalesComponent,
+    PaymentFormComponent,
+    RecommendedProductsComponent,
+        UpdateCategoryComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -85,15 +100,26 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
     ToolbarModule,
     RippleModule,
     TableModule,
+    FormsModule,
     InputTextModule,
     DataViewModule,
     DialogModule,
     InputMaskModule,
     DropdownModule,
     CalendarModule,
+    MatCardModule,
+    MatIconModule,
     InputTextareaModule,
     MultiSelectModule,
     FullCalendarModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
+    MatCardModule,
+    MatIconModule,
+    UcWidgetModule,
+    BrowserAnimationsModule ,
+
     InputNumberModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],

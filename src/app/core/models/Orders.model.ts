@@ -3,15 +3,15 @@ import { Product } from "./Product.model";
 import { ShoppingCart } from "./ShoppingCart.model";
 
 export class Orders {
-    orderId: number;
-    totalAmount: number;
-    statusOrder: string;
-    dateCreation: Date;
-    shippingAddress: string;
-    paymentStatus: string;
-    shoppingCart: ShoppingCart; // Assuming ShoppingCart is another class/interface
-    products: Product[]; // Assuming Product is another class/interface
-    delivery: Delivery; // Assuming Delivery is another class/interface
+    orderId?: number;
+    totalAmount?: number;
+    statusOrder!: string;
+    dateCreation?: Date;
+    shippingAddress!: string;
+    paymentStatus!: string;
+    shoppingCart?: ShoppingCart; // Assuming ShoppingCart is another class/interface
+    products?: Product[]; // Assuming Product is another class/interface
+    delivery?: Delivery; // Assuming Delivery is another class/interface
   
     constructor(
       orderId: number,
