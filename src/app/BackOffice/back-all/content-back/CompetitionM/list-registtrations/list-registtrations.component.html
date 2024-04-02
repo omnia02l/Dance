@@ -7,17 +7,17 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Username</th>
           <th>Date</th>
           <th>Status</th>
-          <th>Amount Paid</th>
+          <th>Amount to pay</th>
           <th>Details</th>
           <th>Delete</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let registration of registrations">
-          <td>{{ registration.idreg }}</td>
+          <td>{{ registration.username }}</td>
           <td>{{ registration.registration_date }}</td>
           <td>{{ registration.statusreg }}</td>
           <td>{{ registration.amountpaid }}</td>

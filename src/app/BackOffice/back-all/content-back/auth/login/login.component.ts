@@ -32,7 +32,11 @@ export class LoginComponent implements OnInit{
       next:(data) => {
         this.authService.setToLocalStorage('accessToken' , data.accessToken);
         this.authService.setToLocalStorage('role' , data.role);
-        this.router.navigate(['admin']);
+        if(data.role === 'admin'){
+          this.router.navigate(['admin']);
+        }else if(data.role === 'dancer'){
+          this.router.navigate(['calendercomp']);
+        }
       },
       error:(err) => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Bad credentials' , life: 3000 });

@@ -42,6 +42,7 @@ addRegistrationWithTeamAndDancersAssignComp(registrationDTO: RegistrationDTO, co
   return this.http.put<Registration>(`${this.apiUrl}/add_reg_with_comp_team_and_dancers/${competitionId}`, registrationDTO);
 }
 
+
 sendEmailsToDancersInTeam(registrationId: number, subject: string, body: string): Observable<void> {
   const url = `${this.apiUrl}/${registrationId}/send-emails`;
   const headers = new HttpHeaders({

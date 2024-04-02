@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {MessageService} from "primeng/api";
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {AuthService} from "../../../../../core/services/auth.service";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MessageService } from "primeng/api";
+import { AuthService } from "../../../../../core/services/auth.service";
 
 @Component({
   selector: 'app-register',

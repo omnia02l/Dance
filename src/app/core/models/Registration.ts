@@ -9,6 +9,7 @@ export interface Registration {
   amountpaid?: number;
   approved_date?: Date;
   rejected_date?: Date;
+  username?: string;
   user?: any;
   team?: Team;
 }
