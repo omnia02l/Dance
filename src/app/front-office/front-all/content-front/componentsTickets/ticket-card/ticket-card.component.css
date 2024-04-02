@@ -1,0 +1,68 @@
+/* Dans votre fichier ticket-card.component.css */
+.discount-code {
+    cursor: pointer;
+    text-decoration: underline;
+    color: orange; /* Couleur normale */
+    transition: font-weight 0.3s ease; /* Transition pour le changement de la graisse de la police */
+  }
+  
+  .discount-code:hover {
+    font-weight: bold; /* Graisse de la police lorsque la souris passe dessus */
+  }
+  /* CSS pour votre bouton personnalisé */
+.custom-btn {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: transparent;
+    color: orange;
+    border: 2px solid orange;
+    border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
+    transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
+    text-align: center;
+    text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
+  }
+  
+  /* CSS pour l'état du bouton lorsqu'il est survolé */
+  .custom-btn:hover {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
+  .custom-btn:active, .custom-btn.selected {
+    background-color: white;
+    color: orange;
+  }
+  /* Style pour le conteneur de pied de page avec l'arrière-plan orange */
+.footer-container {
+    background-color: rgba(255, 165, 0, 0.5); /* Orange transparent */
+    padding: 20px 0; /* Espacement en haut et en bas */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
+  }
+  
+  /* Style pour le texte du code de réduction */
+  .discount-code {
+    cursor: pointer;
+    text-decoration: underline;
+    color: white; /* Blanc pour contraster avec l'orange */
+    font-weight: bold; /* Gras pour ressortir */
+    display: inline-block; /* Pour permettre le clic sur toute la zone */
+    margin: 10px 0; /* Espacement supplémentaire */
+    transition: color 0.3s, text-decoration-color 0.3s; /* Transition fluide pour les changements de couleur et de soulignement */
+  }
+  
+  .discount-code:hover {
+    color: black; /* Change en noir au survol */
+    text-decoration-color: black; /* Couleur du soulignement en noir */
+  }
+  .alert {
+    /* Styles pour les alertes de notifications */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+  }

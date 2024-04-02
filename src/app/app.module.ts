@@ -7,7 +7,7 @@ import { FrontAllComponent } from './front-office/front-all/front-all.component'
 import { FooterFrontComponent } from './front-office/front-all/footer-front/footer-front.component';
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
 import { HeaderFrontComponent } from './front-office/front-all/header-front/header-front.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackAllComponent } from './BackOffice/back-all/back-all.component';
 import { NavbarComponent } from './BackOffice/back-all/navbar/navbar.component';
 import { SidebarComponent } from './BackOffice/back-all/sidebar/sidebar.component';
@@ -42,6 +42,24 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
+import { TheatrePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/theatre-plan-list/theatre-plan-list.component';
+import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
+import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
+import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
+import { TicketCardListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-card-list/ticket-card-list.component';
+import { TicketScannerListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-scanner-list/ticket-scanner-list.component';
+import { PursacheTransactionListComponent } from './BackOffice/back-all/content-back/componentsTickets/pursache-transaction-list/pursache-transaction-list.component';
+import { PlaceListComponent } from './BackOffice/back-all/content-back/componentsTickets/place-list/place-list.component';
+import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
+import { ReservationPlaceComponent } from './front-office/front-all/content-front/componentsTickets/reservation-place/reservation-place.component';
+import { SeatNumbersComponent } from './front-office/front-all/content-front/componentsTickets/seat-numbers/seat-numbers.component';
+import { TicketCardComponent } from './front-office/front-all/content-front/componentsTickets/ticket-card/ticket-card.component';
+
+import { VenuePlanDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-dialog/venue-plan-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DiscountDialogComponent } from './front-office/front-all/content-front/componentsTickets/discount-dialog/discount-dialog.component';
+import { canActivateRoleGuard } from './core/services/RoleGard/role-guard.service';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 import { ShopcartComponent } from './front-office/front-all/content-front/store/shopcart/shopcart.component';
@@ -88,13 +106,29 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     RecommendedProductsComponent,
         UpdateCategoryComponent,
 
+    TheatrePlanListComponent,
+
+    SeatSelectorComponent,
+    PriceListComponent,
+    TicketListComponent,
+    TicketCardListComponent,
+    TicketScannerListComponent,
+    PursacheTransactionListComponent,
+    PlaceListComponent,
+    VenuePlanListComponent,
+    ReservationPlaceComponent,
+    SeatNumbersComponent,
+    TicketCardComponent,
+
+    VenuePlanDialogComponent,
+    DiscountDialogComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
     ButtonModule,
     ToastModule,
     ToolbarModule,
@@ -112,15 +146,11 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
     InputTextareaModule,
     MultiSelectModule,
     FullCalendarModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    MatCardModule,
-    MatIconModule,
     UcWidgetModule,
-    BrowserAnimationsModule ,
-
-    InputNumberModule
+    InputNumberModule,
+    ReactiveFormsModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

@@ -1,0 +1,10 @@
+/* Dans votre fichier price-list.component.css */
+
+.new-price-row input, .new-price-row select {
+    background-color: #e8f0fe; /* Une couleur légère pour les champs de la nouvelle ligne */
+  }
+  
+  .new-price-row {
+    font-weight: bold; /* Optionnel, pour mettre en évidence la nouvelle ligne */
+  }
+  

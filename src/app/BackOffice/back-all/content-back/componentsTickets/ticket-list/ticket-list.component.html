@@ -1,0 +1,44 @@
+<div class="col-12">
+  <div class="card px-6 py-6">
+    <button pButton label="Ajouter un Ticket" icon="pi pi-plus" class="p-button-success mr-2" (click)="addNewTicket()"></button>
+    <p-table [value]="tickets" [paginator]="true" [rows]="5" dataKey="idTicket">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Référence</th>
+          <th>Type de Ticket</th>
+          <th>Disponibilité</th>
+          <th>Date d'Expiration</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-ticket let-i="rowIndex">
+        <tr *ngIf="editingIndex !== i; else editMode">
+          <td>{{ ticket.refTicket }}</td>
+          <td>{{ ticket.typeTicket }}</td>
+          <td>{{ ticket.disponibility ? 'Oui' : 'Non' }}</td>
+          <td>{{ ticket.expireDate | date }}</td>
+          <td>
+            <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editTicket(i)"></button>
+            <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteTicket(ticket.idTicket)"></button>
+          </td>
+        </tr>
+        <ng-template #editMode>
+          <tr>
+            <td><input type="text" [(ngModel)]="ticket.refTicket" name="refTicket-{{i}}"></td>
+            <td>
+              <select [(ngModel)]="ticket.typeTicket" name="typeTicket-{{i}}">
+                <option *ngFor="let type of TypeTicketEnum" [value]="type">{{type}}</option>
+              </select>
+            </td>
+            <td><input type="checkbox" [(ngModel)]="ticket.disponibility" name="disponibility-{{i}}"></td>
+            <td><input type="date" [(ngModel)]="ticket.expireDate" name="expireDate-{{i}}"></td>
+            <td>
+              <button pButton label="Sauvegarder" class="p-button-rounded p-button-success mr-2" (click)="onSubmit(ticket, i)"></button>
+              <button pButton label="Annuler" class="p-button-rounded p-button-warning" (click)="cancelEdit()"></button>
+            </td>
+          </tr>
+        </ng-template>
+      </ng-template>
+    </p-table>
+  </div>
+</div>

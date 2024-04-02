@@ -1,0 +1,22 @@
+<div class="theater-container">
+  <div class="seat-selection-container">
+    <!-- Iterate over rows -->
+    <div *ngFor="let row of seatNumbersByRow | keyvalue" class="row">
+      <!-- Label for the row -->
+      <div class="row-label">{{ row.key }}</div>
+      <!-- Container for seats in the row -->
+      <div class="seat-container">
+        <!-- Iterate over seats in the row -->
+        <span *ngFor="let seat of row.value" 
+              class="seat"
+              [ngClass]="{'occupied': seat.isOccupied, 'selected': seat.isSelected}"
+              (click)="seat.seatNumber ?toggleSeatSelection(row.key, seat.seatNumber): null">
+          {{ seat.seatNumber || 'No seat number' }}
+        </span>
+      </div>
+    </div>
+    
+    <!-- Button to confirm selected seats -->
+    <button  class="custom-btn" (click)="confirmSelectedPlaces()">Bay Tickets</button>
+  </div>
+</div>

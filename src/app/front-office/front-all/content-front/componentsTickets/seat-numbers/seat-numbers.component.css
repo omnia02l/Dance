@@ -1,0 +1,101 @@
+
+/* Place this CSS in your component's stylesheet */
+.theater-container {
+  position: relative;
+  background-image: url('C:/Users/Asus/Desktop/projet sa front/Dance/src/assets/FrontOffice/images/theathre.png'); /* Replace with your image path */
+  background-size: cover;
+  background-position: center;
+  height: 600px; /* Adjust based on your image aspect ratio */
+}
+
+.seat-selection-container {
+  position: absolute;
+  bottom: 0; /* Aligns the container to the bottom of the theater container */
+  left: 50%; /* Centers the container horizontally */
+  transform: translateX(-50%); /* Adjusts for the centering */
+  width: 100%; /* Makes the container take full width if needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0; /* Gives some padding at the bottom */
+  background-color: rgba(224, 224, 224, 0.291); /* Black with 50% opacity */
+}
+
+
+
+/* Add the rest of your CSS after this line */
+
+.row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .row-label {
+    font-weight: bold;
+    margin-right: 15px;
+  }
+  
+  .seat-container {
+    display: flex;
+  }
+
+  .seat.occupied {
+    background-color: #f44336; /* Rouge pour les sièges occupés */
+    cursor: not-allowed; /* Changez le curseur pour indiquer qu'on ne peut pas sélectionner */
+  }
+ 
+  
+  .seat:hover:not(.occupied) {
+    background-color: #c8e6c9; /* Light green for hover effect on available seats */
+  }
+  /* seat-numbers.component.css */
+
+
+
+button {
+  margin-top: 20px; /* Espace au-dessus du bouton */
+}
+.seat {
+  padding: 5px;
+  margin: 2px;
+  border: 2px solid #ccc;
+  cursor: pointer;
+  /* Autres styles de siège */
+}
+
+
+.seat.occupied {
+  background-color: #f44336; /* Red color indicating the seat is occupied */
+}
+
+.seat.selected {
+  background-color: #4caf50; /* Green color indicating the seat is selected */
+}
+
+/* CSS pour votre bouton personnalisé */
+.custom-btn {
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  color: orange;
+  border: 2px solid orange;
+  border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
+  transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
+  text-align: center;
+  text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
+}
+
+/* CSS pour l'état du bouton lorsqu'il est survolé */
+.custom-btn:hover {
+  background-color: orange;
+  color: white;
+}
+
+/* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
+.custom-btn:active, .custom-btn.selected {
+  background-color: white;
+  color: orange;
+}
