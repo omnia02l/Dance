@@ -44,7 +44,7 @@ export class CalendercompComponent implements OnInit {
       start: competition.startdate ? new Date(competition.startdate) : new Date(),
       end: competition.enddate ? new Date(competition.enddate) : new Date(),
       display: 'auto',
-      color: '#ff69b4', // Couleur
+      color: '#cccccc', // Couleur de fond des événements (gris)
       extendedProps: {
         competitionId: competition.idcomp // Ajouter l'ID de la compétition aux propriétés étendues de l'événement
       }
@@ -66,7 +66,7 @@ export class CalendercompComponent implements OnInit {
       events: events,
       eventDidMount: this.eventStyle.bind(this),
       height: 'auto', // Ajuster la hauteur automatiquement en fonction du contenu
-    
+
     };
   }
 
@@ -86,8 +86,8 @@ export class CalendercompComponent implements OnInit {
     const registerButton = document.createElement('button');
     registerButton.textContent = 'Register';
     registerButton.className = 'register-button';
-    registerButton.style.backgroundColor = '#FFA500';
-    registerButton.style.color = '#fff';
+    registerButton.style.backgroundColor = '#FFFF99'; // Jaune
+    registerButton.style.color = 'rgb(0, 0, 0)';
     registerButton.style.border = 'none';
     registerButton.style.padding = '5px 10px';
     registerButton.style.borderRadius = '5px';
@@ -98,8 +98,8 @@ export class CalendercompComponent implements OnInit {
     const detailsButton = document.createElement('button');
     detailsButton.textContent = 'Details';
     detailsButton.className = 'details-button';
-    detailsButton.style.backgroundColor = '#28a745';
-    detailsButton.style.color = '#fff';
+    detailsButton.style.backgroundColor = '#FFFF99'; // Jaune
+    detailsButton.style.color ='rgb(0, 0, 0)';
     detailsButton.style.border = 'none';
     detailsButton.style.padding = '5px 10px';
     detailsButton.style.borderRadius = '5px';

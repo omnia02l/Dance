@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <div class="card">
         <div class="card-body">
           <h5 class="card-title">Add Registration</h5>
@@ -16,7 +16,7 @@
                 <div *ngIf="registrationForm.get('videolink')?.hasError('required')" class="text-danger"> Video Link is required. </div>
               </div>
 
-           
+
 
               <button type="button" class="btn-next mt-3" (click)="nextFormPart()">Next</button>
             </ng-container>

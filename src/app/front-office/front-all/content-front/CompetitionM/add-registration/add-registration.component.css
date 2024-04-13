@@ -1,57 +1,44 @@
-/* Styles pour le tableau */
-.table {
-  width: 100%; /* Utilise toute la largeur disponible */
-  border-collapse: collapse;
+/* Styles pour tous les champs du formulaire */
+input[type="text"],
+input[type="date"],
+select,
+textarea,
+input[type="email"] {
+  width: 100%; /* Ajustement de la largeur à 100% */
+  height: 50px;
+  padding: 0 16px;
+  background: transparent;
+  border-radius: 4px;
+  border: 1px solid #ff8c00; /* Changement de la couleur du bord en orange */
+  color: black; /* Couleur du texte en noir */
+  animation: shake_541 0.14s 3;
 }
 
-.table th,
-.table td {
-  padding: 12px 15px; /* Augmente légèrement le rembourrage pour plus d'espace */
-  border-bottom: 1px solid #dee2e6;
-  text-align: left;
+input[type="text"]:valid,
+input[type="date"]:valid,
+input[type="email"]:valid,
+select:valid,
+textarea:valid {
+  border-color: #ff8c00; /* Changement de la couleur du bord en orangé */
+  animation: none;
 }
 
-/* Styles pour les lignes impaires du tableau */
-.table tbody tr:nth-child(odd) {
-  background-color: #f8f9fa;
+/* Animation shake */
+@keyframes shake_541 {
+  0%, 100% {
+    translate: 0;
+  }
+
+  25% {
+    translate: 8px 0;
+  }
+
+  75% {
+    translate: -8px 0;
+  }
 }
 
-/* Style pour les titres de colonnes */
-.table th {
-  background-color: #f2f2f2; /* Ajoute une couleur de fond légère pour les titres */
-  font-weight: bold; /* Met en gras les titres */
-}
 
-/* Style pour les cellules du tableau */
-.table td {
-  vertical-align: middle; /* Centre le contenu verticalement */
-}
-
-/* Style pour les champs de formulaire dans le tableau */
-.table input[type="text"],
-.table input[type="date"],
-.table select {
-  width: 100%; /* Les champs de formulaire occupent toute la largeur de la cellule */
-  padding: 8px; /* Un peu de rembourrage pour plus d'espace */
-  border: none; /* Supprime les bordures par défaut des champs de formulaire */
-  border-radius: 5px; /* Ajoute des coins arrondis aux champs de formulaire */
-}
-
-/* Style pour les boutons dans le tableau */
-.table button {
-  padding: 8px 15px; /* Un peu plus de rembourrage pour les boutons */
-  border: none; /* Supprime les bordures par défaut */
-  border-radius: 5px; /* Ajoute des coins arrondis aux boutons */
-  background-color: #007bff; /* Couleur de fond bleue pour les boutons */
-  color: #fff; /* Couleur du texte blanc pour les boutons */
-  cursor: pointer; /* Affiche un curseur de type pointer au survol */
-  transition: background-color 0.3s; /* Ajoute une transition fluide pour le changement de couleur de fond */
-}
-
-/* Style pour les boutons au survol */
-.table button:hover {
-  background-color: #0056b3; /* Couleur de fond plus sombre au survol */
-}
 
 /* Styles pour les messages d'erreur */
 .text-danger {
@@ -69,11 +56,6 @@
   margin-right: 10px;
   font-weight: bold;
   color: #ff69b4; /* Couleur rose vif */
-}
-
-/* Classe pour la couleur noire */
-.text-black {
-  color: #000000; /* Couleur noire */
 }
 
 /* Styles pour le bouton "+" */
@@ -128,19 +110,21 @@
   margin-right: 20px;
 }
 
-/* Styles pour la première partie du formulaire */
-.form-part-1 {
-  background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Styles pour le tableau */
+.schedule-table {
+  width: 100%; /* Agrandissement de la largeur du tableau à 100% */
+  border-collapse: collapse; /* Fusion des bordures de tableau */
 }
 
-/* Styles pour la deuxième partie du formulaire */
-.form-part-2 {
-  background-color: #f5f5f5;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Styles pour les cellules du tableau */
+.schedule-table th,
+.schedule-table td {
+  padding: 12px; /* Ajout de rembourrage aux cellules du tableau */
+  text-align: center; /* Centrage du texte dans les cellules */
+
 }
+.card {
+  width: 100%; /* Agrandir la largeur à 100% */
+}
+
+

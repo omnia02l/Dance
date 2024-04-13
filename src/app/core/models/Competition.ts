@@ -20,7 +20,7 @@ export interface Competition {
   style?: string;
   full?: boolean;
   teams?: Team[];
-  performance?: Performance[];
+  performances?: Performance[];
   dancecateg?: Dancecategory;
   town?: Town;
 

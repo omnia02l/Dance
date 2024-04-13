@@ -11,6 +11,8 @@ export interface Performance {
   pdescreption?: string;
   perftitle?: string;
   teamimage?: string;
+  idTeam?: number;
+
   competition?: Competition;
   music?: Music;
   votes?: any;

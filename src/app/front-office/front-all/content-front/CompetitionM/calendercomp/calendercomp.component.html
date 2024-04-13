@@ -1,12 +1,5 @@
-<div class="fullcalendar-container">
-  <div class="row">
-    <div class="col-12">
-      <div class="fullcalendar-container">
-        <div class="background-image"></div> <!-- Image de fond -->
-        <div class="overlay"></div> <!-- Overlay semi-transparent -->
-        <h1 class="text-center mb-5" style="color: white;">Competition Calendar</h1> <!-- Ajoutez le style pour la couleur blanche -->
-        <full-calendar *ngIf="calendarOptions" [options]="calendarOptions"></full-calendar>
-      </div>
-    </div>
-  </div>
+<!-- calendercomp.component.html -->
+
+<div class="calendar-container">
+  <full-calendar *ngIf="calendarOptions" [options]="calendarOptions"></full-calendar>
 </div>

@@ -1,48 +1,51 @@
-<div *ngIf="competition">
-  <h2>{{ competition.compname }}</h2>
-  <p>{{ competition.cdescreption }}</p>
-  <table class="table">
-    <tbody>
-      <tr>
-        <th scope="row">Start Date</th>
-        <td>{{ competition.startdate | date }}</td>
-      </tr>
-      <tr>
-        <th scope="row">End Date</th>
-        <td>{{ competition.enddate | date }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Registration Deadline</th>
-        <td>{{ competition.regisdeadline | date }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Number of Dancers</th>
-        <td>{{ competition.nbdancers }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Fees per Participant</th>
-        <td>{{ competition.feesperparticipant }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Age Group</th>
-        <td>{{ competition.ageg }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Competition Status</th>
-        <td>{{ competition.compstatus }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Style</th>
-        <td>{{ competition.style }}</td>
-      </tr>
-      <tr>
-        <th scope="row">Dance Category</th>
-        <td>{{ competition.dancecateg?.categdname }}</td>
-      </tr>
-
-    </tbody>
-  </table>
-</div>
-<div *ngIf="!competition">
-  <p>No competition details available.</p>
+<div class="card-container">
+  <div *ngIf="competition" class="card">
+    <div class="content">
+      <h2>{{ competition.compname }}</h2>
+      <p>{{ competition.cdescreption }}</p>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td><strong>Start Date:</strong></td>
+            <td>{{ competition.startdate | date }}</td>
+          </tr>
+          <tr>
+            <td><strong>End Date:</strong></td>
+            <td>{{ competition.enddate | date }}</td>
+          </tr>
+          <tr>
+            <td><strong>Registration Deadline:</strong></td>
+            <td>{{ competition.regisdeadline | date }}</td>
+          </tr>
+          <tr>
+            <td><strong>Number of Dancers:</strong></td>
+            <td>{{ competition.nbdancers }}</td>
+          </tr>
+          <tr>
+            <td><strong>Fees per Participant:</strong></td>
+            <td>{{ competition.feesperparticipant }}</td>
+          </tr>
+          <tr>
+            <td><strong>Age Group:</strong></td>
+            <td>{{ competition.ageg }}</td>
+          </tr>
+          <tr>
+            <td><strong>Competition Status:</strong></td>
+            <td>{{ competition.compstatus }}</td>
+          </tr>
+          <tr>
+            <td><strong>Style:</strong></td>
+            <td>{{ competition.style }}</td>
+          </tr>
+          <tr>
+            <td><strong>Dance Category:</strong></td>
+            <td>{{ competition.dancecateg?.categdname }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div *ngIf="!competition" class="no-details">
+    <p>No competition details available.</p>
+  </div>
 </div>
