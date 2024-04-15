@@ -1,5 +1,6 @@
 
 export enum TypeTicket {
-  CLASSIQUE, PREMIUM
+  CLASSIQUE='CLASSIQUE',
+  PREMIUM = 'PREMIUM'
   }
 

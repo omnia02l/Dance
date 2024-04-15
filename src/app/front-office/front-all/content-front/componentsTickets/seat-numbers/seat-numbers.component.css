@@ -2,7 +2,7 @@
 /* Place this CSS in your component's stylesheet */
 .theater-container {
   position: relative;
- /* background-image: url('./assets/FrontOffice/images/theathre.png'); /* Replace with your image path */
+  background-image: url('src\assets\FrontOffice\images\1.png'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   height: 600px; /* Adjust based on your image aspect ratio */
@@ -98,4 +98,13 @@ button {
 .custom-btn:active, .custom-btn.selected {
   background-color: white;
   color: orange;
+}
+.white-title {
+  color: white;
+  /* You can add more styling as needed */
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  /* Add other styles as per your design */
 }

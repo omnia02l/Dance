@@ -55,6 +55,7 @@ export class TicketCardComponent implements OnInit {
       this.ticketCardService.getTicketCard(userId).subscribe({
         next: (ticketCard) => {
           this.ticketCard = ticketCard;
+          
         },
         error: (error) => {
           console.error('Error fetching TicketCard', error);
