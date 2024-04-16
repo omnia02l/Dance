@@ -40,6 +40,7 @@ import { ShopcartComponent } from './front-office/front-all/content-front/store/
 import { ProductSalesComponent } from './BackOffice/back-all/content-back/store/product-sales/product-sales.component';
 import { FileUploaderComponent } from './BackOffice/back-all/content-back/store/file-uploader/file-uploader.component';
 import { RecommendedProductsComponent } from './front-office/front-all/content-front/store/recommended-products/recommended-products.component';
+import { QrScannerComponent } from './front-office/front-all/content-front/componentsTickets/qr-scanner/qr-scanner.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -48,9 +49,12 @@ const routes: Routes = [
     { path: 'shopcart', component: ShopcartComponent },
     { path: 'file', component: FileUploaderComponent },
 { path: 'recommended', component: RecommendedProductsComponent },  
+
+
 { path: 'ReserverPlace', component: ReservationPlaceComponent},
 { path: 'Place', component: SeatNumbersComponent},
 { path: 'ticket-card/:userId', component: TicketCardComponent },
+{ path: 'QrScanner', component: QrScannerComponent },
 ]},  {
     path: "admin", component: BackAllComponent, children: [
       { path: 'products/add', component: AddproductComponent },

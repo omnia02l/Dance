@@ -1,0 +1,24 @@
+/* qr-scanner.component.css */
+.qr-scanner-container {
+    width: 300px;  /* Définissez la largeur égale à la hauteur pour créer un carré */
+    height: 300px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
+    position: relative; /* Position relative pour permettre le positionnement absolu de l'overlay */
+    border: 1px solid #ccc; /* Une bordure pour visualiser le conteneur */
+    margin: auto; /* Centrer le conteneur si vous le souhaitez */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.user-message {
+    color: red;
+    margin-top: 20px;
+  }
+  .snackbar-success {
+    background-color: #4caf50;
+  }
+  
+  .snackbar-error {
+    background-color: #f44336;
+  }
+  
