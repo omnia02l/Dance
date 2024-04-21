@@ -5,9 +5,10 @@ import { Observable, of } from 'rxjs';
 import { Competition } from 'src/app/core/models/Competition';
 import { Dancecategory } from 'src/app/core/models/Dancecategory';
 import { Dancestyle } from 'src/app/core/models/Dancestyle';
+import { Venue } from 'src/app/core/models/Venue';
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { DancecategoryandstyleService } from 'src/app/core/services/dancecategoryandstyle.service';
-
+import { TownandvenueserviceService } from 'src/app/core/services/townandvenueservice.service';
 @Component({
   selector: 'app-updatecomp',
   templateUrl: './updatecomp.component.html',
@@ -18,7 +19,8 @@ export class UpdatecompComponent implements OnInit {
   competitionId: number = 0;
   selectedCategoryId: number | undefined = undefined;
   selectedStyleId: number | undefined = undefined;
-
+  venueId: number = 0;
+  venues$!: Observable<Venue[]>;
 
   danceCategories$!: Observable<Dancecategory[]>;
   danceStyles$!: Observable<Dancestyle[]>;
@@ -27,6 +29,7 @@ export class UpdatecompComponent implements OnInit {
     private formBuilder: FormBuilder,
     private competitionService: CompetitionService,
     private danceCategoryService: DancecategoryandstyleService,
+    private townService: TownandvenueserviceService,
     private route: ActivatedRoute
   ) { }
 
@@ -34,6 +37,7 @@ export class UpdatecompComponent implements OnInit {
     this.initForm();
     this.loadCompetitionDetails();
     this.loadDanceCategories();
+    this.loadVenues();
   }
 
   initForm(): void {
@@ -48,10 +52,13 @@ export class UpdatecompComponent implements OnInit {
       regisdeadline: ['', Validators.required],
       feesperparticipant: ['', Validators.required],
       ageg: ['', Validators.required],
-      compimage: ['']
+      compimage: [''],
+      venue: ['']  // Ajoutez ce contrôle ici
     });
   }
-
+  loadVenues(): void {
+    this.venues$ = this.townService.getAllVenues();
+  }
   loadCompetitionDetails(): void {
     this.route.params.subscribe(params => {
       this.competitionId = +params['id'];
@@ -74,7 +81,7 @@ export class UpdatecompComponent implements OnInit {
           this.selectedCategoryId = competition.dancecateg ? competition.dancecateg.idcategd : 0;
           this.loadDanceStyles(this.selectedCategoryId!);
 
-       
+
         },
         error => {
           console.error('Error fetching competition details:', error);
@@ -122,7 +129,15 @@ export class UpdatecompComponent implements OnInit {
       this.selectedStyleId = 0;
     }
   }
-
+  onVenueSelected(event: any): void {
+    const venueId = Number(event.target.value);
+    if (!isNaN(venueId) && venueId !== null && venueId !== undefined) {
+      this.venueId = venueId;
+      console.log('ID de la venue sélectionnée :', this.venueId);
+    } else {
+      this.venueId = 0;
+    }
+  }
 
 
   onSubmit(): void {
@@ -136,33 +151,30 @@ export class UpdatecompComponent implements OnInit {
     console.log('Validité du contrôle de catégorie :', this.competitionForm.controls['dancecateg'].valid);
     console.log('Validité du contrôle de style :', this.competitionForm.controls['style'].valid);
 
-    if (this.competitionForm.valid && this.selectedCategoryId !== 0 && this.selectedStyleId !== 0) {
+    if (this.competitionForm.valid && this.selectedCategoryId !== 0 && this.selectedStyleId !== 0 && this.venueId !== 0) {
       const competitionData: Competition = {
         ...this.competitionForm.value,
-        idcomp: this.competitionId, // Ajoutez l'ID de la compétition ici
+        idcomp: this.competitionId,
         dancecateg: this.selectedCategoryId,
         style: this.selectedStyleId
       };
 
-      // Appeler la méthode du service pour mettre à jour la compétition
       this.competitionService.updateCompetitionWithCategoryAndStyle(
-        this.competitionId, // Passer l'ID de la compétition à mettre à jour
+        this.competitionId,
         competitionData,
         this.selectedCategoryId!,
-        this.selectedStyleId!
+        this.selectedStyleId!,
+        this.venueId  // Ajoutez l'ID de la venue ici
       ).subscribe(
         (response) => {
-          // Gérer le succès
           console.log('Compétition mise à jour avec succès :', response);
         },
         (error) => {
-          // Gérer l'erreur
           console.error('Erreur lors de la mise à jour de la compétition :', error);
         }
       );
     } else {
-      // Le formulaire est invalide ou la catégorie/style n'a pas été sélectionnée, faire quelque chose (par exemple, afficher un message d'erreur)
-      console.log('Le formulaire est invalide ou la catégorie/style n\'a pas été sélectionnée');
+      console.log('Le formulaire est invalide ou la catégorie/style/venue n\'a pas été sélectionnée');
     }
   }
 }

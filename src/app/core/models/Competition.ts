@@ -1,7 +1,8 @@
 import { Dancecategory } from "./Dancecategory";
 import { Performance } from "./Performance";
 import { Team } from "./Team";
-import { Town } from "./Town";
+
+import { Venue } from "./Venue";
 
 export interface Competition {
   idcomp?: number;
@@ -22,7 +23,7 @@ export interface Competition {
   teams?: Team[];
   performances?: Performance[];
   dancecateg?: Dancecategory;
-  town?: Town;
+  venue?: Venue;
 
 }
 export enum Agegroup {

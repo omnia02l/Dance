@@ -65,6 +65,13 @@
       <select formControlName="style" (change)="onStyleSelected($event)">
         <option *ngFor="let style of danceStyles$ | async" [value]="style.idstyled">{{ style.styledname }}</option>
       </select>
+      <div class="form-group">
+        <label for="venue">Venue</label>
+        <select class="form-control" id="venue" formControlName="venue">
+          <option *ngFor="let venue of venues$ | async" [value]="venue.idvenue">{{ venue.vname }}</option>
+        </select>
+      </div>
+
 
     </div>
 

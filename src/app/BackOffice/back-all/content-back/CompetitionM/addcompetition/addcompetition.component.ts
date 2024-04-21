@@ -4,10 +4,10 @@ import { Observable, of } from 'rxjs';
 import { Competition } from 'src/app/core/models/Competition';
 import { Dancecategory } from 'src/app/core/models/Dancecategory';
 import { Dancestyle } from 'src/app/core/models/Dancestyle';
-
-
+import { TownandvenueserviceService } from 'src/app/core/services/townandvenueservice.service';
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { DancecategoryandstyleService } from 'src/app/core/services/dancecategoryandstyle.service';
+import { Venue } from 'src/app/core/models/Venue';
 
 @Component({
   selector: 'app-addcompetition',
@@ -18,18 +18,27 @@ export class AddcompetitionComponent implements OnInit {
   competitionForm!: FormGroup;
   danceCategories$!: Observable<Dancecategory[]>;
   danceStyles$!: Observable<Dancestyle[]>;
-  selectedCategoryId: number = 0; // Valeur par défaut
-  selectedStyleId: number = 0; // Valeur par défaut
+  selectedCategoryId: number = 0;
+  selectedStyleId: number = 0;
 
   constructor(
     private formBuilder: FormBuilder,
     private competitionService: CompetitionService,
-    private danceCategoryService: DancecategoryandstyleService
-  ) { }
+    private danceCategoryService: DancecategoryandstyleService,
+    private townService: TownandvenueserviceService
+  ) {}
+
+  venueId: number = 0;
+  venues$!: Observable<Venue[]>;
 
   ngOnInit(): void {
     this.initForm();
     this.loadDanceCategories();
+    this.loadVenues();
+  }
+
+  loadVenues(): void {
+    this.venues$ = this.townService.getAllVenues();
   }
 
   initForm(): void {
@@ -44,7 +53,8 @@ export class AddcompetitionComponent implements OnInit {
       regisdeadline: ['', Validators.required],
       feesperparticipant: ['', Validators.required],
       ageg: ['', Validators.required],
-      compimage: ['']
+      compimage: [''],
+      venue: ['']
     });
   }
 
@@ -53,14 +63,13 @@ export class AddcompetitionComponent implements OnInit {
   }
 
   onCategorySelected(event: any): void {
-    console.log('Catégorie sélectionnée :', event.target.value);
     const categoryId = event.target.value;
     if (categoryId) {
       this.selectedCategoryId = Number(categoryId);
       this.danceStyles$ = this.danceCategoryService.getStylesByCategoryId(this.selectedCategoryId);
     } else {
       this.selectedCategoryId = 0;
-      this.danceStyles$ = of([]); // Vide la liste des styles
+      this.danceStyles$ = of([]);
     }
   }
 
@@ -68,12 +77,10 @@ export class AddcompetitionComponent implements OnInit {
     const styleId = event.target.value;
     if (styleId) {
       this.selectedStyleId = Number(styleId);
-      console.log('ID du style sélectionné :', this.selectedStyleId);
     } else {
       this.selectedStyleId = 0;
     }
   }
-
 
   onSubmit(): void {
     console.log('Formulaire soumis');
@@ -81,32 +88,37 @@ export class AddcompetitionComponent implements OnInit {
     console.log('ID de la catégorie sélectionnée :', this.selectedCategoryId);
     console.log('ID du style sélectionné :', this.selectedStyleId);
 
-    // Afficher l'état de chaque contrôle
+    const selectedVenue = this.competitionForm.get('venue')?.value as Venue;
+    const selectedVenueId = Number(this.venueId);
+
+
+
+
+
+    console.log('ID de la venue sélectionnée :', selectedVenueId);
+
     console.log('Validité du formulaire :', this.competitionForm.valid);
     console.log('Validité du contrôle de catégorie :', this.competitionForm.controls['dancecateg'].valid);
     console.log('Validité du contrôle de style :', this.competitionForm.controls['style'].valid);
 
-    if (this.competitionForm.valid && this.selectedCategoryId !== 0 && this.selectedStyleId !== 0) {
+    if (this.competitionForm.valid && this.selectedCategoryId !== 0 && this.selectedStyleId !== 0 && selectedVenueId !== 0) {
       const competitionData: Competition = {
         ...this.competitionForm.value,
         dancecateg: this.selectedCategoryId,
-        style: this.selectedStyleId
+        style: this.selectedStyleId,
+        venue: selectedVenue
       };
 
-      // Appeler la méthode du service pour ajouter la compétition
-      this.competitionService.addCompetitionWithCategoryAndStyle(competitionData, this.selectedCategoryId, this.selectedStyleId).subscribe(
+      this.competitionService.addCompetitionWithCategoryAndStyle(competitionData, this.selectedCategoryId, this.selectedStyleId, selectedVenueId).subscribe(
         (response) => {
-          // Gérer le succès
           console.log('Compétition ajoutée avec succès :', response);
         },
         (error) => {
-          // Gérer l'erreur
           console.error('Erreur lors de l\'ajout de la compétition :', error);
         }
       );
     } else {
-      // Le formulaire est invalide ou la catégorie/style n'a pas été sélectionné, faire quelque chose (par exemple, afficher un message d'erreur)
-      console.log('Le formulaire est invalide ou la catégorie/style n\'a pas été sélectionnée');
+      console.log('Le formulaire est invalide ou la catégorie/style/venue n\'a pas été sélectionnée');
     }
   }
 }

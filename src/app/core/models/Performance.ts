@@ -6,8 +6,8 @@ import { Reward } from "./Reward";
 export interface Performance {
   idperf?: number;
   perfdate?: Date;
-  starttime?: Time;
-  endtime?: Time;
+  starttime?: Date;
+  endtime?: Date;
   pdescreption?: string;
   perftitle?: string;
   teamimage?: string;

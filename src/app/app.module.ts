@@ -70,6 +70,7 @@ import { AddperformanceComponent } from './BackOffice/back-all/content-back/Comp
 import { CalenderbackcompComponent } from './BackOffice/back-all/content-back/CompetitionM/calenderbackcomp/calenderbackcomp.component';
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
+import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 
 @NgModule({
   declarations: [
@@ -115,7 +116,8 @@ import { CommonModule } from '@angular/common';
       CalendercompComponent,
       CalenderbackcompComponent,
       AddperformanceComponent,
-      ListperformanceComponent
+      ListperformanceComponent,
+      AddtownwithvenuesComponent
 
 
   ],

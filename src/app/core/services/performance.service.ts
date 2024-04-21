@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CompetitionPerformanceDTO } from '../models/CompetitionPerformanceDTO';
 import { Performance } from '../models/Performance';
@@ -20,6 +20,9 @@ export class PerformanceService {
     const url = `${this.baseUrl}/performances`;
     return this.http.get<CompetitionPerformanceDTO[]>(url);
   }
-
+  getPerformanceById(id: number): Observable<Performance> {
+    const url = `${this.baseUrl}/performance/${id}`;
+    return this.http.get<Performance>(url);
+  }
 
 }

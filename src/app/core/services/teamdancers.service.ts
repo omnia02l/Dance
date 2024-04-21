@@ -48,5 +48,13 @@ getCompetitionsWithTeams(): Observable<any> {
 getTeamsWithDancers(): Observable<any> {
   return this.http.get<any>(`${this.baseUrl}/teams-with-dancers`);
 }
+////
+getTeamsByCompetitionId(competitionId: number): Observable<Team[]> {
+  const url = `${this.baseUrl}/by-competition/${competitionId}`;
+  return this.http.get<Team[]>(url);
+}
+
+
+
 
 }
