@@ -75,6 +75,7 @@ import { ProductListComponent } from './BackOffice/back-all/content-back/store/p
 import { UpdateCategoryComponent } from './BackOffice/back-all/content-back/store/category/update-category/update-category.component';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { QrScannerComponent } from './front-office/front-all/content-front/componentsTickets/qr-scanner/qr-scanner.component';
+import { PurchaseTransactionComponent } from './front-office/front-all/content-front/componentsTickets/purchase-transaction/purchase-transaction.component';
 
 @NgModule({
   declarations: [
@@ -124,6 +125,7 @@ import { QrScannerComponent } from './front-office/front-all/content-front/compo
     VenuePlanDialogComponent,
     DiscountDialogComponent,
     QrScannerComponent,
+    PurchaseTransactionComponent,
     
   ],
   imports: [

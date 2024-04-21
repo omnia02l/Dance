@@ -19,8 +19,8 @@ export class VenuePlanService {
     return this.http.get<VenuePlan>(`${this.baseUrl}/GetTheathrePlan/${id}`);
   }
 
-  addVenuePlan(venuePlan: VenuePlan): Observable<VenuePlan> {
-    return this.http.post<VenuePlan>(`${this.baseUrl}/AddTheatrePlan`, venuePlan);
+  addVenuePlan(venuePlan: VenuePlan, venueId: number): Observable<VenuePlan> {
+    return this.http.post<VenuePlan>(`${this.baseUrl}/AddTheatrePlan?venueId=${venueId}`, venuePlan);
   }
 
   modifyVenuePlan(venuePlan: VenuePlan): Observable<VenuePlan> {

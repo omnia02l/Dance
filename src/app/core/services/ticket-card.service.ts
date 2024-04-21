@@ -44,4 +44,9 @@ export class TicketCardService {
     return this.http.put<TicketCard>(`${this.baseUrl}/applyDiscountIfValid/${userId}`,discountCode);
   }
 
+
+  getLastTicketCardDetails(userId: number): Observable<TicketCard> {
+    return this.http.get(`${this.baseUrl}/getLastTicketCardDetails/${userId}`);
+  }
+
 }

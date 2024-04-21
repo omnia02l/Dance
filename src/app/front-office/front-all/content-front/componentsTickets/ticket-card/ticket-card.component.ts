@@ -101,7 +101,13 @@ export class TicketCardComponent implements OnInit {
         }
       });
     }
-    
+    goToPurchaseTransaction(): void {
+      this.router.navigate(['/purchase-transaction']).then(success => {
+        console.log('Navigation success:', success);
+      }).catch(err => {
+        console.error('Navigation error:', err);
+      });
+    }
         
 }
   

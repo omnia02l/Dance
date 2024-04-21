@@ -41,6 +41,8 @@ import { ProductSalesComponent } from './BackOffice/back-all/content-back/store/
 import { FileUploaderComponent } from './BackOffice/back-all/content-back/store/file-uploader/file-uploader.component';
 import { RecommendedProductsComponent } from './front-office/front-all/content-front/store/recommended-products/recommended-products.component';
 import { QrScannerComponent } from './front-office/front-all/content-front/componentsTickets/qr-scanner/qr-scanner.component';
+import { PurchaseTransaction } from './core/models/purchase-transaction.model';
+import { PurchaseTransactionComponent } from './front-office/front-all/content-front/componentsTickets/purchase-transaction/purchase-transaction.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -54,6 +56,7 @@ const routes: Routes = [
 { path: 'ReserverPlace', component: ReservationPlaceComponent},
 { path: 'Place', component: SeatNumbersComponent},
 { path: 'ticket-card/:userId', component: TicketCardComponent },
+{ path: 'purchase-transaction', component:PurchaseTransactionComponent  },
 { path: 'QrScanner', component: QrScannerComponent },
 ]},  {
     path: "admin", component: BackAllComponent, children: [

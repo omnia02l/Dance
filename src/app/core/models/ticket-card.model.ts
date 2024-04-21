@@ -7,5 +7,6 @@ export class TicketCard {
     tickets?: Ticket[];
     purchaseTransactions?: PurchaseTransaction[];
     userid?:number;
+    date?:Date;
   
 }

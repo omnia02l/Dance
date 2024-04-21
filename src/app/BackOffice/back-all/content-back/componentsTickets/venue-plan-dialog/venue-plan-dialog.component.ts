@@ -14,7 +14,7 @@ export class VenuePlanDialogComponent {
   numberOfSeatsInRow: number | null = null;
   rowLabels: string[] = ['A', 'B', 'C', 'D', 'E']; 
 
-
+/*
   constructor(private venuePlanService: VenuePlanService,
     public dialogRef: MatDialogRef<VenuePlanDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: any, private snackBar: MatSnackBar)
      { this.newVenuePlan.seatStructure = {};
@@ -109,5 +109,5 @@ export class VenuePlanDialogComponent {
       console.error('Le formulaire de plan de salle est invalide');
     }
   }
-  
+  */
 }
