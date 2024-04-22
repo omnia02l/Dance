@@ -1,0 +1,76 @@
+<div class="container">
+  <h2>Update Competition</h2>
+  <form [formGroup]="competitionForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="compname">Competition Name</label>
+      <input type="text" class="form-control" formControlName="compname" id="compname">
+    </div>
+
+    <div class="form-group">
+      <label for="startdate">Start Date</label>
+      <input type="date" class="form-control" formControlName="startdate" id="startdate">
+    </div>
+
+    <div class="form-group">
+      <label for="enddate">End Date</label>
+      <input type="date" class="form-control" formControlName="enddate" id="enddate">
+    </div>
+
+    <div class="form-group">
+      <label for="nbdancers">Number of Dancers</label>
+      <input type="number" class="form-control" formControlName="nbdancers" id="nbdancers">
+    </div>
+
+    <div class="form-group">
+      <label for="cdescreption">Description</label>
+      <textarea class="form-control" formControlName="cdescreption" id="cdescreption"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="regisdeadline">Registration Deadline</label>
+      <input type="date" class="form-control" formControlName="regisdeadline" id="regisdeadline">
+    </div>
+
+    <div class="form-group">
+      <label for="feesperparticipant">Fees per Participant</label>
+      <input type="number" class="form-control" formControlName="feesperparticipant" id="feesperparticipant">
+    </div>
+
+    <div class="form-group">
+      <label for="ageg">Age Group</label>
+      <select class="form-control" id="ageg" formControlName="ageg">
+        <option value="Children">Children</option>
+        <option value="Adults">Adults</option>
+        <option value="Teenager">Teenager</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="compimage">Competition Image</label>
+      <input type="text" class="form-control" formControlName="compimage" id="compimage">
+    </div>
+
+    <div class="form-group">
+      <label for="dancecateg">Dance Category</label>
+      <select class="form-control" id="dancecateg" formControlName="dancecateg" (change)="onCategorySelected($event)">
+        <option *ngFor="let category of danceCategories$ | async" [value]="category.idcategd">{{ category.categdname }}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="style">Dance Style</label>
+      <select class="form-control" id="style" formControlName="style" (change)="onStyleSelected($event)">
+        <option *ngFor="let style of danceStyles$ | async" [value]="style.idstyled">{{ style.styledname }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="venue">Venue:</label>
+      <select class="form-control" id="venue" formControlName="venue" (change)="onVenueSelected($event)">
+        <option *ngFor="let venue of venues$ | async" [value]="venue.idvenue">{{ venue.vname }}</option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

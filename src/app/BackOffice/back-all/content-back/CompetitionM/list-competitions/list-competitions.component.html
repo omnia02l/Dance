@@ -1,0 +1,36 @@
+<div class="add-competition-container">
+  
+  <!-- HTML for Add Competition button -->
+  <a href="/admin/add-competition" class="btn-circle">
+    +
+  </a>
+  <span class="btn-text">
+    <h3>Add Competition</h3>
+  </span>
+</div>
+<div *ngIf="competitions.length > 0; else noCompetitions">
+  <h2>List of Competitions</h2>
+  <div class="card-container">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let competition of competitions">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">{{ competition.compname }}</h5>
+            <p class="card-text">
+              <strong>Start Date:</strong> {{ competition.startdate | date }} <br>
+              <strong>End Date:</strong> {{ competition.enddate | date }} <br>
+              <strong>Category:</strong> {{ competition.dancecateg?.categdname }} <br>
+              <strong>Style:</strong> {{ competition.style }}
+            </p>
+            <button (click)="viewCompetitionDetails(competition.idcomp)" class="btn btn-primary">View Details</button>
+            <button (click)="updateCompetition(competition.idcomp)" class="btn btn-success">Update</button>
+            <button (click)="deleteCompetition(competition.idcomp)" class="btn btn-danger">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #noCompetitions>
+  <p>No competitions available.</p>
+</ng-template>
