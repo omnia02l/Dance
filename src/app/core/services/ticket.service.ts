@@ -30,10 +30,16 @@ export class TicketService {
     return this.http.put<Ticket>(`${this.baseUrl}/ModifyTicket`, ticket);
   }
 
-  deleteTicket(id: number): Observable<any> {
+  deleteTicket(id: number): Observable<Ticket> {
     return this.http.delete(`${this.baseUrl}/DeletTicket/${id}`);
   }
   updateTicketAgeGroup(ticketId: number, trancheAge: string): Observable<Ticket> {
     return this.http.put<Ticket>(`${this.baseUrl}/updateTicketAgeGroup/${ticketId}/${trancheAge}`,{});
   }
+
+// in your ticket.service.ts
+processTicket(refTicket: string): Observable<Ticket> {
+  return this.http.post<Ticket>(`${this.baseUrl}/process/${refTicket}`, null);
+}
+
 }

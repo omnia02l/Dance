@@ -86,6 +86,20 @@ public decodeToken(token: string): any {
     return null;
   }
 }
+//<--------------------------ibtihel get role----------------------->
+public getUserRole(): string | null {
+  const token = this.getFromLocalStorage('accessToken');
+  if (!token) {
+    return null; // Return null if there is no token
+  }
 
-
+  const decodedToken = this.decodeToken(token);
+  if (decodedToken && decodedToken.role) {
+    return decodedToken.role; // Assuming the role is stored under the 'role' key in the token payload
+  } else {
+    console.error('Role is not defined in the token or token is invalid');
+    return null;
+  }
+}
+//<--------------------------ibtihel get role----------------------->
 }

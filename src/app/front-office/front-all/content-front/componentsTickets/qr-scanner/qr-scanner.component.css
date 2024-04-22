@@ -1,24 +1,24 @@
-/* qr-scanner.component.css */
 .qr-scanner-container {
-    width: 300px;  /* Définissez la largeur égale à la hauteur pour créer un carré */
-    height: 300px; /* Vous pouvez ajuster cette valeur en fonction de vos besoins */
-    position: relative; /* Position relative pour permettre le positionnement absolu de l'overlay */
-    border: 1px solid #ccc; /* Une bordure pour visualiser le conteneur */
-    margin: auto; /* Centrer le conteneur si vous le souhaitez */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-.user-message {
-    color: red;
-    margin-top: 20px;
-  }
-  .snackbar-success {
-    background-color: #4caf50;
-  }
-  
-  .snackbar-error {
-    background-color: #f44336;
-  }
-  
+  width: 300px; /* Set width equal to height to create a square */
+  height: 300px;
+  position: relative;
+  border: 1px solid #ccc;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.permission-denied-message, .user-message {
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.snackbar-success {
+  background-color: #4caf50;
+}
+
+.snackbar-error {
+  background-color: #f44336;
+}

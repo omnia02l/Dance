@@ -58,7 +58,6 @@ import { TicketCardComponent } from './front-office/front-all/content-front/comp
 import { VenuePlanDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-dialog/venue-plan-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DiscountDialogComponent } from './front-office/front-all/content-front/componentsTickets/discount-dialog/discount-dialog.component';
-import { canActivateRoleGuard } from './core/services/RoleGard/role-guard.service';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
@@ -76,6 +75,7 @@ import { UpdateCategoryComponent } from './BackOffice/back-all/content-back/stor
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { QrScannerComponent } from './front-office/front-all/content-front/componentsTickets/qr-scanner/qr-scanner.component';
 import { PurchaseTransactionComponent } from './front-office/front-all/content-front/componentsTickets/purchase-transaction/purchase-transaction.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -154,7 +154,8 @@ import { PurchaseTransactionComponent } from './front-office/front-all/content-f
     InputNumberModule,
     ReactiveFormsModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FontAwesomeModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
