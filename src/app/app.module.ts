@@ -71,6 +71,8 @@ import { CalenderbackcompComponent } from './BackOffice/back-all/content-back/Co
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
+import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
+import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
 
 @NgModule({
   declarations: [
@@ -117,7 +119,9 @@ import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/C
       CalenderbackcompComponent,
       AddperformanceComponent,
       ListperformanceComponent,
-      AddtownwithvenuesComponent
+      AddtownwithvenuesComponent,
+      ListcompperformancesComponent,
+      ListtownsandvenuesComponent
 
 
   ],

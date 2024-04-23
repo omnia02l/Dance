@@ -5,6 +5,7 @@ import { Town } from '../models/Town';
 import { Venue } from '../models/Venue';
 import { TownWithVenuesDTO } from '../models/TownWithVenuesDTO';
 import { CompetitionWithVenueDTO } from '../models/CompetitionWithVenueDTO';
+import { TownsandVenuesDTO } from '../models/TownsandVenuesDTO';
 
 
 @Injectable({
@@ -20,13 +21,12 @@ export class TownandvenueserviceService {
     return this.http.get<Town[]>(`${this.baseUrl}/town/retrieve_all_towns`);
   }
 
-  addTown(town: Town): Observable<Town> {
-    return this.http.post<Town>(`${this.baseUrl}/town/add_town`, town);
+  addTownWithVenues(townWithVenues: TownsandVenuesDTO): Observable<TownsandVenuesDTO> {
+    const url = `${this.baseUrl}/town/addWithVenues`;
+    return this.http.post<TownsandVenuesDTO>(url, townWithVenues);
   }
 
-  updateTown(id: number, town: Town): Observable<Town> {
-    return this.http.put<Town>(`${this.baseUrl}/town/update_town/${id}`, town);
-  }
+
 
   getTownById(id: number): Observable<Town> {
     return this.http.get<Town>(`${this.baseUrl}/town/retrieve_town/${id}`);

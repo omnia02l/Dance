@@ -1,0 +1,10 @@
+<div *ngIf="townsWithVenues$ | async as townsWithVenues">
+  <div *ngFor="let townWithVenue of townsWithVenues">
+    <h3>{{ townWithVenue.townName }}</h3>
+    <ul>
+      <li *ngFor="let venue of townWithVenue.venues">
+        {{ venue.vname }} - {{ venue.vaddress }}
+      </li>
+    </ul>
+  </div>
+</div>
