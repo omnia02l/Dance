@@ -29,6 +29,7 @@
     "@fullcalendar/interaction": "^6.1.11",
     "@fullcalendar/timegrid": "^6.1.11",
     "@stripe/stripe-js": "^3.1.0",
+    "@types/chart.js": "^2.9.41",
     "@types/jwt-decode": "^3.1.0",
     "@uploadcare/blocks": "0.36.0",
     "bootstrap": "^5.3.3",

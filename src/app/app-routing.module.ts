@@ -65,6 +65,7 @@ import { ListperformanceComponent } from './front-office/front-all/content-front
 import { AddperformanceComponent } from './BackOffice/back-all/content-back/CompetitionM/addperformance/addperformance.component';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
+import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -133,6 +134,7 @@ const routes: Routes = [
       { path: 'Place', component: PlaceListComponent},
 
       { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
+      { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
      
     ]
   },
