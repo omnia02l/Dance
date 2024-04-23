@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Town } from 'src/app/core/models/Town';
+import { TownsandVenuesDTO } from 'src/app/core/models/TownsandVenuesDTO';
 import { TownandvenueserviceService } from 'src/app/core/services/townandvenueservice.service';
-
 
 @Component({
   selector: 'app-addtownwithvenues',
@@ -55,24 +55,36 @@ export class AddtownwithvenuesComponent implements OnInit {
   submitForm(): void {
     if (this.townForm.valid) {
       const formData = this.townForm.value;
-      const town: Town = {
-        townname: formData.townname,
-        country: formData.country,
-        population: formData.population,
-        landmarks: formData.landmarks,
-        venues: formData.venues
+      const townWithVenues: TownsandVenuesDTO = {
+        town: {
+          townname: formData.townname,
+          country: formData.country,
+          population: formData.population,
+          landmarks: formData.landmarks,
+          venues: []
+        },
+        venues: formData.venues.map((venue: any) => ({
+          ...venue,
+          town: null, // La référence à la ville sera définie côté serveur
+          competitions: []
+        }))
       };
-      console.log(town); // Ajoutez cette ligne pour vérifier les données
-      this.townService.addTown(town)
-        .subscribe((response) => {
-          console.log('Ville ajoutée avec succès : ', response);
-          this.successMessage = 'Town with venues added successfully.';
-          // Réinitialiser le formulaire ou naviguer vers une autre page
-        }, (error) => {
-          console.error('Erreur lors de l\'ajout de la ville : ', error);
-          this.errorMessage = 'An error occurred while adding the town.';
-          // Gérer l'erreur ici
-        });
+
+      console.log(townWithVenues); // Ajoutez cette ligne pour vérifier les données
+
+      this.townService.addTownWithVenues(townWithVenues)
+        .subscribe(
+          (response) => {
+            console.log('Ville et lieux ajoutés avec succès : ', response);
+            this.successMessage = 'Town with venues added successfully.';
+            // Réinitialiser le formulaire ou naviguer vers une autre page
+          },
+          (error) => {
+            console.error('Erreur lors de l\'ajout de la ville et des lieux : ', error);
+            this.errorMessage = 'An error occurred while adding the town and venues.';
+            // Gérer l'erreur ici
+          }
+        );
     }
   }
 }

@@ -44,8 +44,13 @@ export class DancecategoryandstyleService {
     return this.http.get<Dancestyle[]>(`${this.apiUrl}/dancestyle/dancestyles/category/${categoryId}`);
   }
 
+  getAllDanceStyle(): Observable<Dancestyle[]> {
+    return this.http.get<Dancestyle[]>(`${this.apiUrl}/dancestyle/retrieve_all_styles`);
+  }
 
-
+  getDistinctStyledNames(): Observable<string[]> {
+    return this.http.get<string[]>(`${this.apiUrl}/dancestyle/distinctStyledNames`);
+  }
 
 
 

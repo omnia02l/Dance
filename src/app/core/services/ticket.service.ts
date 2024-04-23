@@ -42,4 +42,8 @@ processTicket(refTicket: string): Observable<Ticket> {
   return this.http.post<Ticket>(`${this.baseUrl}/process/${refTicket}`, null);
 }
 
+getTicketCountsByStyleAndYearRange(styleName: string, startYear: number, endYear: number): Observable<any[]> {
+  return this.http.get<any[]>(`${this.baseUrl}/ticketsByStyleAndYear`, { params: { styleName, startYear, endYear } });
+}
+
 }

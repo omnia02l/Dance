@@ -108,6 +108,7 @@ import { ListCompfrontComponent } from './front-office/front-all/content-front/C
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
+import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 
 @NgModule({
   declarations: [
@@ -164,7 +165,6 @@ import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/C
     TrainingComponent,
     ListRegisttrationsComponent,
     RegistrationDetailComponent,
-
     AddRegistrationComponent,
       AdddancecategoryandstyleComponent,
       ListDancecategoriesandstylesComponent,
@@ -182,7 +182,8 @@ import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/C
       CalenderbackcompComponent,
       AddperformanceComponent,
       ListperformanceComponent,
-      AddtownwithvenuesComponent
+      AddtownwithvenuesComponent,
+      StatistiqueDanceStylePerYearsComponent
 
 
   ],
@@ -214,9 +215,9 @@ import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/C
     MatDialogModule,
     MatSnackBarModule,
     FontAwesomeModule,
-    ReactiveFormsModule,
     NgChartsModule,
-    CommonModule
+    CommonModule,
+    
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
