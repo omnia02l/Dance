@@ -1,22 +1,36 @@
+<!-- Ajoutez ceci dans votre index.html -->
+
+<!-- Dans votre fichier de composant HTML, par exemple ticket-details.component.html -->
 <div id="downloadableContent">
-<div *ngIf="ticketCardDetails; else loadingOrError">
-    <h2>Ticket Card Details</h2>
-    <div>
-      <h3>User: {{ userName }}</h3> <!-- Displaying the user's name fetched from getPrincipal -->
-      <p>Total: {{ ticketCardDetails.total | currency }}</p>
-      <p>Date: {{ ticketCardDetails.date | date:'medium' }}</p>
-      <div *ngFor="let ticket of ticketCardDetails.tickets">
-        <h4>Ticket Reference: {{ ticket.refTicket }}</h4>
-        <p>Expiration Date: {{ ticket.expireDate | date:'mediumDate' }}</p>
-        <p>Seat Number: {{ ticket.places }}</p>
-        <p>Row: {{ ticket.places?.row }}</p>
-        <img [src]="ticket.qrCodeBase64" alt="QR Code for the ticket" style="width: 100px; height: 100px;">
-      </div>
-    </div>
-  </div>
-  
+  <ng-container *ngIf="ticketCardDetails; else loadingOrError">
+    <mat-card class="ticket-card">
+      <mat-card-header class="ticket-detail-header">
+        <mat-card-title>Ticket Card Details</mat-card-title>
+        <mat-card-subtitle>User: {{ userName }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="ticket-info">
+        <p>Total: {{ ticketCardDetails.total | currency }}</p>
+        <p>Date: {{ ticketCardDetails.date | date:'medium' }}</p>
+        <div *ngFor="let ticket of ticketCardDetails.tickets" class="ticket-section">
+          <mat-card>
+            <mat-card-title class="ticket-reference">Ticket Reference: {{ ticket.refTicket }}</mat-card-title>
+            <mat-card-content>
+              <p>Expiration Date: {{ ticket.expireDate | date:'mediumDate' }}</p>
+              <p><mat-icon>event_seat</mat-icon> Seat Number: {{ ticket.places }}</p>
+              <p>Row: {{ ticket.places?.row }}</p>
+              <img class="qr-code" [src]="ticket.qrCodeBase64" alt="QR Code for the ticket">
+            </mat-card-content>
+          </mat-card>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </ng-container>
+
   <ng-template #loadingOrError>
-    <p>Loading ticket card details...</p>
+    <div class="loading-container">
+      <mat-spinner></mat-spinner>
+      <p>Loading ticket card details...</p>
+    </div>
   </ng-template>
 </div>
-<button (click)="downloadAsPDF()">Download as PDF</button>
+<button mat-raised-button color="primary" class="download-btn" (click)="downloadAsPDF()">Download as PDF</button>

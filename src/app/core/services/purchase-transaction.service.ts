@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Assuming PurchaseTransaction is already defined in your Angular app
 import { PurchaseTransaction } from '../models/purchase-transaction.model';
+import { Ticket } from '../models/ticket.model';
 
 @Injectable({
   providedIn: 'root'
@@ -33,9 +34,13 @@ export class PurchaseTransactionService {
     return this.http.delete(`${this.baseUrl}/DeletPurchaseTransaction/${id}`);
   }
 
-  uploadPDF(file: File): Observable<string[]> { // Modifier le type de retour pour une liste
+  uploadPDF(file: File): Observable<Ticket[]> {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post<string[]>(`${this.baseUrl}/upload`, formData);
+    return this.http.post<Ticket[]>(`${this.baseUrl}/upload`, formData);
+  }
+  checkTicketScanned(ticketReference: string): Observable<boolean> {
+    const params = new HttpParams().set('ticketReference', ticketReference);
+    return this.http.get<boolean>(`${this.baseUrl}/checkTicketScanned`, { params });
   }
 }

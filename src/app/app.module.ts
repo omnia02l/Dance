@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { FrontAllComponent } from './front-office/front-all/front-all.component';
 import { FooterFrontComponent } from './front-office/front-all/footer-front/footer-front.component';
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
@@ -113,6 +114,8 @@ import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/co
 
 import { MatButtonModule } from '@angular/material/button';
 import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -225,8 +228,8 @@ import { FileUploadTicketDialogComponent } from './front-office/front-all/conten
     CommonModule,
     MatButtonModule,
     MatFormFieldModule,
-    
-   
+    MatProgressSpinnerModule,
+    MatDividerModule,
     MatProgressBarModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
