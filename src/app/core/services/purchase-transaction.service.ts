@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Assuming PurchaseTransaction is already defined in your Angular app
@@ -31,5 +31,11 @@ export class PurchaseTransactionService {
 
   deletePurchaseTransaction(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/DeletPurchaseTransaction/${id}`);
+  }
+
+  uploadPDF(file: File): Observable<string[]> { // Modifier le type de retour pour une liste
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.http.post<string[]>(`${this.baseUrl}/upload`, formData);
   }
 }

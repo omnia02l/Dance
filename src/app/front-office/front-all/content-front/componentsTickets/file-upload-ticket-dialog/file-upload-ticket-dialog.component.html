@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Upload your Ticket</h1>
+<div>
+  <input type="file" (change)="onFileSelected($event)" accept="application/pdf">
+  <button mat-button (click)="onUpload()">Upload PDF</button>
+  <p>{{ message }}</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onUpload()">Upload</button>
+  
+</div>

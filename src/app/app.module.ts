@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FrontAllComponent } from './front-office/front-all/front-all.component';
@@ -8,7 +8,7 @@ import { FooterFrontComponent } from './front-office/front-all/footer-front/foot
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
 import { HeaderFrontComponent } from './front-office/front-all/header-front/header-front.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ButtonModule } from "primeng/button";
 import { DataViewModule } from "primeng/dataview";
@@ -111,6 +111,9 @@ import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/C
 import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
 
+import { MatButtonModule } from '@angular/material/button';
+import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -185,7 +188,8 @@ import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/co
       ListperformanceComponent,
       AddtownwithvenuesComponent,
       StatistiqueDanceStylePerYearsComponent,
-      StatistiqueDanceStylePerMonthComponent
+      StatistiqueDanceStylePerMonthComponent,
+      FileUploadTicketDialogComponent
 
 
   ],
@@ -219,7 +223,11 @@ import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/co
     FontAwesomeModule,
     NgChartsModule,
     CommonModule,
+    MatButtonModule,
+    MatFormFieldModule,
     
+   
+    MatProgressBarModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
