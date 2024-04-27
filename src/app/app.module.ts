@@ -116,6 +116,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -231,6 +232,7 @@ import { MatDividerModule } from '@angular/material/divider';
     MatProgressSpinnerModule,
     MatDividerModule,
     MatProgressBarModule,
+    MatSidenavModule,
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

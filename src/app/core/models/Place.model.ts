@@ -1,4 +1,5 @@
 import { Row } from "./row.model";
+import { VenuePlan } from "./venue-plan.model";
 
 export class Place {
  
@@ -8,4 +9,5 @@ export class Place {
   row?: string;
   isOccupied?: boolean;
   isSelected?: boolean;
+  venuePlan?:VenuePlan;
   }

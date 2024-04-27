@@ -1,110 +1,137 @@
-
-/* Place this CSS in your component's stylesheet */
 .theater-container {
-  position: relative;
-  background-image: url('src\assets\FrontOffice\images\1.png'); /* Replace with your image path */
+  background-color: #06060600; /* Bleu nuit pour l'arrière-plan du théâtre */
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+body, .sidenav-container {
+  /* Appliquez l'image de fond sur le corps de la page pour un effet complet */
+  background-image: url('src/assets/FrontOffice/images/young-graceful-ballet-dancer-isolated-purple-studio-background-neon-light.jpg');
   background-size: cover;
   background-position: center;
-  height: 600px; /* Adjust based on your image aspect ratio */
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Maintient l'image de fond fixe lors du défilement */
 }
 
-.seat-selection-container {
+/* Vous pouvez également choisir de ne pas inclure le 'body' si vous voulez que l'effet ne s'applique que lorsque le sidenav est ouvert */
+
+.sidenav-container {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden; /* Cache le défilement horizontal si jamais il y en a */
+}
+
+/* Styles existants pour .sidebar, .main-content, etc... */
+
+/* Style pour la barre latérale semi-transparente pour que l'image de fond soit visible en dessous */
+.sidenav {
+  width: 250px;
+  background-color: rgba(199, 176, 238, 0.8); /* Pour la semi-transparence, utilisez rgba */
+  /* Plus d'opacité signifie moins de transparence, ajustez le dernier chiffre (0.8 ici) selon vos besoins */
+}
+
+/* ... */
+
+.theater-container::before {
+  content: '';
   position: absolute;
-  bottom: 0; /* Aligns the container to the bottom of the theater container */
-  left: 50%; /* Centers the container horizontally */
-  transform: translateX(-50%); /* Adjusts for the centering */
-  width: 100%; /* Makes the container take full width if needed */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 0; /* Gives some padding at the bottom */
-  background-color: rgba(224, 224, 224, 0.291); /* Black with 50% opacity */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5); /* Overlay noir semi-transparent */
+  z-index: 0;
 }
 
-
-
-/* Add the rest of your CSS after this line */
-
-.row {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .row-label {
-    font-weight: bold;
-    margin-right: 15px;
-  }
-  
-  .seat-container {
-    display: flex;
-  }
-
-  .seat.occupied {
-    background-color: #f44336; /* Rouge pour les sièges occupés */
-    cursor: not-allowed; /* Changez le curseur pour indiquer qu'on ne peut pas sélectionner */
-  }
- 
-  
-  .seat:hover:not(.occupied) {
-    background-color: #c8e6c9; /* Light green for hover effect on available seats */
-  }
-  /* seat-numbers.component.css */
-
-
-
-button {
-  margin-top: 20px; /* Espace au-dessus du bouton */
-}
-.seat {
-  padding: 5px;
-  margin: 2px;
-  border: 2px solid #ccc;
-  cursor: pointer;
-  /* Autres styles de siège */
-}
-
-
-.seat.occupied {
-  background-color: #f44336; /* Red color indicating the seat is occupied */
-}
-
-.seat.selected {
-  background-color: #4caf50; /* Green color indicating the seat is selected */
-}
-
-/* CSS pour votre bouton personnalisé */
-.custom-btn {
+.screen-direction .screen {
+  background-color:#c7b0eeaa;
+  padding: 5px 20px;
   display: inline-block;
-  padding: 10px 30px;
-  font-size: 16px;
+  border-radius: 5px;
+}
+
+.screen-direction .screen-bar {
+  background-color: #c7b0eeaa; 
+  height: 5px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.seat-row-seats .seat {
+  background-color: #9fa8da; /* Bleu clair pour les sièges disponibles */
+  margin: 0 4px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
   cursor: pointer;
-  background-color: transparent;
-  color: orange;
-  border: 2px solid orange;
-  border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
-  transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
-  text-align: center;
-  text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
-}
-
-/* CSS pour l'état du bouton lorsqu'il est survolé */
-.custom-btn:hover {
-  background-color: orange;
-  color: white;
-}
-
-/* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
-.custom-btn:active, .custom-btn.selected {
-  background-color: white;
-  color: orange;
-}
-.white-title {
-  color: white;
-  /* You can add more styling as needed */
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
   padding: 10px;
-  /* Add other styles as per your design */
 }
+
+.seat-row-seats .seat .mat-icon {
+  color: white; /* Icône du siège en blanc */
+}
+
+.seat-row-seats .seat .seat-number {
+  position: absolute;
+  bottom: -20px;
+  color: white; /* Numéro du siège en blanc */
+  font-size: 0.7rem;
+}
+
+.seat-row-seats .seat.occupied {
+  background-color: #ef5350; /* Rouge pour les sièges occupés */
+  cursor: not-allowed;
+}
+
+.seat-row-seats .seat.selected {
+  background-color: #4caf50; /* Vert pour les sièges sélectionnés */
+}
+.seat-row-seats .seat.selected:hover {
+  background-color: #9ebf9f; /* Vert pour les sièges sélectionnés */
+}
+.seat-row-seats :hover {
+  background-color: #4caf50; /* Vert pour les sièges sélectionnés */
+}
+.action-buttons .confirm-btn {
+  background-color: #4caf50; /* Vert pour le bouton de confirmation */
+  color: white;
+}
+
+.action-buttons .confirm-btn:hover {
+  background-color: #485499; /* Vert plus foncé au survol */
+}
+.page-container {
+  display: flex;
+  min-height: 100vh;
+}
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+  background-color: #c7b0eeaa; /* Dark purple with transparency */
+}
+
+.sidebar-content {
+  color: white;
+  padding: 15px;
+}
+
+.main-content {
+  position: relative;
+}
+
+.toggle-button {
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000; /* Ensure the button is above all other content */
+}
+
+/* Existing styles for .theater-container, .screen-direction, .seat, etc. */
+

@@ -1,77 +1,75 @@
-/* Dans votre fichier ticket-card.component.css */
-.discount-code {
-    cursor: pointer;
-    text-decoration: underline;
-    color: orange; /* Couleur normale */
-    transition: font-weight 0.3s ease; /* Transition pour le changement de la graisse de la police */
-  }
-  
-  .discount-code:hover {
-    font-weight: bold; /* Graisse de la police lorsque la souris passe dessus */
-  }
-  /* CSS pour votre bouton personnalisé */
+/* Appliquer l'image de fond du théâtre à toute la section des tickets */
+.ticket-section {
+  background-image: url('src/assets/FrontOffice/images/young-graceful-ballet-dancer-isolated-purple-studio-background-neon-light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Overlay pour assombrir l'image de fond et améliorer la lisibilité */
+.section-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Modifiez l'opacité au besoin */
+  z-index: 1;
+}
+
+/* Assurez-vous que le contenu de la section est au-dessus de l'overlay */
+.container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Utiliser les couleurs du thème pour le titre et autres éléments */
+.white-title {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  /* Plus de styles au besoin */
+}
+
+/* Styles de formulaire personnalisé pour les détails du ticket */
+.custom-form {
+  background-color: #383a52ec; /* Semi-transparent pour le fond des formulaires */
+  border-radius: 10px;
+  padding: 20px;
+  color: white; /* Texte blanc pour la lisibilité */
+}
+
+/* Les boutons doivent correspondre au style du reste de la page */
 .custom-btn {
-    display: inline-block;
-    padding: 10px 30px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: transparent;
-    color: orange;
-    border: 2px solid orange;
-    border-radius: 50px; /* Rayon de bordure élevé pour créer un bouton ovale */
-    transition: color 0.3s, background-color 0.3s; /* Animation fluide pour le changement de couleur */
-    text-align: center;
-    text-decoration: none; /* Retirer le soulignement si c'est un lien (<a>) */
-  }
-  
-  /* CSS pour l'état du bouton lorsqu'il est survolé */
-  .custom-btn:hover {
-    background-color: orange;
-    color: white;
-  }
-  
-  /* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
-  .custom-btn:active, .custom-btn.selected {
-    background-color: white;
-    color: orange;
-  }
-  /* Style pour le conteneur de pied de page avec l'arrière-plan orange */
-.footer-container {
-    background-color: rgba(255, 165, 0, 0.5); /* Orange transparent */
-    padding: 20px 0; /* Espacement en haut et en bas */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 1000; /* Assurez-vous qu'il est au-dessus des autres éléments */
-  }
-  
-  /* Style pour le texte du code de réduction */
-  .discount-code {
-    cursor: pointer;
-    text-decoration: underline;
-    color: white; /* Blanc pour contraster avec l'orange */
-    font-weight: bold; /* Gras pour ressortir */
-    display: inline-block; /* Pour permettre le clic sur toute la zone */
-    margin: 10px 0; /* Espacement supplémentaire */
-    transition: color 0.3s, text-decoration-color 0.3s; /* Transition fluide pour les changements de couleur et de soulignement */
-  }
-  
-  .discount-code:hover {
-    color: black; /* Change en noir au survol */
-    text-decoration-color: black; /* Couleur du soulignement en noir */
-  }
-  .alert {
-    /* Styles pour les alertes de notifications */
-    width: 100%;
-    max-width: 500px;
-    margin: 20px auto;
-  }
-  .white-title {
-    color: white;
-    /* You can add more styling as needed */
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    padding: 10px;
-    /* Add other styles as per your design */
-  }
+  display: inline-block;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4caf50; /* Fond vert pour les boutons */
+  color: white; /* Texte en blanc */
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  text-align: center;
+  text-decoration: none;
+  border: none; /* Pas de bordure pour les boutons */
+}
+
+/* Styles pour les notifications d'alerte */
+.alert {
+  background-color: #323232ee; /* Fond des alertes semi-transparent */
+  color: white; /* Texte blanc pour les alertes */
+  border-left: 5px solid #4caf50; /* Bordure colorée pour distinguer les alertes */
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+}
+
+/* Modifier les alertes lorsqu'elles sont fermées */
+.alert-dismissible .close {
+  color: white;
+}
+
+/* Ajouter des styles supplémentaires au besoin ici */

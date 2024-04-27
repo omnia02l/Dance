@@ -35,8 +35,8 @@ export class SeatNumbersComponent implements OnInit {
 
     ngOnInit(): void {
       this.restoreSelectedSeats();
-      this.refreshSeatNumbers(1); // Start refreshing seat numbers for planId 1
-      this.setupRefreshInterval(1);
+      this.refreshSeatNumbers(2); // Start refreshing seat numbers for planId 1
+      this.setupRefreshInterval(2);
       this.getPrincipal();
     }
     getPrincipal() {
@@ -134,7 +134,7 @@ export class SeatNumbersComponent implements OnInit {
     if (localPlace.idPlace) {
       this.updatePlace(localPlace);
     } else {
-      this.placeService.getPlaceBySeatAndRow(seatNumber, row).subscribe({
+      this.placeService.getPlaceBySeatAndRow(seatNumber, row,2).subscribe({
         next: (placeFromBackend) => {
           if (!placeFromBackend.idPlace) {
             console.error(`Place not found for seatNumber ${seatNumber} and row ${row}`);
@@ -177,7 +177,7 @@ export class SeatNumbersComponent implements OnInit {
   
   confirmSelectedPlaces(): void {
     if (this.userId) {
-    this.placeService.confirmPlaces(this.userId,this.selectedPlaceIds)
+    this.placeService.confirmPlaces(2,this.userId,this.selectedPlaceIds)
       .pipe(
         switchMap((response) => {
           // Logique exécutée après la confirmation des places

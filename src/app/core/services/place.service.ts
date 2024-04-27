@@ -33,9 +33,9 @@ export class PlaceService {
 
     return this.http.put<Place>(`${this.baseUrl}/updatePlace/${place.idPlace}`, place);
   }
-  getPlaceBySeatAndRow(seatNumber: string, row: string): Observable<Place> {
+  getPlaceBySeatAndRow(seatNumber: string, row: string, venuePlanId: number): Observable<Place> {
     // Assurez-vous que l'URL correspond à votre endpoint backend
-    return this.http.get<Place>(`${this.baseUrl}/findPlace?seatNumber=${seatNumber}&row=${row}`);
+    return this.http.get<Place>(`${this.baseUrl}/findPlace?seatNumber=${seatNumber}&row=${row}&venuePlanId=${venuePlanId}`);
   }
   deletePlace(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/DeletPlaces/${id}`);
@@ -82,8 +82,8 @@ export class PlaceService {
   
 
 
-  confirmPlaces(userid:number,ids: number[]): Observable<Place[]> {
-    return this.http.put<Place[]>(`${this.baseUrl}/confirmPlaces/${userid}`, ids);
+  confirmPlaces(venuePlanId: number,userid:number,ids: number[]): Observable<Place[]> {
+    return this.http.put<Place[]>(`${this.baseUrl}/confirmPlaces/${userid}?venuePlanId=${venuePlanId}`, ids);
   }
 
 
