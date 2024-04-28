@@ -1,7 +1,7 @@
 // seat-numbers.component.ts
 
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Place } from 'src/app/core/models/Place.model';
 
@@ -24,20 +24,31 @@ export class SeatNumbersComponent implements OnInit {
   ticketCard: TicketCard | null = null;
   userId: number | null = null;
 
-
+  venuePlanId = Number(this.route1.snapshot.paramMap.get('venuePlanId'));
+  competitionId = Number(this.route1.snapshot.paramMap.get('competitionId'));
   constructor(private placeService: PlaceService,
     private ticketCardService: TicketCardService,
     private accountService: AccountService,
     private cdr: ChangeDetectorRef,
-    private route: Router) {}
+    private route: Router,
+    private route1: ActivatedRoute) {}
 
 
 
     ngOnInit(): void {
+      this.route1.paramMap.subscribe(params => {
+        const id = params.get('venuePlanId');
+        if (id) {
+          this.venuePlanId = Number(id);
+          this.refreshSeatNumbers(this.venuePlanId);
+      console.log(this.venuePlanId);
       this.restoreSelectedSeats();
-      this.refreshSeatNumbers(2); // Start refreshing seat numbers for planId 1
-      this.setupRefreshInterval(2);
-      this.getPrincipal();
+      this.refreshSeatNumbers(this.venuePlanId); // Start refreshing seat numbers for planId 1
+      this.setupRefreshInterval(this.venuePlanId);
+      this.getPrincipal();} else {
+      console.log(this.venuePlanId);
+      }
+    });
     }
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({
@@ -134,7 +145,7 @@ export class SeatNumbersComponent implements OnInit {
     if (localPlace.idPlace) {
       this.updatePlace(localPlace);
     } else {
-      this.placeService.getPlaceBySeatAndRow(seatNumber, row,2).subscribe({
+      this.placeService.getPlaceBySeatAndRow(seatNumber, row,this.venuePlanId).subscribe({
         next: (placeFromBackend) => {
           if (!placeFromBackend.idPlace) {
             console.error(`Place not found for seatNumber ${seatNumber} and row ${row}`);
@@ -177,7 +188,7 @@ export class SeatNumbersComponent implements OnInit {
   
   confirmSelectedPlaces(): void {
     if (this.userId) {
-    this.placeService.confirmPlaces(2,this.userId,this.selectedPlaceIds)
+    this.placeService.confirmPlaces(this.venuePlanId,this.userId,this.selectedPlaceIds)
       .pipe(
         switchMap((response) => {
           // Logique exécutée après la confirmation des places
@@ -193,7 +204,7 @@ export class SeatNumbersComponent implements OnInit {
           // Logique exécutée après la création du panier
           console.log(`Ticket Card for user ID: ${ticketCard.userid} created successfully`);
           // Navigation vers la page du panier
-          this.route.navigate(['/ticket-card', ticketCard.userid]);
+          this.route.navigate(['/ticket-card', ticketCard.userid,this.competitionId]);
           // Réinitialisation de la liste des ID des places sélectionnées
           this.selectedPlaceIds = [];
         },

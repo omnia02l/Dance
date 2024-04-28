@@ -1,6 +1,19 @@
-<!--<div class="venue-plan-form">
+<div class="venue-plan-form">
     <h2>Ajouter un nouveau plan de salle</h2>
+            <!-- Town dropdown -->
+            <select [(ngModel)]="selectedTownId" (change)="onTownChange(selectedTownId!)" name="town">
+              <option *ngFor="let town of towns" [value]="town.idtown">{{ town.townname }}</option>
+            </select>
+      
+            <!-- Venue dropdown -->
+            <select [(ngModel)]="selectedVenueId" (change)="onVenueChange(selectedVenueId!)" name="venue">
+              <option *ngFor="let venue of venues" [value]="venue.idvenue">{{ venue.vname }}</option>
+            </select>
+      
+            
     <form (ngSubmit)="onSubmit()">
+
+
       <div class="form-group">
         <label for="totalSeats">Nombre total de sièges</label>
         <input type="number" class="form-control" id="totalSeats" [(ngModel)]="newVenuePlan.totalSeats" name="totalSeats" required>
@@ -46,4 +59,3 @@
     </form>
   </div>
   
--->

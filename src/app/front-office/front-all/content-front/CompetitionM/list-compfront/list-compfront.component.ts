@@ -54,4 +54,22 @@ export class ListCompfrontComponent implements OnInit {
       width: '250px'
     });
   }
+
+
+
+
+  viewVenuePlan(competitionId: number): void {
+    console.log("comp",competitionId)
+    this.competitionService.getVenuePlanIdByCompetitionId(competitionId).subscribe({
+      next: (venuePlanId) => {
+        // Optionally, redirect to a venue plan detail page or handle the ID as needed
+        console.log('Venue Plan ID:', venuePlanId);
+        console.log('competition ID:', competitionId);
+        this.router.navigate(['/Place', venuePlanId,competitionId]); // Adjust the routing path as needed
+      },
+      error: (error) => {
+        console.error('Error fetching Venue Plan ID:', error);
+      }
+    });
+  }
 }

@@ -23,6 +23,7 @@ export class TicketCardComponent implements OnInit {
   discountCode: string = '';
   discountApplied: boolean = false;
   discountError: string = '';
+  competitionId!: number;
   constructor(
     private route: ActivatedRoute,
     public ticketCardService: TicketCardService,
@@ -35,10 +36,29 @@ export class TicketCardComponent implements OnInit {
   ) {this.price = new Price();}
 
   ngOnInit(): void {
+   
+    this.route.params.subscribe(params => {
+      this.userId = +params['userId'];
+      this.competitionId = +params['competitionId'];
+  
+      console.log('User ID:', this.userId);
+      console.log('Competition ID:', this.competitionId);
+  
+      // Make sure the IDs are numbers and not NaN
+      if (!isNaN(this.userId) && !isNaN(this.competitionId)) {
+        this.refreshTicketCard();
+      } else {
+        console.error('Invalid ID(s):', {
+          userId: this.userId,
+          competitionId: this.competitionId
+        });
+        // Handle the error case here
+      }
+    });
+  }
 
-    this.refreshTicketCard();
-    this.getPrincipal();
-    }
+    
+    
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({
         next: (data) => {
@@ -51,8 +71,8 @@ export class TicketCardComponent implements OnInit {
       });
     }
 
-    getTicketCardDetails(userId: number): void {
-      this.ticketCardService.getTicketCard(userId).subscribe({
+    getTicketCardByUserIdAndCompetitionAndDate(userId: number, competitionId: number): void {
+      this.ticketCardService.getTicketCardByUserIdAndCompetitionAndDate(userId,this.competitionId).subscribe({
         next: (ticketCard) => {
           this.ticketCard = ticketCard;
           
@@ -65,7 +85,7 @@ export class TicketCardComponent implements OnInit {
     refreshTicketCard(): void {
       const userId = +this.route.snapshot.params['userId'];
       if (userId) {
-        this.getTicketCardDetails(userId);
+        this.getTicketCardByUserIdAndCompetitionAndDate(userId,this.competitionId);
       } else {
         console.error('No userId provided');
       }

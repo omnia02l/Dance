@@ -83,8 +83,9 @@ const routes: Routes = [
       { path: 'listperformances', component: ListperformanceComponent },
 
       { path: 'ReserverPlace', component: ReservationPlaceComponent},
-      { path: 'Place', component: SeatNumbersComponent},
-      { path: 'ticket-card/:userId', component: TicketCardComponent },
+      { path: 'Place/:venuePlanId/:competitionId', component: SeatNumbersComponent},
+     { path: 'ticket-card/:userId/:competitionId', component: TicketCardComponent },
+
       { path: 'purchase-transaction', component:PurchaseTransactionComponent  },
       { path: 'QrScanner', component: QrScannerComponent },
       ]},

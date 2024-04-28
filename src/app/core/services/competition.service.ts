@@ -48,4 +48,9 @@ export class CompetitionService {
     const url = `${this.baseUrl}/GenderStatsForCompetition/${competitionId}`;
     return this.http.put<GenderstatDTO>(url, {});
   }
+
+
+   getVenuePlanIdByCompetitionId(competitionId: number): Observable<number> {
+    return this.http.get<number>(`${this.baseUrl}/venue-plan-id/${competitionId}`);
+  }
 }

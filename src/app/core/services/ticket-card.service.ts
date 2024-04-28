@@ -20,8 +20,8 @@ export class TicketCardService {
     return this.http.get<TicketCard[]>(`${this.baseUrl}/GetAllTicketCard`);
   }
 
-  getTicketCard(id: number): Observable<TicketCard> {
-    return this.http.get<TicketCard>(`${this.baseUrl}/getTicketCardByUserIdAndDate/${id}`);
+  getTicketCardByUserIdAndCompetitionAndDate(userId: number, competitionId: number): Observable<TicketCard> {
+    return this.http.get<TicketCard>(`${this.baseUrl}/getTicketCardByUserIdAndDateAndCompteition/${userId}/${competitionId}`);
   }
 
   addTicketCard(ticketcard: TicketCard): Observable<TicketCard> {
