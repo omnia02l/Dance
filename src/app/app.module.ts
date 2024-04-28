@@ -73,7 +73,9 @@ import { CommonModule } from '@angular/common';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
-
+import { ChartModule } from 'primeng/chart';
+import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,7 +123,9 @@ import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/
       ListperformanceComponent,
       AddtownwithvenuesComponent,
       ListcompperformancesComponent,
-      ListtownsandvenuesComponent
+      ListtownsandvenuesComponent,
+      StatcompComponent,
+      SongsdetetctComponent
 
 
   ],
@@ -148,7 +152,8 @@ import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/
     InputNumberModule,
     ReactiveFormsModule,
     NgChartsModule,
-    CommonModule
+    CommonModule,
+    ChartModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

@@ -44,6 +44,8 @@ import { AddperformanceComponent } from './BackOffice/back-all/content-back/Comp
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
+import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
   { path: '', component:FrontAllComponent,children:[
@@ -54,6 +56,7 @@ const routes: Routes = [
     { path: 'details-compfront/:id', component: DetailsCompfrontComponent },
     { path: 'calendercomp', component: CalendercompComponent },
     { path: 'listperformances', component: ListperformanceComponent },
+    { path: 'Songsdetetct', component: SongsdetetctComponent },
 
 
 
@@ -88,6 +91,7 @@ const routes: Routes = [
       { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },
       { path: 'list-compperformances', component: ListcompperformancesComponent },
       { path: 'list-townsandvenues', component: ListtownsandvenuesComponent },
+      { path: 'compstat', component: StatcompComponent },
 
 
 

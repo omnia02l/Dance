@@ -1,0 +1,20 @@
+<!-- song-detection.component.html -->
+<div class="container">
+  <button class="detect-button" (click)="startRecording()">Detect song</button>
+</div>
+
+<div class="container search-container">
+  <input class="search-input" type="text" [(ngModel)]="term" placeholder="Enter search term">
+  <button class="search-button" (click)="autoComplete()">Search</button>
+</div>
+
+<div *ngIf="suggestions && suggestions.length > 0" class="container suggestions">
+  <h3>Suggestions:</h3>
+  <ul>
+    <li *ngFor="let suggestion of suggestions">{{ suggestion.term }}</li>
+  </ul>
+</div>
+
+<div *ngIf="!suggestions || suggestions.length === 0" class="container no-suggestions">
+  <p>No suggestions found.</p>
+</div>

@@ -48,4 +48,13 @@ export class CompetitionService {
     const url = `${this.baseUrl}/GenderStatsForCompetition/${competitionId}`;
     return this.http.put<GenderstatDTO>(url, {});
   }
+  getCompetitionCountByDanceStyle(): Observable<Map<string, number>> {
+    const url = `${this.baseUrl}/statcountByDanceStyle`;
+    return this.http.get<Map<string, number>>(url);
+  }
+
+  getNumberOfParticipantsPerCompetition(): Observable<Map<string, number>> {
+    const url = `${this.baseUrl}/statparticipants`;
+    return this.http.get<Map<string, number>>(url);
+  }
 }

@@ -55,31 +55,38 @@ export class CompetitionDetailsComponent implements OnInit {
     const counts = [genderStats.totalMaleDancers, genderStats.totalFemaleDancers];
 
     const chart = new Chart('genderStatsCanvas', {
-      type: 'pie',
+      type: 'bar',
       data: {
         labels: labels,
         datasets: [{
+          label: 'Gender Stats',
           data: counts,
           backgroundColor: [
-            'rgba(117, 91, 238, 1)', // Darker shade of purple for male
-            'rgba(255, 99, 132, 1)'   // Darker shade of red for female
+            'rgba(128, 0, 128, 0.7)', // Mauve foncé pour male
+            'rgba(220, 180, 220, 0.7)'  // Lilas clair pour female
           ],
-          borderColor: 'white',
-          borderWidth: 2
+          borderColor: [
+            'rgba(128, 0, 128, 1)', // Mauve foncé pour male
+            'rgba(220, 180, 220, 1)'  // Lilas clair pour female
+          ],
+          borderWidth: 1
         }]
       },
       options: {
         responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
         plugins: {
           legend: {
-            position: 'bottom',
+            display: false,
           },
           datalabels: {
             color: '#ffffff',
             formatter: (value, ctx) => {
-              const sum = counts.reduce((a, b) => a + b, 0);
-              const percentage = ((value as number) * 100 / sum).toFixed(2) + "%";
-              return percentage;
+              return value;
             },
             anchor: 'end',
             align: 'start',
