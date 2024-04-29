@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/core/models/Product.model';
 import { CartItem } from 'src/app/core/models/cart-item';
 import { OrderDTO } from 'src/app/core/models/order-dto';
 import { AccountService } from 'src/app/core/services/account.service';
 import { ProductService } from 'src/app/core/services/product.service';
+import { SharedstoreService } from 'src/app/core/services/sharedstore.service';
 import { ShoppingCartService } from 'src/app/core/services/shopping-cart.service';
 
 @Component({
@@ -20,7 +22,7 @@ export class ShopcartComponent implements OnInit {
   notificationMessage: string = '';
   notificationType: string = 'success';
   recommendedItems: Product[] = [];
-  constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService,     private accountService: AccountService // Inject AccountService
+  constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService,    private router: Router,private sharedService: SharedstoreService ,private accountService: AccountService // Inject AccountService
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +41,8 @@ export class ShopcartComponent implements OnInit {
       (cartItems: CartItem[]) => {
         this.cartItems = cartItems;
         this.updateTotalCartPrice(); // Update total price when cart items change
+        this.sharedService.updateTotalCartPrice(this.totalCartPrice);
+
       },
       (error) => {
         console.error('Error fetching cart items:', error);

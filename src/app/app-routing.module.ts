@@ -40,6 +40,8 @@ import { ShopcartComponent } from './front-office/front-all/content-front/store/
 import { ProductSalesComponent } from './BackOffice/back-all/content-back/store/product-sales/product-sales.component';
 import { FileUploaderComponent } from './BackOffice/back-all/content-back/store/file-uploader/file-uploader.component';
 import { RecommendedProductsComponent } from './front-office/front-all/content-front/store/recommended-products/recommended-products.component';
+import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
+import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -51,6 +53,9 @@ const routes: Routes = [
 { path: 'ReserverPlace', component: ReservationPlaceComponent},
 { path: 'Place', component: SeatNumbersComponent},
 { path: 'ticket-card/:userId', component: TicketCardComponent },
+{ path: 'payment', component: PaymentFormComponent },
+{ path: 'confirm', component: ConfirmationComponent },
+
 ]},  {
     path: "admin", component: BackAllComponent, children: [
       { path: 'products/add', component: AddproductComponent },
