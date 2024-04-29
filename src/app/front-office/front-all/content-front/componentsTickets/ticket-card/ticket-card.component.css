@@ -66,3 +66,12 @@
     max-width: 500px;
     margin: 20px auto;
   }
+  .white-title {
+    color: white;
+    /* You can add more styling as needed */
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    /* Add other styles as per your design */
+  }

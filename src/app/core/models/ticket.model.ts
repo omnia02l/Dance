@@ -12,4 +12,5 @@ export class Ticket {
     places?: Place;
     price?: Price;
     selectedTrancheAge?: TrancheAge;
+    qrCodeBase64?: string;
 }  
