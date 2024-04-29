@@ -1,0 +1,6 @@
+/* vote-statistics.component.css */
+.canvas-container {
+  width: 70%; /* ou une autre largeur fixe, comme 500px */
+  height: auto; /* pour maintenir le ratio d'aspect */
+  margin: auto; /* pour centrer si nécessaire */
+}

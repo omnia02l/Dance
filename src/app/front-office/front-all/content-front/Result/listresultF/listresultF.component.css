@@ -1,0 +1,80 @@
+/* result.component.css */
+.container {
+  padding: 20px;
+}
+
+.result-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.result-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-header {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.result-body {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.like-dislike-icons {
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.like-dislike-icons i.fa-thumbs-down {
+  margin-left: 15px;
+}
+
+.result-actions {
+  text-align: right;
+}
+
+.view-button,
+.comment-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-right: 8px; /* Spacing between buttons */
+}
+
+.view-button:hover,
+.comment-button:hover {
+  background-color: #367c39;
+}
+
+.view-button i {
+  margin-left: 5px;
+}
+
+.comment-button {
+  background-color: #f0ad4e;
+}
+
+.comment-button:hover {
+  background-color: #ec971f;
+}
+
+/* Remove the default style from PrimeNG button */
+.p-button {
+  box-shadow: none;
+  border: 0 none;
+  margin: 0;
+}

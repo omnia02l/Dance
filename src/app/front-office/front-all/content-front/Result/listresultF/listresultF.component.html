@@ -1,0 +1,69 @@
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- result.component.html -->
+
+<div class="container">
+  <h2>Résultats</h2>
+  <div class="container">
+    <ng-container *ngFor="let result of results">
+      <div class="card" style="display: inline-block; margin-right: 10px;">
+        <div class="container">
+          <span>{{ result.dateR | date:'short' }}</span>
+        </div>
+        <div class="container">
+          <p>Score: {{ result.resultat }}</p>
+          <p>Number of Votes: {{ result.nombresvotes }}</p>
+          <i class="fa fa-heart" (click)="likeResult(result.idResultat)"></i> {{ result.likes }}
+          <i class="fa fa-thumbs-down"  style="margin-left: 10px;" (click)="dislikeResult(result.idResultat)"></i> {{ result.dislikes }}
+
+        </div>
+        <div class="container">
+          <h4>Comments:</h4>
+          <ul>
+            <li *ngFor="let comment of result.resultatcommentaires">
+              <p>{{ comment.comment }}</p>
+              <p>{{ comment.datecom | date:'short' }}</p>
+              <!-- Autres données à afficher pour chaque commentaire -->
+            </li>
+          </ul>
+        </div>
+
+        <div class="container">
+          <button class="p-button p-button-success" style="margin-right: 4px;" (click)="showDetails(result.idResultat)">
+            <i class="fas fa-info-circle"></i> View
+          </button>
+          <button class="p-button" (click)="displayCreateCommentDialog = true">Add Comment</button>
+          <p-dialog header="Create Comment" [(visible)]="displayCreateCommentDialog" [modal]="true" [style]="{'max-width.px': 500, 'width': '100vw', 'min-width.px': 300}">
+
+            <div style="padding: 20px;">
+              <div class="p-field">
+                <label for="commentContent">Comment Content:</label>
+                <textarea id="commentContent" [(ngModel)]="newCommentContent" rows="4" cols="50"></textarea>
+              </div>
+              <div class="p-field">
+                <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+                <button type="button" class="p-button p-button-success" style="margin-right: 4px;" (click)="submitComment(result.idResultat)">Submit</button>
+                <button type="button" class="p-button p-button-secondary" (click)="cancelCreateComment()">Cancel</button>
+              </div>
+            </div>
+
+
+          </p-dialog>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <p-dialog header="Result Details" [(visible)]="displayDialog" [modal]="true" [style]="{'max-width.px': 500, 'width': '100vw', 'min-width.px': 300}">
+    <div *ngIf="selectedResult" style="padding: 20px;">
+      <p>Score: {{ selectedResult.resultat }}</p>
+      <p>Number of Votes: {{ selectedResult.nombresvotes }}</p>
+      <p>Date: {{ selectedResult.dateR | date:'short' }}</p>
+      <p>Likes: {{ selectedResult.likes }}</p>
+      <p>Dislikes: {{ selectedResult.dislikes }}</p>
+
+
+    </div>
+  </p-dialog>
+</div>
+<app-vote-statistics ></app-vote-statistics>

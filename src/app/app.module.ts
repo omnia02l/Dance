@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FrontAllComponent } from './front-office/front-all/front-all.component';
@@ -43,8 +42,41 @@ import {FullCalendarModule} from "@fullcalendar/angular";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
-import {TabMenuModule} from "primeng/tabmenu";
-import {ChartModule} from "primeng/chart";
+import {VoteComponent} from "./front-office/front-all/content-front/Vote/AjoutVote/vote.component";
+import {AjoutresultComponent} from "./BackOffice/back-all/content-back/Result/AjoutResult/ajoutresult.component";
+import {
+  AjoutCommentRComponent
+} from "./BackOffice/back-all/content-back/Result/ajout-comment-r/ajout-comment-r.component";
+import {ListVoteComponent} from "./BackOffice/back-all/content-back/Vote/list-vote/list-vote.component";
+import {
+  ListresultFComponent
+} from "./front-office/front-all/content-front/Result/listresultF/listresultF.component";
+import {
+  ListperformanceComponent
+} from "./front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component";
+import {
+  CalendercompComponent
+} from "./front-office/front-all/content-front/CompetitionM/calendercomp/calendercomp.component";
+import {
+  DetailsCompfrontComponent
+} from "./front-office/front-all/content-front/CompetitionM/details-compfront/details-compfront.component";
+import {
+  ListCompfrontComponent
+} from "./front-office/front-all/content-front/CompetitionM/list-compfront/list-compfront.component";
+import {ListVoteComponentF} from "./front-office/front-all/content-front/Vote/list-vote/list-vote.component";
+import {VoteCalendarComponent} from "./front-office/front-all/content-front/Vote/vote-calender/vote-calender.component";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatInputModule} from "@angular/material/input";
+import {MatNativeDateModule} from "@angular/material/core";
+import { VoteStatisticsComponent } from './front-office/front-all/content-front/Vote/vote-statistics/vote-statistics.component';
+import {ChartsModule} from "ng2-charts";
+import { VoteDialogComponent } from './front-office/front-all/content-front/Vote/AjoutVote/vote-dialog/vote-dialog.component';
+import {MAT_DIALOG_DEFAULT_OPTIONS, MatDialogModule} from "@angular/material/dialog";
+import {
+  LikeDislikeChartComponent
+} from "./BackOffice/back-all/content-back/Result/like-dislike-stat/like-dislike-stat.component";
+import {ListresultComponent} from "./BackOffice/back-all/content-back/Result/listresult/listresult.component";
+
 
 @NgModule({
   declarations: [
@@ -63,13 +95,31 @@ import {ChartModule} from "primeng/chart";
     UpdateProductComponent,
     ProductDetailComponent,
     CategoryListComponent,
+    ListVoteComponentF,
     AddCategoryComponent,
     UpdateCategoryComponent,
     AccountmanagementComponent,
     ProfileComponent,
     TrainingmanagementComponent,
+    ListresultFComponent,
     DancehallComponent,
     TrainingComponent,
+    VoteComponent,
+    AjoutresultComponent,
+    LikeDislikeChartComponent,
+    AjoutCommentRComponent,
+    ListVoteComponent,
+    ListCompfrontComponent,
+    DetailsCompfrontComponent,
+    CalendercompComponent,
+    VoteCalendarComponent,
+    ListperformanceComponent,
+    VoteStatisticsComponent,
+    VoteDialogComponent,
+    ListresultComponent,
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -85,17 +135,21 @@ import {ChartModule} from "primeng/chart";
     InputTextModule,
     DataViewModule,
     DialogModule,
+    MatNativeDateModule,
     InputMaskModule,
     DropdownModule,
     CalendarModule,
+    ChartsModule ,
     InputTextareaModule,
     MultiSelectModule,
+    MatDialogModule,
     FullCalendarModule,
     InputNumberModule,
-    TabMenuModule,
-    ChartModule
+    MatDatepickerModule,
+    MatInputModule],
+  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true},
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: true, panelClass: 'custom-dialog-container', enterAnimationDuration: '500ms', exitAnimationDuration: '500ms' } }
   ],
-  providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

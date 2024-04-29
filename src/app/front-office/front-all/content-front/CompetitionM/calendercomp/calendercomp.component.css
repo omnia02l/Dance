@@ -1,0 +1,12 @@
+/* calendercomp.component.css */
+
+.calendar-container {
+  background-color: #fd5304; /* Couleur de fond du conteneur */
+  padding: 50px; /* Espacement intérieur */
+  border-radius: 50px; /* Rayon de bordure */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Ombre portée */
+  width: 90%; /* Largeur du conteneur */
+  margin: 0 auto; /* Centrage horizontal */
+  margin-top: 20px; /* Marge supérieure */
+  overflow: hidden; /* Masquer le débordement */
+}

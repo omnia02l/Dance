@@ -10,7 +10,6 @@ import {
   UpdateTrainingDatesRequest,
   UpdateTrainingRequest
 } from "../../../../../core/models/Training";
-import {Stats} from "../../../../../core/models/stats";
 
 @Component({
   selector: 'app-trainingmanagement',
@@ -38,12 +37,8 @@ export class TrainingmanagementComponent implements OnInit {
   trainingToUpdate!: number;
   updateTrainingDialog: boolean=false;
   updatedTrainingInformation:UpdateTrainingRequest={};
-  optionsChart:any;
-  stats!:Stats;
-  data: any;
   constructor(private trainingService: TrainingService, private messageService: MessageService) {
     this.listTraining();
-    this.getStats();
     this.options = {
       initialView: 'dayGridMonth',
       plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
@@ -203,42 +198,5 @@ export class TrainingmanagementComponent implements OnInit {
         }
       });
     }
-  }
-  getStats(){
-    this.trainingService.getStats().subscribe({
-      next:(data)=>{
-        this.stats=data;
-        this.data = {
-          labels: ['FULL','AVAILABLE'],
-          datasets: [
-            {
-              data: [this.stats.full,this.stats.available],
-              backgroundColor: [
-                "#800080",
-                "#0000FF"
-              ],
-              hoverBackgroundColor: [
-                "#800080",
-                "#0000FF"
-              ]
-            }
-          ]
-        };
-        this.optionsChart = {
-          plugins: {
-            title: {
-              display: true,
-              text: 'Total Number of Training : '+ this.stats.total,
-              fontSize: 25
-            },
-            legend: {
-              position: 'top'
-            }
-          }
-        };
-      },error:(err)=>{
-        console.log(err);
-      }
-    })
   }
 }

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ContentFrontComponent } from './content-front.component';
+
 
 describe('ContentFrontComponent', () => {
   let component: ContentFrontComponent;

@@ -1,0 +1,10 @@
+.calendar-container{
+  display: flex;
+  justify-content: center;
+}
+
+
+.full-calendar {
+  max-width: 900px; /* Adjust the max width as needed */
+  margin: 0 auto;
+}

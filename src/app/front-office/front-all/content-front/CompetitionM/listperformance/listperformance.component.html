@@ -1,0 +1,71 @@
+<button style="background-color: darkred; /* Green */
+         border: none;
+         color: white;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+         border-radius: 4px;"
+        routerLink="/Vote">Show All My Votes</button>
+
+
+<div *ngFor="let competitionPerformance of competitionPerformances">
+  <h3>{{ competitionPerformance.compname }}</h3>
+  <p>Start Date: {{ competitionPerformance.startdate | date:'shortDate' }}</p>
+  <p>End Date: {{ competitionPerformance.enddate | date:'shortDate' }}</p>
+
+
+
+  <ul class="performances-list">
+    <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
+      <h4>{{ performance.perftitle }}</h4>
+      <p>Performance Date: {{ performance.perfdate | date:'shortDate' }}</p>
+      <p>Description: {{ performance.pdescreption }}</p>
+      <p>Start Time: {{ performance.starttime }}</p>
+      <p>End Time: {{ performance.endtime }}</p>
+      <button
+        style="background-color: #4CAF50; /* Green */
+         border: none;
+         color: white;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+         border-radius: 4px;"
+       (click)="openVoteDialog(performance.idperf)">Vote
+
+      </button>
+
+      <button
+        style="background-color: #008CBA; /* Blue */
+         border: none;
+         color: white;
+         padding: 10px 20px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 4px 2px;
+         cursor: pointer;
+         border-radius: 4px;"
+        (click)="showVoteCalendar(performance.idperf)">
+        Show Vote Calendar
+      </button>
+
+
+
+
+
+    </li>
+  </ul>
+</div>
+
+
+
+

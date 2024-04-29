@@ -1,0 +1,39 @@
+import {Component, OnInit} from '@angular/core';
+import {VoteService} from "../../../../../core/services/vote.service";
+import {ChartDataSets, ChartOptions} from "chart.js";
+import {Label} from "ng2-charts";
+
+
+interface VoteStatistic {
+  scoreType: string;
+  count: number;
+}
+
+@Component({
+  selector: 'app-vote-statistics',
+  templateUrl: './vote-statistics.component.html',
+  styleUrls: ['./vote-statistics.component.css']
+})
+export class VoteStatisticsComponent implements OnInit {
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  public barChartLabels: Label[] = [];
+  public barChartData: ChartDataSets[] = [
+    { data: [], label: 'Votes' }
+  ];
+
+  constructor(private voteService: VoteService) {}
+
+  ngOnInit(): void {
+    this.voteService.getVoteStatistics().subscribe(data => {
+      this.barChartData[0].data = data.map((item: any) => item[1]);
+      this.barChartLabels = data.map((item: any) => item[0]);
+    }, error => {
+      console.error('There was an error!', error);
+    });
+
+  }
+
+
+}
