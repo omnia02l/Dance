@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^15.2.0",
+
     "@angular/cdk": "^15.2.9",
     "@angular/common": "^15.2.0",
     "@angular/compiler": "^15.2.0",
@@ -32,6 +33,7 @@
     "@types/chart.js": "^2.9.41",
     "@types/jwt-decode": "^3.1.0",
     "@uploadcare/blocks": "0.36.0",
+    "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "chart.js": "^3.9.1",
     "chartjs-plugin-datalabels": "^2.0.0",
@@ -45,6 +47,8 @@
     "ng2-charts": "^3.1.2",
     "ngx-uploadcare-widget": "^4.0.0",
     "pdf2image": "^1.2.3",
+
+
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
     "primeng": "^15.1.1",

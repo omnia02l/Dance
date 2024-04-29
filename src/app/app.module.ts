@@ -118,6 +118,11 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
 
+import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
+import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
+import { ChartModule } from 'primeng/chart';
+import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -190,10 +195,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
       CalenderbackcompComponent,
       AddperformanceComponent,
       ListperformanceComponent,
-      AddtownwithvenuesComponent,
+      AddtownwithvenuesComponent
       StatistiqueDanceStylePerYearsComponent,
       StatistiqueDanceStylePerMonthComponent,
-      FileUploadTicketDialogComponent
+      FileUploadTicketDialogComponent,
+      ListcompperformancesComponent,
+      ListtownsandvenuesComponent,
+      StatcompComponent,
+      SongsdetetctComponent
 
 
   ],
@@ -226,13 +235,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSnackBarModule,
     FontAwesomeModule,
     NgChartsModule,
-    CommonModule,
+    
     MatButtonModule,
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatDividerModule,
     MatProgressBarModule,
     MatSidenavModule,
+    ChartModule
   ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

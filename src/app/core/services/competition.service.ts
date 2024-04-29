@@ -50,7 +50,18 @@ export class CompetitionService {
   }
 
 
+
    getVenuePlanIdByCompetitionId(competitionId: number): Observable<number> {
-    return this.http.get<number>(`${this.baseUrl}/venue-plan-id/${competitionId}`);
+    return this.http.get<number>(`${this.baseUrl}/venue-plan-id/${competitionId}`);}
+
+  getCompetitionCountByDanceStyle(): Observable<Map<string, number>> {
+    const url = `${this.baseUrl}/statcountByDanceStyle`;
+    return this.http.get<Map<string, number>>(url);
   }
+
+  getNumberOfParticipantsPerCompetition(): Observable<Map<string, number>> {
+    const url = `${this.baseUrl}/statparticipants`;
+    return this.http.get<Map<string, number>>(url);
+  }
+  
 }
