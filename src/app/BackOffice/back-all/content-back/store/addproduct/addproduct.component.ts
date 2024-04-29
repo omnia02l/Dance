@@ -5,6 +5,7 @@ import { SizeType } from 'src/app/core/models/SizeType.model';
 import { CategoryService } from 'src/app/core/services/category.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { UcWidgetModule } from 'ngx-uploadcare-widget';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-addproduct',
@@ -23,7 +24,7 @@ export class AddproductComponent implements OnInit {
  // uploadedImageUrls: string = ''; // Changed to single string
  uploadedImageUrls: string[] = [];
 
-  constructor(private productService: ProductService, private categoryService: CategoryService) { }
+  constructor(private productService: ProductService, private categoryService: CategoryService,    private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.loadCategories();
@@ -136,6 +137,7 @@ export class AddproductComponent implements OnInit {
           this.productService.createProduct(this.product, categoryId).subscribe(
             (response) => {
               console.log('Product created successfully:', response);
+              this.showNotification('Product created successfully');
               // Reset form or perform other actions on success
             },
             (error) => {
@@ -158,6 +160,7 @@ export class AddproductComponent implements OnInit {
       this.productService.createProduct(this.product, categoryId).subscribe(
         (response) => {
           console.log('Product created successfully:', response);
+          this.showNotification('Product created successfully');
           // Reset form or perform other actions on success
         },
         (error) => {
@@ -184,5 +187,11 @@ export class AddproductComponent implements OnInit {
   handleUploadError(event: any) {
     console.error('Upload error:', event);
     // Handle upload error
+  }
+  
+  showNotification(message: string): void {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000, // Duration in milliseconds
+    });
   }
 }

@@ -46,10 +46,10 @@ export class ProductSalesComponent implements OnInit {
   selectedYear: number | null = null;
   //months: number[] = Array.from({ length: 12 }, (_, i) => i + 1); // Array of numbers from 1 to 12
   months = [
-    { name: 'January', value: 1 },
+    { name: 'January', value: "01" },
     { name: 'February', value: 2 },
     { name: 'Mars', value: 3 },
-    { name: 'Aoril', value: 4 },
+    { name: 'April', value: "04" },
     // Add other months as needed
   ];
 

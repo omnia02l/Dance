@@ -108,7 +108,7 @@ deleteProduct(productId: number): Observable<void> {
 
   getMostSoldProductsByMonthAndYear(month: number, year: number): Observable<Object[]> {
     const params = { month: month.toString(), year: year.toString() };
-    return this.http.get<Object[]>(`http://localhost:8085//order/mostsoldproducts`, { params });
+    return this.http.get<Object[]>(`http://localhost:8085/order/mostsoldproducts`, { params });
   }
   
 

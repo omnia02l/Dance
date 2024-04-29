@@ -120,6 +120,8 @@ import { ConfirmationComponent } from './front-office/front-all/content-front/st
     TicketCardComponent,
     VenuePlanDialogComponent,
     DiscountDialogComponent,
+   // MaterialFileInputeModule,
+   
     ConfirmationComponent,
     
   ],
