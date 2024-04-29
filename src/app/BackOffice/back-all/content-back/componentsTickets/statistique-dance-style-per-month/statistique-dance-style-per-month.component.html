@@ -1,19 +1,19 @@
-<p>statistique-dance-style-per-month works!</p>
+<div class="stats-container">
+  <p class="title">statistique-dance-style-per-month works!</p>
 
-<div class="year-selector">
-    <!-- Buttons to select a year; you can adjust the range as needed -->
-    <button (click)="onSelectYear(lastYear)">Last Year</button>
-    <button (click)="onSelectYear(currentYear)">This Year</button>
-
+  <div class="year-selector">
+    <!-- Buttons to select a year -->
+    <button class="year-btn" (click)="onSelectYear(lastYear)">Last Year</button>
+    <button class="year-btn" (click)="onSelectYear(currentYear)">This Year</button>
   </div>
-  
-<div class="chart-container">
-    <h3>Ticket Sales Statistics</h3>
-    
+
+  <div class="chart-container">
+    <h3 class="chart-title">Ticket Sales Statistics</h3>
     <canvas baseChart
             [options]="lineChartOptions"
             [datasets]="lineChartData"
+            [labels]="lineChartData"
             [type]="'line'">
     </canvas>
   </div>
-  
+</div>

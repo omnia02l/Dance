@@ -117,6 +117,7 @@ import { FileUploadTicketDialogComponent } from './front-office/front-all/conten
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
 
 @NgModule({
   declarations: [
@@ -193,7 +194,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
       AddtownwithvenuesComponent,
       StatistiqueDanceStylePerYearsComponent,
       StatistiqueDanceStylePerMonthComponent,
-      FileUploadTicketDialogComponent
+      FileUploadTicketDialogComponent,
+      SeatStatisticsComponent
 
 
   ],

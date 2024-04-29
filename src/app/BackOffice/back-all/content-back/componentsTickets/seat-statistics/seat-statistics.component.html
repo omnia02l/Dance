@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav" mode="over" position="start" opened="false">
+    
+    
+    </mat-sidenav>
+  
+    <mat-sidenav-content class="main-content">
+      <!-- Main content here -->
+      <div class="body">
+  <div class="theater-container">
+    <!-- Screen Direction -->
+    <div class="screen-direction">
+      <div class="screen">Écran</div>
+      <div class="screen-bar"></div>
+    </div>
+  
+    <!-- Seats Layout -->
+    <div class="seats-layout">
+      <!-- Generate seat rows dynamically -->
+      <div *ngFor="let row of seatNumbersByRow | keyvalue" class="seat-row">
+        <!-- Row label -->
+        <div class="seat-row-label">{{ row.key }}</div>
+        <!-- Seats in the row -->
+        <div class="seat-row-seats">
+          <!-- Generate seats dynamically -->
+          <!-- Generate seats dynamically with status classes -->
+            <div *ngFor="let seat of row.value" class="seat" 
+            [class.never-booked]="seat.status === 'never-booked'"
+            [class.booked-once]="seat.status === 'booked-once'"
+            [class.booked-more-than-once]="seat.status === 'booked-more-than-once'">
+            <mat-icon>event_seat</mat-icon>
+            <span class="seat-number">{{ seat.seatNumber }}</span>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  
+   
+  </div>
+  
+    </div>
+    </mat-sidenav-content>
+  
+  </mat-sidenav-container>
+  
+  

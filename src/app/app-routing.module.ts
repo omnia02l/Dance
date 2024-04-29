@@ -66,6 +66,7 @@ import { AddperformanceComponent } from './BackOffice/back-all/content-back/Comp
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
 
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
@@ -136,6 +137,7 @@ const routes: Routes = [
 
       { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
       { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
+      { path: 'seatnumberStat/:venuePlanId', component: SeatStatisticsComponent},
      
     ]
   },

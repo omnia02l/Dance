@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map } from 'rxjs';
 import { Place } from '../models/Place.model';
 import { SeatNumbersByRow } from '../models/seat-numbers-by-row';
+import { PlaceStatistics } from '../models/PlaceStatistics.model';
 
 
 @Injectable({
@@ -98,5 +99,10 @@ export class PlaceService {
     }
 
     return this.http.put<Place>(`${this.baseUrl}/togglePlaceSelection/${place.idPlace}`, place);
+  }
+
+  getPlaceStatistics(venuePlanId: number): Observable<PlaceStatistics> {
+
+    return this.http.get<PlaceStatistics>(`${this.baseUrl}/places/statistics/${venuePlanId}`);
   }
 }

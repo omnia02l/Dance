@@ -10,4 +10,6 @@ export class Place {
   isOccupied?: boolean;
   isSelected?: boolean;
   venuePlan?:VenuePlan;
+  bookingCoun?:number;
+  status?: string;
   }

@@ -8,7 +8,13 @@
   justify-content: center;
   align-items: center;
 }
-
+.page-container {
+  background-image: url('src/assets/FrontOffice/images/dynamic-portrait-young-man-woman-dancing-hiphop-isolated-black-background-with-mixed-lights-effect.jpg'); /* Remplacez le chemin par le chemin réel de votre image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 .permission-denied-message, .user-message {
   color: red;
   text-align: center;
