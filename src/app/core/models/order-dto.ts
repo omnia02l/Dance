@@ -5,4 +5,5 @@ export interface OrderDTO {
     cartItems: ShoppingCart[];
     customerEmail: string;
     customerName: string;
+    
 }

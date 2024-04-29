@@ -82,6 +82,7 @@ import { UcWidgetModule } from 'ngx-uploadcare-widget';
 import { QrScannerComponent } from './front-office/front-all/content-front/componentsTickets/qr-scanner/qr-scanner.component';
 import { PurchaseTransactionComponent } from './front-office/front-all/content-front/componentsTickets/purchase-transaction/purchase-transaction.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
 
 import { ListRegisttrationsComponent } from './BackOffice/back-all/content-back/CompetitionM/list-registtrations/list-registtrations.component';
 import { RegistrationDetailComponent } from './BackOffice/back-all/content-back/CompetitionM/registration-detail/registration-detail.component';
@@ -151,10 +152,8 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
     ProductSalesComponent,
     PaymentFormComponent,
     RecommendedProductsComponent,
-        UpdateCategoryComponent,
-
+    UpdateCategoryComponent,
     TheatrePlanListComponent,
-
     SeatSelectorComponent,
     PriceListComponent,
     TicketListComponent,
@@ -166,11 +165,13 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
     ReservationPlaceComponent,
     SeatNumbersComponent,
     TicketCardComponent,
-
     VenuePlanDialogComponent,
     DiscountDialogComponent,
     QrScannerComponent,
     PurchaseTransactionComponent,
+   // MaterialFileInputeModule,
+   
+    ConfirmationComponent,
     
 
     TrainingmanagementComponent,

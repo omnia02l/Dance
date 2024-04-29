@@ -51,4 +51,10 @@ import { Observable } from 'rxjs';
       const options = { headers: headers };
       return this.http.post<any>(url, options);
     }*/
+    
+  totalAmount = 0;
+  transactionID = "";
+
+  constructor() { }
+
   }

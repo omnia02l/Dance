@@ -66,6 +66,8 @@ import { AddperformanceComponent } from './BackOffice/back-all/content-back/Comp
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
+import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
+import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
 
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
@@ -83,6 +85,15 @@ const routes: Routes = [
     { path: 'listperformances', component: ListperformanceComponent },
     { path: 'Songsdetetct', component: SongsdetetctComponent },
 
+    {path:'produits',component: ProductListFrontComponent},
+    { path: 'shopcart', component: ShopcartComponent },
+    { path: 'file', component: FileUploaderComponent },
+{ path: 'recommended', component: RecommendedProductsComponent },  
+{ path: 'ReserverPlace', component: ReservationPlaceComponent},
+{ path: 'Place', component: SeatNumbersComponent},
+{ path: 'ticket-card/:userId', component: TicketCardComponent },
+{ path: 'payment', component: PaymentFormComponent },
+{ path: 'confirm', component: ConfirmationComponent },
 
 
     { path: 'ReserverPlace', component: ReservationPlaceComponent},
