@@ -195,7 +195,7 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
       CalenderbackcompComponent,
       AddperformanceComponent,
       ListperformanceComponent,
-      AddtownwithvenuesComponent
+      AddtownwithvenuesComponent,
       StatistiqueDanceStylePerYearsComponent,
       StatistiqueDanceStylePerMonthComponent,
       FileUploadTicketDialogComponent,

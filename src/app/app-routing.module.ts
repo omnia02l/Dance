@@ -95,58 +95,59 @@ const routes: Routes = [
 
 
 
-{
-    path: "admin", component: BackAllComponent, children: [
-      { path: 'products/add', component: AddproductComponent },
-      { path: 'products', component: ProductListComponent },
-      { path: 'products/update-product/:productId', component: UpdateProductComponent },
-      { path: 'products/:productId', component: ProductDetailComponent },
-      { path: 'categorys', component: CategoryListComponent },
-      { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
-      { path: 'ProductSales', component: ProductSalesComponent },
-      {path: 'account-management', component: AccountmanagementComponent},
+{path: "admin", component: BackAllComponent ,children:[
+  { path: 'products/add', component: AddproductComponent },
+  { path: 'products', component: ProductListComponent },
+  { path: 'products/update-product/:productId', component: UpdateProductComponent },
+  { path: 'products/:productId', component: ProductDetailComponent },
+  { path: 'categorys', component: CategoryListComponent },
+  { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
+  { path: 'ProductSales', component: ProductSalesComponent },
+  {path: 'account-management', component: AccountmanagementComponent},
 
-      {path: 'profile', component: ProfileComponent},
-      {path: 'training-management', component: TrainingmanagementComponent},
-      {path: 'dance-hall-management', component: DancehallComponent},
-      {path: 'training', component: TrainingComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'training-management', component: TrainingmanagementComponent},
+  {path: 'dance-hall-management', component: DancehallComponent},
+  {path: 'training', component: TrainingComponent},
 
-      
-      { path: 'list-registrations', component: ListRegisttrationsComponent },
-      { path: 'registration-detail/:registrationId', component: RegistrationDetailComponent },
-      { path: 'add-dancecategoryandstyle', component: AdddancecategoryandstyleComponent },
-      { path: 'list-dancecategoryandstyle', component: ListDancecategoriesandstylesComponent },
-      { path: 'add-dancestyle-to-category/:id', component: AddDancestyleToCategoryComponent },
-      { path: 'update-dancecategory/:id', component: UpdateDancecategoryComponent },
-      { path: 'add-competition', component: AddcompetitionComponent },
-      { path: 'list-comp', component: ListCompetitionsComponent },
-      { path: 'comp-details/:id', component: CompetitionDetailsComponent },
-      { path: 'update-comp/:id', component: UpdatecompComponent },
-      { path: 'list-teams-comp', component: ListTeamsCompComponent },
-      { path: 'list-teams-dancers', component: TeamDancersComponent },
-      { path: 'calendercompback', component: CalenderbackcompComponent },
-      { path: 'add-performance', component: AddperformanceComponent },
-      { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },,
-      { path: 'list-compperformances', component: ListcompperformancesComponent },
-      { path: 'list-townsandvenues', component: ListtownsandvenuesComponent },
-      { path: 'compstat', component: StatcompComponent },
+  
+  { path: 'list-registrations', component: ListRegisttrationsComponent },
+  { path: 'registration-detail/:registrationId', component: RegistrationDetailComponent },
+  { path: 'add-dancecategoryandstyle', component: AdddancecategoryandstyleComponent },
+  { path: 'list-dancecategoryandstyle', component: ListDancecategoriesandstylesComponent },
+  { path: 'add-dancestyle-to-category/:id', component: AddDancestyleToCategoryComponent },
+  { path: 'update-dancecategory/:id', component: UpdateDancecategoryComponent },
+  { path: 'add-competition', component: AddcompetitionComponent },
+  { path: 'list-comp', component: ListCompetitionsComponent },
+  { path: 'comp-details/:id', component: CompetitionDetailsComponent },
 
 
+  { path: 'update-comp/:id', component: UpdatecompComponent },
+  { path: 'list-teams-comp', component: ListTeamsCompComponent },
+  { path: 'list-teams-dancers', component: TeamDancersComponent },
+  { path: 'calendercompback', component: CalenderbackcompComponent },
+  { path: 'add-performance', component: AddperformanceComponent },
+  { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },
+  { path: 'list-compperformances', component: ListcompperformancesComponent },
+  { path: 'list-townsandvenues', component: ListtownsandvenuesComponent },
+  { path: 'compstat', component: StatcompComponent },
 
-      { path: 'VenuePlan', component: VenuePlanListComponent},
-      { path: 'theatre-reserve/:id', component: SeatSelectorComponent},
-      { path: 'Price', component: PriceListComponent},
-      { path: 'Ticket', component: TicketListComponent},
-      { path: 'TicketCard', component: TicketCardListComponent},
-      { path: 'PurchaseTransaction', component: PursacheTransactionListComponent},
-      { path: 'TicketScanner', component: TicketScannerListComponent},
-      { path: 'Place', component: PlaceListComponent},
 
-      { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
-      { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
+
+  { path: 'VenuePlan', component: VenuePlanListComponent},
+  { path: 'theatre-reserve/:id', component: SeatSelectorComponent},
+  { path: 'Price', component: PriceListComponent},
+  { path: 'Ticket', component: TicketListComponent},
+  { path: 'TicketCard', component: TicketCardListComponent},
+  { path: 'PurchaseTransaction', component: PursacheTransactionListComponent},
+  { path: 'TicketScanner', component: TicketScannerListComponent},
+  { path: 'Place', component: PlaceListComponent},
+
+  { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
+  { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
      
-    ]
-  },
+    ]}
+
 
  // {path: 'admin/categorys', component: CategoryListComponent},
  // {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
