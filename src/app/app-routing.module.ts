@@ -30,13 +30,18 @@ import { RegistrationDetailComponent } from './BackOffice/back-all/content-back/
 import { TeamDancersComponent } from './BackOffice/back-all/content-back/CompetitionM/team-dancers/team-dancers.component';
 import { UpdateDancecategoryComponent } from './BackOffice/back-all/content-back/CompetitionM/update-dancecategory/update-dancecategory.component';
 import { UpdatecompComponent } from './BackOffice/back-all/content-back/CompetitionM/updatecomp/updatecomp.component';
-
+import {EventComponent} from "./BackOffice/back-all/content-back/accountmanagement/event/event.component";
+import {MyeventComponent} from "./BackOffice/back-all/content-back/accountmanagement/myevent/myevent.component";
 import {
   TrainingmanagementComponent
 } from "./BackOffice/back-all/content-back/trainingmanagement/trainingmanagement/trainingmanagement.component";
 import {DancehallComponent} from "./BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component";
 import {TrainingComponent} from "./BackOffice/back-all/content-back/trainingmanagement/training/training.component";
-import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
+import {PostComponent} from "./BackOffice/back-all/content-back/trainingmanagement/post/post.component";
+import {AllpostsComponent} from "./BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component";
+import {HomeComponent} from "./BackOffice/back-all/content-back/auth/home/home.component";
+import {CoachComponent} from "./BackOffice/back-all/content-back/trainingmanagement/coach/coach.component";
+import {PbaComponent} from "./BackOffice/back-all/content-back/trainingmanagement/pba/pba.component";import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
 import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
 import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
 import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
@@ -102,66 +107,32 @@ const routes: Routes = [
 
     { path: 'purchase-transaction', component:PurchaseTransactionComponent  },
     { path: 'QrScanner', component: QrScannerComponent },
+    {path: 'my-events', component: MyeventComponent},
+  {path: 'training', component: TrainingComponent},
+  {path: 'post', component: PostComponent},
+  {path: 'all-post', component: AllpostsComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
     ]},
 
-
-
-{path: "admin", component: BackAllComponent ,children:[
-  { path: 'products/add', component: AddproductComponent },
-  { path: 'products', component: ProductListComponent },
-  { path: 'products/update-product/:productId', component: UpdateProductComponent },
-  { path: 'products/:productId', component: ProductDetailComponent },
-  { path: 'categorys', component: CategoryListComponent },
-  { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
-  { path: 'ProductSales', component: ProductSalesComponent },
-  {path: 'account-management', component: AccountmanagementComponent},
-
-  {path: 'profile', component: ProfileComponent},
-  {path: 'training-management', component: TrainingmanagementComponent},
-  {path: 'dance-hall-management', component: DancehallComponent},
-  {path: 'training', component: TrainingComponent},
-
-  
-  { path: 'list-registrations', component: ListRegisttrationsComponent },
-  { path: 'registration-detail/:registrationId', component: RegistrationDetailComponent },
-  { path: 'add-dancecategoryandstyle', component: AdddancecategoryandstyleComponent },
-  { path: 'list-dancecategoryandstyle', component: ListDancecategoriesandstylesComponent },
-  { path: 'add-dancestyle-to-category/:id', component: AddDancestyleToCategoryComponent },
-  { path: 'update-dancecategory/:id', component: UpdateDancecategoryComponent },
-  { path: 'add-competition', component: AddcompetitionComponent },
-  { path: 'list-comp', component: ListCompetitionsComponent },
-  { path: 'comp-details/:id', component: CompetitionDetailsComponent },
-
-
-  { path: 'update-comp/:id', component: UpdatecompComponent },
-  { path: 'list-teams-comp', component: ListTeamsCompComponent },
-  { path: 'list-teams-dancers', component: TeamDancersComponent },
-  { path: 'calendercompback', component: CalenderbackcompComponent },
-  { path: 'add-performance', component: AddperformanceComponent },
-  { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },
-  { path: 'list-compperformances', component: ListcompperformancesComponent },
-  { path: 'list-townsandvenues', component: ListtownsandvenuesComponent },
-  { path: 'compstat', component: StatcompComponent },
-
-
-
-  { path: 'VenuePlan', component: VenuePlanListComponent},
-  { path: 'theatre-reserve/:id', component: SeatSelectorComponent},
-  { path: 'Price', component: PriceListComponent},
-  { path: 'Ticket', component: TicketListComponent},
-  { path: 'TicketCard', component: TicketCardListComponent},
-  { path: 'PurchaseTransaction', component: PursacheTransactionListComponent},
-  { path: 'TicketScanner', component: TicketScannerListComponent},
-  { path: 'Place', component: PlaceListComponent},
-
-  { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
-  { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
+  {
+    path: "admin", component: BackAllComponent, children: [
+      {path: 'products/add-product', component: AddproductComponent},
+      {path: 'products', component: ProductListComponent},
+      {path: 'products/update-product/:productId', component: UpdateProductComponent},
+      {path: 'products/:productId', component: ProductDetailComponent},
+      {path: 'account-management', component: AccountmanagementComponent},
+    
+      {path: 'profile', component: ProfileComponent},
+      {path: 'training-management', component: TrainingmanagementComponent},
+      {path: 'dance-hall-management', component: DancehallComponent},
+      {path: 'training', component: TrainingComponent},
      
-    ]}
+    ]
+  },
 
-
- // {path: 'admin/categorys', component: CategoryListComponent},
- // {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
+  {path: 'admin/categorys', component: CategoryListComponent},
+  {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
 //{ path: 'refresh', redirectTo: '', pathMatch: 'full' },
 ];
 

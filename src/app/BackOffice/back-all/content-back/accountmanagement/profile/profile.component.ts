@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MessageService} from "primeng/api";
+import {MenuItem, MessageService} from "primeng/api";
 import {AccountService} from "../../../../../core/services/account.service";
 import {UserDTO} from "../../../../../core/models/userDTO";
 import {EditProfileRequest} from "../../../../../core/models/editProfileRequest";
@@ -21,9 +21,17 @@ export class ProfileComponent implements OnInit {
   editProfileRequest: EditProfileRequest = {};
   message!: string;
   updatePasswordRequest: UpdatePasswordRequest = {};
-
+  items: MenuItem[];
   constructor(private accountService: AccountService, private messageService: MessageService) {
     this.getPrincipal();
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
+    ];
   }
 
   ngOnInit(): void {
