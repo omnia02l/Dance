@@ -133,20 +133,10 @@
     z-index: 1000; /* Ensure the button is above all other content */
   }
   
-  /* Existing styles for .theater-container, .screen-direction, .seat, etc. */
-  .never-booked {
-    /* Sélectionnez une couleur claire pour les sièges jamais réservés, comme le gris clair */
-    background-color: #cccccc; 
-  }
-  
-  .booked-once {
-    /* Choisissez une couleur qui indique une utilisation légère, comme un bleu doux */
-    background-color: #add8e6; 
-  }
-  
-  .booked-more-than-once {
-    /* Utilisez une couleur plus intense pour montrer une plus grande fréquence, comme le vert foncé */
-    background-color: #006400; 
-  }
-  
-  
+ /* ... autres styles ... */
+
+/* ... autres styles ... */
+.never-booked { background-color: #cccccc; }
+.booked-once { background-color: #add8e6; }
+.booked-more-than-once { background-color: #006400; }
+

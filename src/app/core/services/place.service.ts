@@ -103,6 +103,6 @@ export class PlaceService {
 
   getPlaceStatistics(venuePlanId: number): Observable<PlaceStatistics> {
 
-    return this.http.get<PlaceStatistics>(`${this.baseUrl}/places/statistics/${venuePlanId}`);
+    return this.http.get<PlaceStatistics>(`${this.baseUrl}/statistics/${venuePlanId}`);
   }
 }

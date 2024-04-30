@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Place } from 'src/app/core/models/Place.model';
 import { PlaceStatistics } from 'src/app/core/models/PlaceStatistics.model';
@@ -10,89 +10,76 @@ import { PlaceService } from 'src/app/core/services/place.service';
   templateUrl: './seat-statistics.component.html',
   styleUrls: ['./seat-statistics.component.css']
 })
-
-export class SeatStatisticsComponent {
+export class SeatStatisticsComponent implements OnInit {
   seatNumbersByRow: { [key: string]: Place[] } = {};
-  venuePlanId = Number(this.route1.snapshot.paramMap.get('venuePlanId'));
+  venuePlanId: number;
   placeStatistics: PlaceStatistics | null = null;
+  placeStatusById: { [id: number]: string } = {};
 
-  constructor(private placeService: PlaceService,
+  constructor(
+    private placeService: PlaceService,
     private route1: ActivatedRoute,
-    private cdr: ChangeDetectorRef,
-  ){}
-
-  ngOnInit(): void {
-   
-    
-    this.route1.paramMap.subscribe(params => {
-      const id = params.get('venuePlanId');
-      if (id) {
-        this.venuePlanId = Number(id);
-        this.refreshSeatNumbers(this.venuePlanId);
-    console.log(this.venuePlanId);
-    this.refreshSeatNumbers(this.venuePlanId); // Start refreshing seat numbers for planId 1
-      } else { 
-        console.log(this.venuePlanId);
-      }
-
-  });
+    private cdr: ChangeDetectorRef
+  ) {
+    this.venuePlanId = Number(this.route1.snapshot.paramMap.get('venuePlanId'));
   }
 
+  ngOnInit(): void {
+    this.loadPlaceStatistics(this.venuePlanId);
+  }
 
+  private loadPlaceStatistics(planId: number): void {
+    this.placeService.getPlaceStatistics(planId).subscribe({
+      next: (stats) => {
+        this.placeStatistics = stats;
+        this.createStatusMapping(stats);
+        this.refreshSeatNumbers(planId); // Assurez-vous que cette fonction est appelée après le mapping.
+      },
+      error: (err) => console.error('Error loading place statistics:', err)
+    });
+  }
 
   private refreshSeatNumbers(planId: number): void {
     this.placeService.getSeatNumbersByRow(planId).subscribe({
       next: (seatData: any) => {
         this.transformSeatData(seatData);
-        // Après la transformation des données des sièges, récupérer les statistiques
-        this.loadPlaceStatistics(planId);
+        this.applyStatisticsToSeats();
+        this.cdr.detectChanges(); // Force la détection de changement après la mise à jour
       },
       error: (error) => console.error('Error fetching seat numbers:', error)
     });
   }
-  private loadPlaceStatistics(planId: number): void {
-    this.placeService.getPlaceStatistics(planId).subscribe({
-      next: (stats) => {
-        this.placeStatistics = stats;
-        this.applyStatisticsToSeats();
-      },
-      error: (err) => console.error('Error loading place statistics:', err)
+
+  private createStatusMapping(stats: PlaceStatistics): void {
+    stats.neverBooked.forEach(place => this.placeStatusById[place.idPlace!] = 'never-booked');
+    stats.bookedOnce.forEach(place => this.placeStatusById[place.idPlace!] = 'booked-once');
+    stats.bookedMoreThanOnce.forEach(place => this.placeStatusById[place.idPlace!] = 'booked-more-than-once');
+  }
+
+  private applyStatisticsToSeats(): void {
+    Object.keys(this.seatNumbersByRow).forEach(row => {
+      this.seatNumbersByRow[row].forEach(seat => {
+        if (seat.idPlace && this.placeStatusById[seat.idPlace]) {
+          seat.status = this.placeStatusById[seat.idPlace];
+          console.log(`Seat ${seat.seatNumber} status: ${seat.status}`); // Log pour vérifier les statuts
+        }
+      });
     });
   }
-  private applyStatisticsToSeats(): void {
-    if (this.placeStatistics) {
-      for (let row in this.seatNumbersByRow) {
-        this.seatNumbersByRow[row].forEach(seat => {
-          if (this.placeStatistics!.neverBooked.some(p => p.seatNumber === seat.seatNumber)) {
-            seat.status = 'never-booked';
-          } else if (this.placeStatistics!.bookedOnce.some(p => p.seatNumber === seat.seatNumber)) {
-            seat.status = 'booked-once';
-          } else if (this.placeStatistics!.bookedMoreThanOnce.some(p => p.seatNumber === seat.seatNumber)) {
-            seat.status = 'booked-more-than-once';
-          }
-        });
-      }
-    }
-    this.cdr.detectChanges();
-  }
-      
-    
+
   private transformSeatData(data: { [row: string]: Array<{ seatNumber: string, idPlace?: number }> }): void {
     const transformedData: SeatNumbersByRow = {};
+    Object.entries(data).forEach(([row, seats]) => {
+      transformedData[row] = seats.map(seat => ({ ...seat }));
+    });
+    this.seatNumbersByRow = transformedData;
+  }
 
-// Assume data structure to be the same as provided by the backend:
-// { [row: string]: Array<{ seatNumber: string, isSelected: boolean, isOccupied: boolean }> }
-Object.entries(data).forEach(([row, seatInfos]: [string, Array<{ seatNumber: string }>]) => {
-  transformedData[row] = seatInfos.map(seatInfo => ({
-    
-    seatNumber: seatInfo.seatNumber,
-    row: row, 
-  }));
-});
+  trackByRow(index: number, item: any): any {
+    return item.key;
+  }
 
-this.seatNumbersByRow = transformedData;
-this.cdr.detectChanges(); // If needed to trigger change detection
+  trackBySeat(index: number, item: any): any {
+    return item.idPlace;
+  }
 }
-
-}
-
