@@ -35,16 +35,24 @@ import {DropdownModule} from "primeng/dropdown";
 import {DataViewModule} from "primeng/dataview";
 import {AuthInterceptor} from "./core/services/Auth.interceptor";
 import { ProfileComponent } from './BackOffice/back-all/content-back/accountmanagement/profile/profile.component';
+import { EventComponent } from './BackOffice/back-all/content-back/accountmanagement/event/event.component';
 import {CalendarModule} from "primeng/calendar";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {MultiSelectModule} from "primeng/multiselect";
+import { MyeventComponent } from './BackOffice/back-all/content-back/accountmanagement/myevent/myevent.component';
 import { TrainingmanagementComponent } from './BackOffice/back-all/content-back/trainingmanagement/trainingmanagement/trainingmanagement.component';
 import {FullCalendarModule} from "@fullcalendar/angular";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import {InputNumberModule} from "primeng/inputnumber";
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
+import { PostComponent } from './BackOffice/back-all/content-back/trainingmanagement/post/post.component';
+import { AllpostsComponent } from './BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component';
 import {TabMenuModule} from "primeng/tabmenu";
 import {ChartModule} from "primeng/chart";
+import {RatingModule} from "primeng/rating";
+import { CoachComponent } from './BackOffice/back-all/content-back/trainingmanagement/coach/coach.component';
+import {FileUploadModule} from "primeng/fileupload";
+import { PbaComponent } from './BackOffice/back-all/content-back/trainingmanagement/pba/pba.component';
 
 @NgModule({
   declarations: [
@@ -67,34 +75,42 @@ import {ChartModule} from "primeng/chart";
     UpdateCategoryComponent,
     AccountmanagementComponent,
     ProfileComponent,
+    EventComponent,
+    MyeventComponent,
     TrainingmanagementComponent,
     DancehallComponent,
     TrainingComponent,
+    PostComponent,
+    AllpostsComponent,
+    CoachComponent,
+    PbaComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    ButtonModule,
-    ToastModule,
-    ToolbarModule,
-    RippleModule,
-    TableModule,
-    InputTextModule,
-    DataViewModule,
-    DialogModule,
-    InputMaskModule,
-    DropdownModule,
-    CalendarModule,
-    InputTextareaModule,
-    MultiSelectModule,
-    FullCalendarModule,
-    InputNumberModule,
-    TabMenuModule,
-    ChartModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        ButtonModule,
+        ToastModule,
+        ToolbarModule,
+        RippleModule,
+        TableModule,
+        InputTextModule,
+        DataViewModule,
+        DialogModule,
+        InputMaskModule,
+        DropdownModule,
+        CalendarModule,
+        InputTextareaModule,
+        MultiSelectModule,
+        FullCalendarModule,
+        InputNumberModule,
+        TabMenuModule,
+        ChartModule,
+        RatingModule,
+        FileUploadModule
+    ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

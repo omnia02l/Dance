@@ -78,7 +78,7 @@
         </a>
       </li>
 
-      <li class="menu-item">
+      <li class="menu-item"  *ngIf="role === 'admin'">
         <a routerLink="/admin/account-management" class="menu-link">
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <div data-i18n="Basic">Account management</div>
@@ -86,7 +86,21 @@
         </a>
       </li>
 
+      <li class="menu-item"  *ngIf="role === 'admin'">
+        <a routerLink="/admin/event-management" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Event management</div>
 
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/my-events" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">My events</div>
+
+        </a>
+      </li>
 
       <li class="menu-item">
         <a routerLink="/admin/profile" class="menu-link">
@@ -120,7 +134,29 @@
         </a>
       </li>
 
+      <li class="menu-item">
+        <a routerLink="/admin/coach-management" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Coach management</div>
 
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/post" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">My posts</div>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/post" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">All posts</div>
+
+        </a>
+      </li>
 
       <!-- Layouts -->
       <li class="menu-item">
