@@ -51,7 +51,7 @@ import { TrainingComponent } from './BackOffice/back-all/content-back/trainingma
 import { PostComponent } from './BackOffice/back-all/content-back/trainingmanagement/post/post.component';
 import { AllpostsComponent } from './BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component';
 import {TabMenuModule} from "primeng/tabmenu";
-import {ChartModule} from "primeng/chart";
+
 import {RatingModule} from "primeng/rating";
 import { CoachComponent } from './BackOffice/back-all/content-back/trainingmanagement/coach/coach.component';
 import {FileUploadModule} from "primeng/fileupload";
@@ -211,7 +211,7 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
       ListcompperformancesComponent,
       ListtownsandvenuesComponent,
       StatcompComponent,
-      SongsdetetctComponent
+      SongsdetetctComponent,
 
 PostComponent,
     AllpostsComponent,
