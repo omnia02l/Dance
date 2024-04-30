@@ -4,7 +4,11 @@
   <p>End Date: {{ competitionPerformance.enddate | date:'shortDate' }}</p>
 
   <ul class="performances-list">
-    <button mat-button (click)="openDialog()">Open Upload Dialog</button>
+    <button mat-button (click)="openDialog()" class="ticket-button">
+      <mat-icon>confirmation_number</mat-icon> <!-- Vous pouvez changer l'icône ici -->
+    </button>
+    
+    
     <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
       <h4>{{ performance.perftitle }}</h4>
       <p>Performance Date: {{ performance.perfdate | date:'shortDate' }}</p>

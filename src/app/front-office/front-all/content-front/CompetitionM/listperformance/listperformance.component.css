@@ -49,3 +49,25 @@
   color: #888;
   margin-bottom: 8px;
 }
+.ticket-button {
+  background-color: #c7b0ee; /* Lilas */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px; /* Augmentez le padding si nécessaire */
+  transition: background-color 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ticket-button mat-icon {
+  font-size: 24px;
+  text-shadow: 0 0 3px #fff; /* Ajouter une ombre légère pour la rendre plus lisible */
+}
+
+
+.ticket-button:hover {
+  background-color: #9c27b0; /* Mauve lors du survol */
+}
+
