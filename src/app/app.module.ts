@@ -38,17 +38,24 @@ import { CategoryListComponent } from './BackOffice/back-all/content-back/store/
 import { AccountmanagementComponent } from './BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component';
 import {AuthInterceptor} from "./core/services/Auth.interceptor";
 import { ProfileComponent } from './BackOffice/back-all/content-back/accountmanagement/profile/profile.component';
-
+import { EventComponent } from './BackOffice/back-all/content-back/accountmanagement/event/event.component';
 import { CalendarModule } from "primeng/calendar";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { MultiSelectModule } from "primeng/multiselect";
-
+import { MyeventComponent } from './BackOffice/back-all/content-back/accountmanagement/myevent/myevent.component';
 import { FullCalendarModule } from "@fullcalendar/angular";
 import { NgChartsModule } from 'ng2-charts';
 import { InputNumberModule } from "primeng/inputnumber";
 import { DancehallComponent } from './BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component';
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
-import { TheatrePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/theatre-plan-list/theatre-plan-list.component';
+import { PostComponent } from './BackOffice/back-all/content-back/trainingmanagement/post/post.component';
+import { AllpostsComponent } from './BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component';
+import {TabMenuModule} from "primeng/tabmenu";
+
+import {RatingModule} from "primeng/rating";
+import { CoachComponent } from './BackOffice/back-all/content-back/trainingmanagement/coach/coach.component';
+import {FileUploadModule} from "primeng/fileupload";
+import { PbaComponent } from './BackOffice/back-all/content-back/trainingmanagement/pba/pba.component';import { TheatrePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/theatre-plan-list/theatre-plan-list.component';
 import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
 import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
 import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
@@ -173,7 +180,8 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
    
     ConfirmationComponent,
     
-
+ EventComponent,
+    MyeventComponent,
     TrainingmanagementComponent,
     DancehallComponent,
     TrainingComponent,
@@ -203,34 +211,41 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
       ListcompperformancesComponent,
       ListtownsandvenuesComponent,
       StatcompComponent,
-      SongsdetetctComponent
+      SongsdetetctComponent,
 
-
+PostComponent,
+    AllpostsComponent,
+    CoachComponent,
+    PbaComponent,
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    ButtonModule,
-    ToastModule,
-    ToolbarModule,
-    RippleModule,
-    TableModule,
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+            ButtonModule,
+        ToastModule,
+        ToolbarModule,
+        RippleModule,
+        TableModule,
     FormsModule,
-    InputTextModule,
-    DataViewModule,
-    DialogModule,
-    InputMaskModule,
-    DropdownModule,
-    CalendarModule,
+        InputTextModule,
+        DataViewModule,
+        DialogModule,
+        InputMaskModule,
+        DropdownModule,
+        CalendarModule,
     MatCardModule,
     MatIconModule,
-    InputTextareaModule,
-    MultiSelectModule,
-    FullCalendarModule,
+        InputTextareaModule,
+        MultiSelectModule,
+        FullCalendarModule,
     UcWidgetModule,
-    InputNumberModule,
+        InputNumberModule,
+        TabMenuModule,
+        ChartModule,
+        RatingModule,
+        FileUploadModule,
     ReactiveFormsModule,
     MatDialogModule,
     MatSnackBarModule,
@@ -244,7 +259,7 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
     MatProgressBarModule,
     MatSidenavModule,
     ChartModule
-  ],
+    ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

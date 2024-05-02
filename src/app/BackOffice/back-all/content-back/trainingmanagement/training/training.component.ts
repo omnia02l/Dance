@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {MessageService} from "primeng/api";
+import {MenuItem, MessageService} from "primeng/api";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import {TrainingService} from "../../../../../core/services/training.service";
@@ -20,8 +20,19 @@ export class TrainingComponent implements OnInit {
   trainingResponse: TrainingResponse = {};
   participationStatus!: boolean;
   message!: string;
-
+  items: MenuItem[];
+  categories:string[];
+  getWithCategory!: string;
   constructor(private messageService: MessageService, private trainingService: TrainingService) {
+    this.categories = ['A','B','C','D'];
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
+    ];
     this.listTraining();
     this.options = {
       initialView: 'dayGridMonth',
@@ -120,5 +131,16 @@ export class TrainingComponent implements OnInit {
         this.listTraining();
       }
     });
+  }
+
+  getListWithCategory() {
+    this.trainingService.listTrainingWithCategory(this.getWithCategory).subscribe({
+      next: (data) => {
+        this.options.events=data;
+        this.listTrainings = data;
+      }, error: (err) => {
+        this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error', life: 3000});
+      }
+    })
   }
 }

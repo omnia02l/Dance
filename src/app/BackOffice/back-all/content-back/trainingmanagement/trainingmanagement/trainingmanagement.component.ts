@@ -10,6 +10,8 @@ import {
   UpdateTrainingDatesRequest,
   UpdateTrainingRequest
 } from "../../../../../core/models/Training";
+import {Stats} from "../../../../../core/models/stats";
+import {TrainingStatsWithCat} from "../../../../../core/models/TrainingStatsWithCat";
 
 @Component({
   selector: 'app-trainingmanagement',
@@ -19,12 +21,19 @@ import {
 })
 export class TrainingmanagementComponent implements OnInit {
 
+  optionsChart:any;
+  optionsChart2:any;
+  stats!:Stats;
+  data: any;
+  data2: any;
   options: any;
+  statsWithCat:TrainingStatsWithCat = {};
   currentDate = new Date();
   addTrainingDialog = false;
   submitted = false;
   coachesNames!: string[]
   hallsNames!: string[]
+  categories!: string[]
   newTraining: Training = {};
   message!: string
   listTrainings:Training[]=[];
@@ -37,7 +46,10 @@ export class TrainingmanagementComponent implements OnInit {
   trainingToUpdate!: number;
   updateTrainingDialog: boolean=false;
   updatedTrainingInformation:UpdateTrainingRequest={};
+  getWithCategory!:string;
   constructor(private trainingService: TrainingService, private messageService: MessageService) {
+    this.categories = ['A','B','C','D'];
+    this.getStats();
     this.listTraining();
     this.options = {
       initialView: 'dayGridMonth',
@@ -61,6 +73,7 @@ export class TrainingmanagementComponent implements OnInit {
     };
     this.listCoaches();
     this.listHallsNames();
+    this.getStatsWithCat();
   }
 
   ngOnInit(): void {
@@ -199,4 +212,98 @@ export class TrainingmanagementComponent implements OnInit {
       });
     }
   }
+
+
+
+  getStats(){
+    this.trainingService.getStats().subscribe({
+      next:(data)=>{
+        this.stats=data;
+        this.data = {
+          labels: ['FULL','AVAILABLE'],
+          datasets: [
+            {
+              data: [this.stats.full,this.stats.available],
+              backgroundColor: [
+                "#800080",
+                "#0000FF"
+              ],
+              hoverBackgroundColor: [
+                "#800080",
+                "#0000FF"
+              ]
+            }
+          ]
+        };
+        this.optionsChart = {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Total Number of Training : '+ this.stats.total,
+              fontSize: 25
+            },
+            legend: {
+              position: 'top'
+            }
+          }
+        };
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
+  getListWithCategory() {
+    this.trainingService.listTrainingWithCategory(this.getWithCategory).subscribe({
+      next: (data) => {
+        this.options.events=data;
+        this.listTrainings = data;
+      }, error: (err) => {
+        this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error', life: 3000});
+      }
+    })
+  }
+
+  getStatsWithCat(){
+    this.trainingService.getStatsWithCat().subscribe({
+      next:(data)=>{
+        this.statsWithCat=data;
+        this.data2 = {
+          labels: ['A','B','c','d'],
+          datasets: [
+            {
+              data: [this.statsWithCat.withA,this.statsWithCat.withB,this.statsWithCat.withC,this.statsWithCat.withD],
+              backgroundColor: [
+                "#800080",
+                "#996665",
+                "#524412",
+                "#0000FF"
+              ],
+              hoverBackgroundColor: [
+                "#800080",
+                "#996665",
+                "#524412",
+                "#0000FF"
+              ]
+            }
+          ]
+        };
+        this.optionsChart2 = {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Training Details',
+              fontSize: 25
+            },
+            legend: {
+              position: 'top'
+            }
+          }
+        };
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+
 }

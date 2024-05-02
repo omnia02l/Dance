@@ -4,6 +4,7 @@ import {AccountService} from "../../../../../core/services/account.service";
 import {MessageService} from "primeng/api";
 import {Table} from "primeng/table";
 import {SignupRequest} from "../../../../../core/models/signupRequest";
+import {AccountStatusStats} from "../../../../../core/models/AccountStatusStats";
 
 @Component({
   selector: 'app-accountmanagement',
@@ -21,6 +22,9 @@ export class AccountmanagementComponent implements OnInit {
   submitted: boolean = false;
   signupRequest: SignupRequest = {};
   option!: string[];
+  accontStatusStats: AccountStatusStats ={};
+  data:any;
+  optionsChart:any;
 
   constructor(private accountService: AccountService, private messageService: MessageService) {
     this.option = ['admin', 'jury', 'dancer', 'school', 'registred_user','coach'];
@@ -28,6 +32,7 @@ export class AccountmanagementComponent implements OnInit {
 
   ngOnInit(): void {
     this.getListAccounts();
+    this.getAccountStatusStats();
   }
 
   onGlobalFilter(table: Table, event: Event) {
@@ -87,5 +92,44 @@ export class AccountmanagementComponent implements OnInit {
         }
       });
     }
+  }
+
+  getAccountStatusStats(){
+    this.accountService.getAccountStatusStats().subscribe({
+      next:(data)=>{
+        this.accontStatusStats=data;
+        let total = this.accontStatusStats.enable! + this.accontStatusStats.disable!;
+        this.data = {
+          labels: ['DISABLE','ENABLE'],
+          datasets: [
+            {
+              data: [this.accontStatusStats.disable,this.accontStatusStats.enable],
+              backgroundColor: [
+                "#800080",
+                "#0000FF"
+              ],
+              hoverBackgroundColor: [
+                "#800080",
+                "#0000FF"
+              ]
+            }
+          ]
+        };
+        this.optionsChart = {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Total Number of Accounts : '+ total,
+              fontSize: 25
+            },
+            legend: {
+              position: 'top'
+            }
+          }
+        };
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
   }
 }
