@@ -27,7 +27,8 @@
 
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
                       <div class="col-md-2 col-lg-2 col-xl-2">
-                        <img [src]="item.product?.image" class="img-fluid rounded-3" alt="{{ item.product?.title }}">
+                        <img *ngIf="item.product?.['imagestore']" [src]="item.product?.['imagestore'].imageUrl" class="img-fluid rounded-3" alt="{{ item.product?.title }}">
+                        
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
                         <h6 class="text-muted">Product</h6>

@@ -1,30 +1,98 @@
-
+<!-- 
 
 <h2>Our Products</h2>
 <div class="row">
-  <!-- Loop through each product in the products array -->
   <div class="col-md-4" *ngFor="let product of products">
     <div class="card mb-4 shadow-sm">
-      <!-- Display the product image -->
-      <img class="card-img-top" [src]="product.image" alt="{{ product.title }}">
+      <div class="card mb-3" *ngIf="product.image">
+        <img src="{{ product?.image?.imageUrl }}" class="card-img-top" alt="Image 1" style="max-height: 100px;">
+
+    </div>
       <div class="card-body">
-        <!-- Display the product title -->
         <h5 class="card-title">{{ product.title }}</h5>
-        <!-- Display the product description -->
         <p class="card-text">{{ product.description }}</p>
-        <!-- Display the product price -->
         <p class="card-text">Price: {{ product.price | currency }}</p>
-        <!-- Optionally, add more product details here -->
-        <!-- Display buttons or links for actions like view details, add to cart, etc. -->
+       
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
             <a [routerLink]="['/admin/products', product.productId]">View Details</a>
-<!--             <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
- -->          </div>
-          <!-- Display the product quantity -->
+         </div>
           <small class="text-muted">Quantity: {{ product.quantity }}</small>
         </div>
       </div>
     </div>
   </div>
 </div>
+ -->
+
+<!-- 
+
+ <h2>Our Products</h2>
+ <p>If you see this, the component is loading</p>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let product of products">
+    <div class="card mb-4 shadow-sm">
+      <div class="card mb-3" *ngIf="product.image">
+        <img [src]="product.image?.imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 100px;">
+        <img [src]="getSanitizedUrl(product.image?.imageUrl || '')" class="card-img-top" alt="{{ product.title }}">
+
+
+        <div>Debug URL: {{ product.image?.imageUrl }}</div> 
+
+      </div>
+      <div class="card-body">
+        <div class="card mb-3" *ngIf="product.image">
+          <img [src]="product.image.imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 100px;">
+      </div>
+      
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+        <p class="card-text">Price: {{ product.price | currency }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="btn-group">
+            <a [routerLink]="['/admin/products', product.productId]" class="btn btn-sm btn-outline-secondary">View Details</a>
+          </div>
+          <small class="text-muted">Quantity: {{ product.quantity }}</small>
+          <div>Debug: Products loaded {{ products.length }}</div>
+          <h2>Testing Static Content</h2>
+          <div class="card mb-3" *ngIf="product.image">
+            <img [src]="product.image.imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 100px;">
+        </div>
+                  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+
+
+ <h2>Our Products</h2>
+ <p>If you see this, the component is loading</p>
+ 
+ <div class="row">
+   <div class="col-md-4" *ngFor="let product of products">
+     <div class="card-container">
+       <div class="card mb-4 shadow-sm" style="width: 300px; height: 400px; overflow-y: auto;">
+         <div class="card mb-3" *ngIf="product['imagestore']">
+           <img [src]="product['imagestore'].imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 200px; max-width: 200px; object-fit: contain;">
+         </div>
+ 
+         <div class="card-body">
+           <h5 class="card-title">{{ product.title }}</h5>
+           <p class="card-text">{{ product.description }}</p>
+           <p class="card-text">Price: {{ product.price | currency }}</p>
+           <div class="d-flex justify-content-between align-items-center">
+             <div class="btn-group">
+               <a [routerLink]="['/admin/products', product.productId]" class="btn btn-sm btn-outline-secondary">View Details</a>
+             </div>
+             <small class="text-muted">Quantity: {{ product.quantity }}</small>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+ </div>
+ 
