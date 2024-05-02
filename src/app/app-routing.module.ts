@@ -117,7 +117,7 @@ const routes: Routes = [
 
   {
     path: "admin", component: BackAllComponent, children: [
-      {path: 'products/add-product', component: AddproductComponent},
+      {path: 'products/add', component: AddproductComponent},
       {path: 'products', component: ProductListComponent},
       {path: 'products/update-product/:productId', component: UpdateProductComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
@@ -127,12 +127,12 @@ const routes: Routes = [
       {path: 'training-management', component: TrainingmanagementComponent},
       {path: 'dance-hall-management', component: DancehallComponent},
       {path: 'training', component: TrainingComponent},
-     
+      { path: 'categorys', component: CategoryListComponent },
+      { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
+      { path: 'ProductSales', component: ProductSalesComponent },
     ]
   },
 
-  {path: 'admin/categorys', component: CategoryListComponent},
-  {path: 'admin/category/update/:categoryId', component: UpdateCategoryComponent},
 //{ path: 'refresh', redirectTo: '', pathMatch: 'full' },
 ];
 
