@@ -251,14 +251,14 @@ PostComponent,
     MatSnackBarModule,
     FontAwesomeModule,
     NgChartsModule,
-    
+    CommonModule,
     MatButtonModule,
+    
     MatFormFieldModule,
     MatProgressSpinnerModule,
     MatDividerModule,
     MatProgressBarModule,
     MatSidenavModule,
-    ChartModule
     ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

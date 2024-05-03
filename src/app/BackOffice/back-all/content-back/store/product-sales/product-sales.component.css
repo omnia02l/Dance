@@ -8,10 +8,7 @@
     margin-right: 10px; /* Adjust the space between cards as needed */
   }
   
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  
   
   
   .product-card:hover {
@@ -58,4 +55,4 @@
   .load-button:hover {
     background-color: #0056b3;
   }
-  
+ 
