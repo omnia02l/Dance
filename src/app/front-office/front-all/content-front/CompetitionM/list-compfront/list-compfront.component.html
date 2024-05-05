@@ -13,8 +13,12 @@
               <strong>Style:</strong> {{ competition.style }}
             </p>
             <button *ngIf="competition.idcomp !== undefined" (click)="registerForCompetition(competition.idcomp)" class="btn btn-success">Register</button>
-            <button mat-button (click)="openDialog()">Open Upload Dialog</button>
-            <button (click)="viewVenuePlan(competition.idcomp!  )" class="btn btn-info">View Venue Plan</button>
+            
+         
+            <button pButton (click)="viewVenuePlan(competition.idcomp!)" style="color: #0D47A1;" class="p-button-rounded p-button-text">
+              <fa-icon [icon]="faTicketAlt" size="2x"></fa-icon>
+            </button>
+
 
             <button (click)="viewCompetitionDetails(competition.idcomp)" class="btn btn-primary">View Details</button>
           </div>

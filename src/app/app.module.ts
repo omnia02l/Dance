@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { MatTableModule } from '@angular/material/table';
 import { FrontAllComponent } from './front-office/front-all/front-all.component';
 import { FooterFrontComponent } from './front-office/front-all/footer-front/footer-front.component';
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
@@ -23,7 +23,7 @@ import { ToastModule } from "primeng/toast";
 import { ToolbarModule } from "primeng/toolbar";
 import { BackAllComponent } from './BackOffice/back-all/back-all.component';
 
-
+import { TabMenuModule } from 'primeng/tabmenu';
 import { NavbarComponent } from './BackOffice/back-all/navbar/navbar.component';
 import { SidebarComponent } from './BackOffice/back-all/sidebar/sidebar.component';
 import { FooterBackComponent } from './BackOffice/back-all/footer-back/footer-back.component';
@@ -50,13 +50,12 @@ import { DancehallComponent } from './BackOffice/back-all/content-back/trainingm
 import { TrainingComponent } from './BackOffice/back-all/content-back/trainingmanagement/training/training.component';
 import { PostComponent } from './BackOffice/back-all/content-back/trainingmanagement/post/post.component';
 import { AllpostsComponent } from './BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component';
-import {TabMenuModule} from "primeng/tabmenu";
 
 import {RatingModule} from "primeng/rating";
 import { CoachComponent } from './BackOffice/back-all/content-back/trainingmanagement/coach/coach.component';
 import {FileUploadModule} from "primeng/fileupload";
 import { PbaComponent } from './BackOffice/back-all/content-back/trainingmanagement/pba/pba.component';import { TheatrePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/theatre-plan-list/theatre-plan-list.component';
-import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
+
 import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
 import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
 import { TicketCardListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-card-list/ticket-card-list.component';
@@ -125,7 +124,12 @@ import { FileUploadTicketDialogComponent } from './front-office/front-all/conten
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
-
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
+import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
+import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
+import { OccupancyDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/occupancy-dialog/occupancy-dialog.component';
+import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
+import { MatTabsModule } from '@angular/material/tabs';
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
 import { ChartModule } from 'primeng/chart';
@@ -164,7 +168,7 @@ import { MenubarModule } from 'primeng/menubar';
     RecommendedProductsComponent,
     UpdateCategoryComponent,
     TheatrePlanListComponent,
-    SeatSelectorComponent,
+  
     PriceListComponent,
     TicketListComponent,
     TicketCardListComponent,
@@ -208,9 +212,15 @@ import { MenubarModule } from 'primeng/menubar';
       AddperformanceComponent,
       ListperformanceComponent,
       AddtownwithvenuesComponent,
-      StatistiqueDanceStylePerYearsComponent,
       StatistiqueDanceStylePerMonthComponent,
       FileUploadTicketDialogComponent,
+      SeatStatisticsComponent,
+      TicketPerCompetitionStatisticsComponent,
+
+      TicketKpiCopetitionStatComponent,
+      FrontTemplateComponent,
+      OccupancyDialogComponent,
+      StaisticMultiViewComponent,
       ListcompperformancesComponent,
       ListtownsandvenuesComponent,
       StatcompComponent,
@@ -256,7 +266,6 @@ PostComponent,
     MatDialogModule,
     MatSnackBarModule,
     FontAwesomeModule,
-    NgChartsModule,
     CommonModule,
     MatButtonModule,
     
@@ -265,6 +274,15 @@ PostComponent,
     MatDividerModule,
     MatProgressBarModule,
     MatSidenavModule,
+    NgChartsModule,
+ 
+    MatTableModule,
+    MatTabsModule,
+   
+    MenubarModule ,
+  
+   
+    TabMenuModule,
     ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]

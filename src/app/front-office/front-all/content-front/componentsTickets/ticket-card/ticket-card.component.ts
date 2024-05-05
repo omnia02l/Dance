@@ -9,7 +9,7 @@ import { TicketService } from 'src/app/core/services/ticket.service';
 import { AccountService } from 'src/app/core/services/account.service';
 import { MatDialog } from '@angular/material/dialog';
 import { DiscountDialogComponent } from '../discount-dialog/discount-dialog.component';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-ticket-card',
   templateUrl: './ticket-card.component.html',
@@ -30,7 +30,8 @@ export class TicketCardComponent implements OnInit {
     public ticketService: TicketService,
     private accountService: AccountService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private location: Location
     
 
   ) {this.price = new Price();}
@@ -58,7 +59,9 @@ export class TicketCardComponent implements OnInit {
   }
 
     
-    
+  goBack(): void {
+    this.location.back();  // Correct usage of the Location service's back method
+  }
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({
         next: (data) => {
@@ -99,9 +102,8 @@ export class TicketCardComponent implements OnInit {
     }
   
     
-    goBack(): void {
-      this.router.navigate(['/Place']); // Use the navigate method with the path as an argument
-    }
+  
+
     openDiscountDialog(): void {
       const dialogRef = this.dialog.open(DiscountDialogComponent, {
         width: '300px',

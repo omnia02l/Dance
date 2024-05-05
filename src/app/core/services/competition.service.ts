@@ -4,6 +4,7 @@ import { Competition } from '../models/Competition';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GenderstatDTO } from '../models/GenderstatDTO';
+import { TicketKpiDTO } from '../models/TicketKpiDTO';
 
 
 @Injectable({
@@ -52,7 +53,8 @@ export class CompetitionService {
 
 
    getVenuePlanIdByCompetitionId(competitionId: number): Observable<number> {
-    return this.http.get<number>(`${this.baseUrl}/venue-plan-id/${competitionId}`);}
+    return this.http.get<number>(`${this.baseUrl}/venue-plan-id/${competitionId}`);
+  }
 
   getCompetitionCountByDanceStyle(): Observable<Map<string, number>> {
     const url = `${this.baseUrl}/statcountByDanceStyle`;
@@ -64,4 +66,7 @@ export class CompetitionService {
     return this.http.get<Map<string, number>>(url);
   }
   
+  getAllCompetitionStats(): Observable<TicketKpiDTO[]> {
+    return this.http.get<TicketKpiDTO[]>(`${this.baseUrl}/statsKpiTicket`);
+  }
 }

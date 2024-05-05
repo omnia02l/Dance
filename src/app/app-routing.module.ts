@@ -41,8 +41,10 @@ import {PostComponent} from "./BackOffice/back-all/content-back/trainingmanageme
 import {AllpostsComponent} from "./BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component";
 import {HomeComponent} from "./BackOffice/back-all/content-back/auth/home/home.component";
 import {CoachComponent} from "./BackOffice/back-all/content-back/trainingmanagement/coach/coach.component";
-import {PbaComponent} from "./BackOffice/back-all/content-back/trainingmanagement/pba/pba.component";import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
+import {PbaComponent} from "./BackOffice/back-all/content-back/trainingmanagement/pba/pba.component";
 import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
+import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
+
 import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
 import { TicketListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-list/ticket-list.component';
 import { TicketCardListComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-card-list/ticket-card-list.component';
@@ -73,6 +75,11 @@ import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/co
 import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
 import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
 import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
+import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
+
+import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
+import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
 
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
@@ -133,8 +140,44 @@ const routes: Routes = [
       { path: 'categorys', component: CategoryListComponent },
       { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
       { path: 'ProductSales', component: ProductSalesComponent },
+
+      
+      { path: 'list-registrations', component: ListRegisttrationsComponent },
+      { path: 'registration-detail/:registrationId', component: RegistrationDetailComponent },
+      { path: 'add-dancecategoryandstyle', component: AdddancecategoryandstyleComponent },
+      { path: 'list-dancecategoryandstyle', component: ListDancecategoriesandstylesComponent },
+      { path: 'add-dancestyle-to-category/:id', component: AddDancestyleToCategoryComponent },
+      { path: 'update-dancecategory/:id', component: UpdateDancecategoryComponent },
+      { path: 'add-competition', component: AddcompetitionComponent },
+      { path: 'list-comp', component: ListCompetitionsComponent },
+      { path: 'comp-details/:id', component: CompetitionDetailsComponent },
+      { path: 'update-comp/:id', component: UpdatecompComponent },
+      { path: 'list-teams-comp', component: ListTeamsCompComponent },
+      { path: 'list-teams-dancers', component: TeamDancersComponent },
+      { path: 'calendercompback', component: CalenderbackcompComponent },
+      { path: 'add-performance', component: AddperformanceComponent },
+      { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },
+
+
+      { path: 'VenuePlan', component: VenuePlanListComponent},
+      { path: 'Price', component: PriceListComponent},
+      { path: 'Ticket', component: TicketListComponent},
+      { path: 'TicketCard', component: TicketCardListComponent},
+      { path: 'PurchaseTransaction', component: PursacheTransactionListComponent},
+      { path: 'TicketScanner', component: TicketScannerListComponent},
+      { path: 'Place', component: PlaceListComponent},
+
+      { path: 'statdancestyleticket', component: StatistiqueDanceStylePerYearsComponent},
+      { path: 'statdancestyleticketpermonth', component: StatistiqueDanceStylePerMonthComponent},
+      { path: 'seatnumberStat/:venuePlanId', component: SeatStatisticsComponent},
+      { path: 'ticketPerCompetitionStat', component: TicketPerCompetitionStatisticsComponent},
+      { path: 'CompetitionKPI', component: TicketKpiCopetitionStatComponent},
+      { path: 'totStat', component: StaisticMultiViewComponent},
+
+
     ]
   },
+  { path: 'Home', component:FrontTemplateComponent},
 
 //{ path: 'refresh', redirectTo: '', pathMatch: 'full' },
 ];

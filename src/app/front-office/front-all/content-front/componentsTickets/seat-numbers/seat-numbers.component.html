@@ -3,13 +3,60 @@
     <!-- Content of your sidebar -->
     <div class="sidebar-content">
       <h3>Menu</h3>
-      <!-- Add your navigation items here -->
+      <div *ngIf="competition" class="card">
+        <div class="content">
+          <h2>{{ competition.compname }}</h2>
+          <p>{{ competition.cdescreption }}</p>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Start Date:</strong></td>
+                <td>{{ competition.startdate | date }}</td>
+              </tr>
+              <tr>
+                <td><strong>End Date:</strong></td>
+                <td>{{ competition.enddate | date }}</td>
+              </tr>
+              <tr>
+                <td><strong>Registration Deadline:</strong></td>
+                <td>{{ competition.regisdeadline | date }}</td>
+              </tr>
+              <tr>
+                <td><strong>Number of Dancers:</strong></td>
+                <td>{{ competition.nbdancers }}</td>
+              </tr>
+              <tr>
+                <td><strong>Fees per Participant:</strong></td>
+                <td>{{ competition.feesperparticipant }}</td>
+              </tr>
+              <tr>
+                <td><strong>Age Group:</strong></td>
+                <td>{{ competition.ageg }}</td>
+              </tr>
+              <tr>
+                <td><strong>Competition Status:</strong></td>
+                <td>{{ competition.compstatus }}</td>
+              </tr>
+              <tr>
+                <td><strong>Style:</strong></td>
+                <td>{{ competition.style }}</td>
+              </tr>
+              <tr>
+                <td><strong>Dance Category:</strong></td>
+                <td>{{ competition.dancecateg?.categdname }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
     </div>
+  </div>
   </mat-sidenav>
 
   <mat-sidenav-content class="main-content">
     <!-- Main content here -->
     <div class="body">
+
+ 
 <div class="theater-container">
   <!-- Screen Direction -->
   <div class="screen-direction">
@@ -42,6 +89,12 @@
   <div class="action-buttons">
     <button mat-raised-button class="confirm-btn" (click)="confirmSelectedPlaces()">Confirm Selection</button>
   </div>
+  <div class="action-buttons">
+    <button class="custom-btn" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
 </div>
 
     <!-- Floating Action Button for sidebar -->
@@ -49,6 +102,8 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
+  
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>

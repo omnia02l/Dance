@@ -60,7 +60,7 @@ export class FileUploadTicketDialogComponent {
             const scannedTickets = results.filter(result => result !== null);
             if (scannedTickets.length > 0) {
               this.dialogRef.close();
-              this.router.navigate(['/Place']);
+              this.router.navigate(['/admin']);
             } else {
               this.isUploading = false;
               this.dialogRef.close();

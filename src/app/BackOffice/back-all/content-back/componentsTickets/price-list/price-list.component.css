@@ -1,10 +1,37 @@
-/* Dans votre fichier price-list.component.css */
+.add-btn, .submit-btn {
+  background-color: #A8043C;
+  border-color: #A8043C;
+}
 
-.new-price-row input, .new-price-row select {
-    background-color: #e8f0fe; /* Une couleur légère pour les champs de la nouvelle ligne */
-  }
-  
-  .new-price-row {
-    font-weight: bold; /* Optionnel, pour mettre en évidence la nouvelle ligne */
-  }
-  
+.add-btn:hover, .submit-btn:hover {
+  background-color: #8B0026;
+  border-color: #8B0026;
+}
+
+.edit-btn {
+  background-color: #660019;
+  border-color: #660019;
+}
+
+.edit-btn:hover {
+  background-color: #4D0013;
+  border-color: #4D0013;
+}
+
+.delete-btn, .cancel-btn {
+  background-color: #33000C;
+  border-color: #33000C;
+}
+
+.delete-btn:hover, .cancel-btn:hover {
+  background-color: #001F3F;
+  border-color: #001F3F;
+}
+
+.form-select, .form-input {
+  border-color: #33000C;
+}
+
+.form-select:focus, .form-input:focus {
+  border-color: #001F3F;
+}

@@ -8,26 +8,18 @@
     </div>
     <div class="card-body">
 
-      <ul class="performances-list">
-        <ng-container *ngIf="competitionPerformance.performances && competitionPerformance.performances.length > 0; else noPerformances">
-          <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
-            <div class="performance-header">
-              <h5>Performance: {{ performance.perftitle }}</h5>
-              <span class="date-badge">
-                {{ performance.perfdate | date:'shortDate' }} {{ performance.starttime | date:'HH:mm' }} - {{ performance.endtime | date:'HH:mm' }}
-              </span>
-            </div>
-            <div class="performance-details">
-              <p>Description: {{ performance.pdescreption }}</p>
-            </div>
-          </li>
-        </ng-container>
-        <ng-template #noPerformances>
-          <li class="no-performances-item red-text">
-            No performances have been added yet.
-          </li>
-        </ng-template>
-      </ul>
-    </div>
-  </div>
+  <ul class="performances-list">
+    <button mat-button (click)="openDialog()">Open Upload Dialog</button>
+    <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
+      <h4>{{ performance.perftitle }}</h4>
+      <p>Performance Date: {{ performance.perfdate | date:'shortDate' }}</p>
+      <p>Description: {{ performance.pdescreption }}</p>
+      <p>Start Time: {{ performance.starttime }}</p>
+      <p>End Time: {{ performance.endtime }}</p>
+      <button mat-icon-button (click)="openDialog()" style="color: #0D47A1;">
+        <mat-icon>how_to_vote</mat-icon> <!-- This assumes you are using a Material Icon named 'how_to_vote' -->
+      </button>
+
+    </li>
+  </ul>
 </div>

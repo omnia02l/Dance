@@ -14,13 +14,13 @@
   
   /* CSS pour l'état du bouton lorsqu'il est survolé */
   .custom-btn:hover {
-    background-color: orange;
+    background-color:#a8043c ;
     color: white;
   }
   
   /* CSS pour l'état du bouton lorsqu'il est actif ou sélectionné */
   .custom-btn:active, .custom-btn.selected {
     background-color: white;
-    color: orange;
+    color: #a8043c;
   }
   

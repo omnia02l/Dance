@@ -3,6 +3,7 @@ import { Html5Qrcode } from 'html5-qrcode';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AccountService } from 'src/app/core/services/account.service';
 import { TicketService } from 'src/app/core/services/ticket.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-qr-scanner',
@@ -18,7 +19,8 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
   constructor(
     private snackBar: MatSnackBar,
     private accountService: AccountService,
-    private ticketService: TicketService
+    private ticketService: TicketService,
+    private router: Router
   ) {}
 
   ngAfterViewInit(): void {
@@ -41,6 +43,7 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
     }
     this.isScanning = true;
     this.html5QrcodeScanner.start(
+      
       { facingMode: "environment" },
       { fps: 10, qrbox: { width: 250, height: 250 } },
       (decodedText, decodedResult) => this.onQrCodeSuccess(decodedText, decodedResult),
@@ -73,7 +76,7 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
                         this.snackBar.open('Ticket already scanned.', 'Close', { duration: 5000 });
                     }else if(error.status === 200){
                       this.snackBar.open(`Ticket processed successfully: ${refTicket}`, 'Close', { duration: 5000 });
-
+                      this.ngOnDestroy;
                     } else {
                         this.displayError(`Failed to process the ticket: ${error.error}`);
                     }
@@ -97,6 +100,7 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
       this.html5QrcodeScanner.stop().catch((err) => {
         console.error(`Error stopping the scanner: ${err}`);
         this.isScanning = false;
+        this.router.navigate(['/admin']);
       });
     }
   }

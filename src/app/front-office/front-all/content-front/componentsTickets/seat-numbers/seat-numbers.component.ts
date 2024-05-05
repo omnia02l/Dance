@@ -3,14 +3,16 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Competition } from 'src/app/core/models/Competition';
 import { Place } from 'src/app/core/models/Place.model';
 
 import { SeatNumbersByRow } from 'src/app/core/models/seat-numbers-by-row';
 import { TicketCard } from 'src/app/core/models/ticket-card.model';
 import { AccountService } from 'src/app/core/services/account.service';
+import { CompetitionService } from 'src/app/core/services/competition.service';
 import { PlaceService } from 'src/app/core/services/place.service';
 import { TicketCardService } from 'src/app/core/services/ticket-card.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-seat-numbers',
   templateUrl: './seat-numbers.component.html',
@@ -23,7 +25,7 @@ export class SeatNumbersComponent implements OnInit {
   selectedPlaceIds: number[] = [];
   ticketCard: TicketCard | null = null;
   userId: number | null = null;
-
+  competition!: Competition;
   venuePlanId = Number(this.route1.snapshot.paramMap.get('venuePlanId'));
   competitionId = Number(this.route1.snapshot.paramMap.get('competitionId'));
   constructor(private placeService: PlaceService,
@@ -31,11 +33,15 @@ export class SeatNumbersComponent implements OnInit {
     private accountService: AccountService,
     private cdr: ChangeDetectorRef,
     private route: Router,
-    private route1: ActivatedRoute) {}
+    private route1: ActivatedRoute,
+    private competitionService: CompetitionService,
+    private location: Location) {}
 
 
 
     ngOnInit(): void {
+      console.log("hetha",this.competitionId)
+      this.loadCompetitionDetails(this.competitionId);
       this.route1.paramMap.subscribe(params => {
         const id = params.get('venuePlanId');
         if (id) {
@@ -49,6 +55,9 @@ export class SeatNumbersComponent implements OnInit {
       console.log(this.venuePlanId);
       }
     });
+    }
+    goBack(): void {
+      this.location.back();  // Correct usage of the Location service's back method
     }
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({
@@ -238,6 +247,15 @@ shouldDisableConfirmButton(): boolean {
   return this.selectedSeats.length === 0 || this.selectedSeats.some(seat => seat.idPlace === undefined || !seat.isSelected);
 }
 
-
+loadCompetitionDetails(competitionId: number) {
+  this.competitionService.getCompetitionById(competitionId).subscribe(
+    competition => {
+      this.competition = competition;
+    },
+    error => {
+      console.log('Error fetching competition details:', error);
+    }
+  );
+}
 
 }

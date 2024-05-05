@@ -15,5 +15,7 @@ export class Ticket {
     selectedTrancheAge?: TrancheAge;
     qrCodeBase64?: string;
     scanned?: boolean ;
+    rowLabel?: string;
+    seatNumber?: string;
    
 }  
