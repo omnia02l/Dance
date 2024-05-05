@@ -19,7 +19,8 @@ export class SidebarComponent {
     { label: 'Dashboard', icon: 'pi pi-fw pi-home', routerLink: ['/'] ,
       items: [
         { label: 'Competition Sales', icon: 'pi pi-fw pi-building', routerLink: ['/admin/totStat'] },
-       
+        { label: 'Product Sales', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/ProductSales'] },
+        { label: 'Competition stat ', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/compstat'] },
       ]
     },
     {
@@ -54,10 +55,22 @@ export class SidebarComponent {
         { label: 'Products', icon: 'pi pi-fw pi-building', routerLink: ['/admin/products'] },
         { label: 'Products Add', icon: 'pi pi-fw pi-sitemap', routerLink: ['/admin/products/add'] },
         { label: 'Categories', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/categorys'] },
-        { label: 'Product Sales', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/ProductSales'] },
+       
       ]
     },
-    
+    {
+      label: 'Competition & Registration', icon: 'pi pi-fw pi-cog', 
+      items: [
+        { label: 'Registrations', icon: 'pi pi-fw pi-building', routerLink: ['/admin/list-registrations'] },
+        { label: 'Dance categories', icon: 'pi pi-fw pi-sitemap', routerLink: ['/admin/list-dancecategoryandstyle'] },
+        { label: 'Competitions', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/list-comp'] },
+        { label: 'Towns&venues', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/list-townsandvenues'] },
+       
+        { label: 'Teams in competitions', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/list-comp'] },
+        { label: 'Dancers in teams', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/list-teams-dancers'] },
+       
+      ]
+    },
     
   ];
 
