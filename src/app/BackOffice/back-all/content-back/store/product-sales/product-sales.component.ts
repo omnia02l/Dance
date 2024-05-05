@@ -65,7 +65,17 @@ export class ProductSalesComponent implements OnInit {
   currentYear = new Date().getFullYear();
   years = Array.from({ length: 5 }, (_, index) => this.currentYear - index);
   constructor(private productService: ProductService, private categoryService: CategoryService, private http: HttpClient, private route: ActivatedRoute) { }
+  showOrdersPopupFlag: boolean = false;
 
+  // Function to show the orders popup
+  showOrdersPopup(): void {
+    this.showOrdersPopupFlag = true;
+  }
+
+  // Function to close the orders popup
+  closeOrdersPopup(): void {
+    this.showOrdersPopupFlag = false;
+  }
   ngOnInit(): void {
     // Define your start and end dates here, replace these with actual dates
     const currentDate = new Date();

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MenuItem } from 'primeng/api';
 import { Product } from 'src/app/core/models/Product.model';
 import { CartItem } from 'src/app/core/models/cart-item';
 import { OrderDTO } from 'src/app/core/models/order-dto';
@@ -7,7 +8,11 @@ import { AccountService } from 'src/app/core/services/account.service';
 import { ProductService } from 'src/app/core/services/product.service';
 import { SharedstoreService } from 'src/app/core/services/sharedstore.service';
 import { ShoppingCartService } from 'src/app/core/services/shopping-cart.service';
-
+interface OrderRequest {
+  orderDescription: string;
+  cartItems: CartItem[];
+  customerEmail: string;
+  customerName: string;}
 @Component({
   selector: 'app-shopcart',
   templateUrl: './shopcart.component.html',
@@ -22,8 +27,23 @@ export class ShopcartComponent implements OnInit {
   notificationMessage: string = '';
   notificationType: string = 'success';
   recommendedItems: Product[] = [];
+ // items: MenuItem[];
   constructor(private productService: ProductService, private shoppingCartService: ShoppingCartService,    private router: Router,private sharedService: SharedstoreService ,private accountService: AccountService // Inject AccountService
-  ) { }
+  ) { 
+   /*  this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] },
+      { label: 'Store', icon: 'pi pi-credit-card', routerLink: ['/produits'] },
+      { label: 'Cart Item', icon: 'pi pi-shopping-cart', routerLink: ['/shopcart'] },
+      { label: 'Payement', icon: 'pi pi-fw pi-cog', routerLink: ['/payment'] },
+      { label: 'My Orders', icon: 'pi pi-shopping-bag', routerLink: ['/myorders'] },
+    ]; */
+  }
+
 
   ngOnInit(): void {
     // Fetch products
@@ -35,7 +55,10 @@ export class ShopcartComponent implements OnInit {
         console.error('Error fetching products:', error);
       }
     );
-
+    this.sharedService.totalCartPrice$.subscribe(price => {
+      this.totalCartPrice = price;
+    });
+  
     // Subscribe to cart items
     this.shoppingCartService.getCartItems().subscribe(
       (cartItems: CartItem[]) => {
@@ -101,39 +124,19 @@ export class ShopcartComponent implements OnInit {
     this.totalCartPrice = this.cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
 
-  // Placeholder method for placing order
- /* placeOrder(): void {
-    const orderDTO: OrderDTO = {
-      orderDescription: 'Description of the order', // Replace with actual order description
-      cartItems: this.cartItems,
-      customerEmail: 'customer@example.com', // Replace with actual customer email
-      customerName: 'John Doe' // Replace with actual customer name
-    };
-    
-    this.shoppingCartService.placeOrder(orderDTO).subscribe(
-      (response) => {
-        console.log('Order placed successfully:', response);
-        // Optionally, clear the cart items or perform any other action upon successful order placement
-      },
-      (error) => {
-        console.error('Error placing order:', error);
-        // Handle error accordingly
-      }
-    );
-  }
-*/
+ 
 placeOrder(): void {
   // Fetch user's information from session
   this.accountService.getPrincipal().subscribe(
     (user) => {
-      const orderDTO: OrderDTO = {
+      const orderRequest: OrderRequest = {
         orderDescription: 'Description of the order', // Replace with actual order description
         cartItems: this.cartItems,
         customerEmail: user.email, // Use user's email
         customerName: user.userName // Use user's username
       };
       
-      this.shoppingCartService.placeOrder(orderDTO).subscribe(
+      this.shoppingCartService.placeOrder(orderRequest).subscribe(
         (response) => {
           console.log('Order placed successfully:', response);
           // Optionally, clear the cart items or perform any other action upon successful order placement
@@ -161,33 +164,11 @@ placeOrder(): void {
   calculateTotalPrice(item: CartItem): number {
     return item.price * item.quantity;
   }
- /* showNotification(message: string, type: string = 'success'): void {
-    this.notificationMessage = message;
-    this.notificationType = type;
-    this.showNotification = true;
-  }*/
-
-  // Method to hide notification
+ 
   hideNotification(): void {
     this.showNotification = false;
     this.notificationMessage = '';
     this.notificationType = 'success'; // Reset notification type to default
   }
-  /*loadRecommendedItems(): void {
-    // Fetch recommended items from ProductService or any other service
-    this.productService.getRecommendedItems().subscribe(items => {
-      this.recommendedItems = items;
-    });
-  }
 
-  loadCartItems(): void {
-    // Fetch cart items from ShoppingCartService or any other service
-    this.shoppingCartService.getCartItems().subscribe(items => {
-      this.cartItems = items;
-      // Calculate total cart price
-      this.totalCartPrice = this.calculateTotalCartPrice();
-    });
-  }
-
-*/
 }

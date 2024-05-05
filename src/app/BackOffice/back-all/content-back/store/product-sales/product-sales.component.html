@@ -1,70 +1,52 @@
 <div>
-  <h2>Orders Between Dates</h2>
-  <ul>
-    <li *ngFor="let order of orders">
-      {{ order.id }} - {{ order.date | date }} - {{ order.total | currency:'USD':'symbol':'1.2-2' }}
-    </li>
-  </ul>
-  <select [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()">
-      <option value="" disabled>Select a Category</option>
-      <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
-    </select>
-    
-    <div *ngIf="topProducts.length > 0">
-      <h2>Top 5 Selling Products for Category: {{ selectedCategoryName }}</h2>
-      <div class="product-list">
-        <mat-card *ngFor="let product of topProducts"
-                  class="product-card"
-                  [@zoomIn]="product['zoomState']"
-                  (mouseenter)="onMouseEnter(product)"
-                  (mouseleave)="onMouseLeave(product)">
-          <mat-card-header>
-            <mat-card-title>{{ product.title }}</mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>Price: {{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
-            <p>Total Sales Quantity: {{ product.totalSalesQuantity }}</p>
-            <p>Total Revenue: {{ product.totalRevenue | currency:'USD':'symbol':'1.2-2' }}</p>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
-    <div *ngIf="topProducts.length === 0 && selectedCategoryId">
-      <p>No products found for this category.</p>
-    </div>
-    <div *ngIf="!selectedCategoryId">
-      <p>Please select a category to view top selling products.</p>
-    </div>
-</div>
-<div>
-  <input type="date" [(ngModel)]="startDate">
-  <input type="date" [(ngModel)]="endDate">
-  <button (click)="getOrdersBetweenDates()">Get Orders</button>
-
-  <div *ngIf="orders">
-    <p>Total Orders: {{ orders.length }}</p>
-    <p>Total Amount: {{ totalAmount }}</p>
-  </div>
-</div>
-<div>
+ 
+  
 
 <div>
-  <h2>Most Sold Products</h2>
-  <div>
-    <label for="month">Select Month:</label>
-    <select id="month" [(ngModel)]="selectedMonth">
-      <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
-    </select>
-  </div>
-  <div>
-    <label for="year">Select Year:</label>
-    <select id="year" [(ngModel)]="selectedYear">
-      <option *ngFor="let year of years" [value]="year">{{ year }}</option>
-    </select>
-  </div>
-  <button (click)="loadMostSoldProducts()">Load Most Sold Products</button>
-</div>
-<div>
+  <h2>Number of Ordres Placed</h2>
+ 
   <p-chart type="line" [data]="data" [options]="options"></p-chart>
 
+</div>
+<!-- Update your component template with the following HTML code -->
+<div class="order-section">
+  <p class="section-title">Get orders Between Dates</p>
+  <div class="input-group">
+    <input type="date" [(ngModel)]="startDate" class="date-input">
+    <input type="date" [(ngModel)]="endDate" class="date-input">
+    <button (click)="getOrdersBetweenDates()" class="get-orders-btn">Get Orders</button>
+  </div>
+
+  <div *ngIf="orders" class="orders-info">
+    <p class="total-orders">Total Orders: {{ orders.length }}</p>
+    <p class="total-amount">Total Amount: {{ totalAmount }}</p>
+  </div>
+</div>
+<!-- Update your component template with the following HTML code -->
+<div class="category-section">
+  <select [(ngModel)]="selectedCategoryId" (change)="onCategoryChange()" class="category-select">
+    <option value="" disabled>Select a Category</option>
+    <option *ngFor="let category of categories" [value]="category.categoryId">{{ category.name }}</option>
+  </select>
+  
+  <div *ngIf="topProducts.length > 0" class="top-products">
+    <h2 class="top-products-title">Top 5 Selling Products for Category: {{ selectedCategoryName }}</h2>
+    <div class="product-list">
+      <div *ngFor="let product of topProducts" class="product-card" [@fadeInUp]>
+        <div class="product-details">
+          <h3 class="product-title">{{ product.title }}</h3>
+          <img [src]="product['imagestore'].imageUrl" class="product-image" alt="{{ product.title }}">
+          <p class="product-price">Price: {{ product.price | currency:'USD':'symbol':'1.2-2' }}</p>
+          <p class="product-quantity">Total Sales Quantity: {{ product.totalSalesQuantity }}</p>
+          <p class="product-revenue">Total Revenue: {{ product.totalRevenue | currency:'USD':'symbol':'1.2-2' }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="topProducts.length === 0 && selectedCategoryId" class="no-products">
+    <p>No products found for this category.</p>
+  </div>
+  <div *ngIf="!selectedCategoryId" class="no-category">
+    <p>Please select a category to view top selling products.</p>
+  </div>
 </div>

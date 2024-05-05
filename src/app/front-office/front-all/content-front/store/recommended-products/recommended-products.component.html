@@ -8,7 +8,7 @@
           <div class="recommended-products" [@swipeAnimation]="currentIndex">
             <!-- Loop through each recommended product in the recommendedProducts array -->
             <div class="product-card" *ngFor="let product of recommendedProducts; let i = index" (click)="viewProductDetails(product)" @hoverAnimation>
-              <img class="product-image" [src]="product.image" alt="{{ product.title }}">
+              <img [src]="product['imagestore'].imageUrl" class="card-img-top" alt="{{ product.title }}" style="max-height: 200px; max-width: 200px; object-fit: contain;">
               <div class="product-details">
                 <h5 class="product-title">{{ product.title }}</h5>
                 <p class="product-description">{{ product.description }}</p>

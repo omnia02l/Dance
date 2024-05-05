@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/core/models/Category.model';
 import { CategoryService } from 'src/app/core/services/category.service';
 
@@ -15,6 +15,8 @@ export class UpdateCategoryComponent  {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
+
     private categoryService: CategoryService
   ) { this.categoryId = 0; // Initialize to a default value if necessary
   this.category= new Category(); // Initialize to an empty category object if necessary 
@@ -48,5 +50,8 @@ export class UpdateCategoryComponent  {
         // Optionally, handle the error gracefully (e.g., show error message to the user)
       }
     );
+  }
+  goBack() {
+    this.router.navigate(['/admin/categorys']);
   }
 }

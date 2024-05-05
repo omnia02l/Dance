@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/core/models/Product.model';
 import { ProductService } from 'src/app/core/services/product.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MenuItem } from 'primeng/api';
 interface SearchCriteria {
   title: string;
   inStock: boolean;
@@ -19,8 +20,22 @@ export class ProductListComponent implements OnInit {
   filteredProducts: Product[] = []; // Array to hold filtered products
   showNotificationFlag: boolean = false; // Rename the property to avoid conflict
   notificationMessage: string = '';
-  notificationType: string = 'success';
-  constructor(private sanitizer: DomSanitizer, private productService: ProductService) { }
+  notificationType: string = 'success';  items: MenuItem[];
+
+  constructor(private sanitizer: DomSanitizer, private productService: ProductService) { 
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] },
+      { label: 'Store', icon: 'pi pi-credit-card', routerLink: ['/produits'] },
+      { label: 'Cart Item', icon: 'pi pi-shopping-cart', routerLink: ['/shopcart'] },
+      { label: 'Payement', icon: 'pi pi-fw pi-cog', routerLink: ['/payment'] },
+      { label: 'My Orders', icon: 'pi pi-shopping-bag', routerLink: ['/myorders'] },
+    ];
+  }
 
 getSanitizedUrl(url: string) {
   return this.sanitizer.bypassSecurityTrustUrl(url);

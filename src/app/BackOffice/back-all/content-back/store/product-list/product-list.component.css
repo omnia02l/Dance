@@ -42,4 +42,8 @@
   .notification.warning {
     background-color: #ffc107; /* Yellow background for warning */
   }
+  .center-img {
+    display: block;
+    margin: 0 auto;
+  }
   

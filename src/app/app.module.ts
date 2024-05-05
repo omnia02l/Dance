@@ -131,6 +131,9 @@ import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/
 import { ChartModule } from 'primeng/chart';
 import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
+import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
+import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
+import { MenubarModule } from 'primeng/menubar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -217,6 +220,8 @@ PostComponent,
     AllpostsComponent,
     CoachComponent,
     PbaComponent,
+    MyOrdersComponent,
+    FrontTemplateComponent,
   ],
     imports: [
         BrowserModule,
@@ -227,6 +232,7 @@ PostComponent,
         ToastModule,
         ToolbarModule,
         RippleModule,
+        MenubarModule ,
         TableModule,
     FormsModule,
         InputTextModule,

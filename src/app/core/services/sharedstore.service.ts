@@ -9,7 +9,9 @@ export class SharedstoreService {
   private totalCartPriceSubject = new BehaviorSubject<number>(0);
   totalCartPrice$ = this.totalCartPriceSubject.asObservable();
 
-  updateTotalCartPrice(price: number) {
+  constructor() { }
+
+  updateTotalCartPrice(price: number): void {
     this.totalCartPriceSubject.next(price);
   }
 }

@@ -22,9 +22,13 @@ export class CategoryListComponent implements OnInit {
       this.categories = categories;
     });
   }
-  deleteCategory(id: number): void {
+  deleteCategory(categoryId: number | undefined): void {
+    if (categoryId === undefined) {
+      console.error('Category ID is undefined.');
+      return;
+    }
     if (confirm('Are you sure you want to delete this category?')) {
-      this.categoryService.deleteCategory(id)
+      this.categoryService.deleteCategory(categoryId)
         .subscribe(() => {
           console.log('Category deleted successfully');
           // Reload the current route to reflect changes
@@ -32,8 +36,18 @@ export class CategoryListComponent implements OnInit {
         });
     }
   }
-  redirectToUpdate(categoryId: number): void {
-    this.router.navigate(['/update-category', categoryId]);
+  
+  redirectToUpdate(categoryId: number | undefined): void {
+    if (categoryId !== undefined) {
+        this.router.navigate(['/admin/category/update', categoryId]);
+    }
+}
+onUpdateProduct(productId: number | undefined) {
+  if (productId !== undefined) {
+    this.router.navigate(['/admin/products/update-product', productId]);
+  } else {
+    console.error('Product ID is undefined');
   }
+}
 
 }

@@ -78,9 +78,11 @@ import { ListcompperformancesComponent } from './BackOffice/back-all/content-bac
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
 import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
+import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
+import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
-  { path: '', component:FrontAllComponent,children:[
+  { path: '', component:FrontTemplateComponent,children:[
 
 
     { path: 'add-registration/:id', component: AddRegistrationComponent },
@@ -99,6 +101,7 @@ const routes: Routes = [
 { path: 'ticket-card/:userId', component: TicketCardComponent },
 { path: 'payment', component: PaymentFormComponent },
 { path: 'confirm', component: ConfirmationComponent },
+{path:'myorders',component: MyOrdersComponent},
 
 
     { path: 'ReserverPlace', component: ReservationPlaceComponent},
