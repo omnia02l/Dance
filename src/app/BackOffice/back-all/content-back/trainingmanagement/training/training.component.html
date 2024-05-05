@@ -1,19 +1,17 @@
 
 
-<div class="col-12">
-
-  <div class="card px-6 py-6">
-    <p-toast></p-toast>
-    <div style="background-color: black; padding: 10px;">
-      <h1 class="m-0" style="color: rgb(183, 39, 39);">Training Calender</h1>
-    </div>
-    <div class="my-2">
-      <!-- Votre contenu ici -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="titre-container">
+        <h1 class="titre m-0">Training Calendar</h1>
+      </div>
     </div>
   </div>
 </div>
-<div class="container-fluid px-8">
 
+<div class="container">
+  <div class="row mx-3">
 <div class="row">
   <!-- Carte pour la combobox -->
   <div class="col-md-4 px-2">
@@ -51,7 +49,7 @@
     </div>
   </div>
 </div>
-</div>
+
     <p-dialog header="Training Details"  [(visible)]="displayTrainingInformationDialog" [modal]="true" [style]="{width: '550px'}" [baseZIndex]="10000"
               [draggable]="false" [resizable]="false" [closable]="false">
       <ng-template pTemplate="content">
@@ -116,5 +114,6 @@
         <button pButton pRipple label="Close" icon="pi pi-times" (click)="displayTrainingInformationDialog=false"></button>
       </ng-template>
     </p-dialog>
-
+</div>
+</div>
 

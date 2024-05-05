@@ -1,17 +1,14 @@
 
 
-<div class="container-fluid px-8">
-  <div class="col-12">
-    <div class="card px-6 py-6">
-      <p-toast></p-toast>
-      <div style="background-color: black; padding: 10px;">
-        <h1 class="m-0" style="color: rgb(183, 39, 39);">DANCE Scape EXplore</h1>
-      </div>
-      <div class="my-2">
-        <!-- Votre contenu ici -->
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="titre-container">
+        <h1 class="titre m-0">Post</h1>
       </div>
     </div>
   </div>
+</div>
 
   <div class="col-12">
     <div class="card mb-3 mx-auto text-center" style="width: 800px; height: 150px;">
@@ -24,127 +21,123 @@
         <p-dataView #dv [value]="allPosts"  [paginator]="true" [rows]="4" layout="grid">
           <ng-template let-Post pTemplate="gridItem">
             <div class="col-12 md:col-4 mt-2 px-2">
-              <div class="card-body" style="background-color: #181717c3">
+              <div class="card-body" style="background-color:  #E8C4D0;">
                 <div class="col-md-8">
                   <div class="container">
                     <div class="row">
-                      <div class="col" *ngFor="let post of top3Posts">
-                        <h3>{{ post.title }}</h3>
-                      </div>
+                     
+                      
+                  
+                    </div>
+                  </div>
+              <div class="card-body" style="background-color:  #E8C4D0;">
+                <div class="col-md-8">
+                  <div class="container">
+                    <div class="row">
+                     
+                      
+                  
                     </div>
                   </div>
 
                   <!-- Contenu de chaque poste -->
                   </div>
 
-                  <div class="card-body" style="background-color: #181717c3">
-                  <h2> <span class="card-body" style="color: white;">{{Post.title}}</span></h2>
-
-                </div>
-
-                <div class="card-body">
-                  <div class="col-md-8">
-                    <div class="col-md-8">
-
-                      <span class="card-body" style="color: white;">{{Post.description}}</span>
-
-                    </div>
-                    <b> <span class="card-body" style="color: white;">User : {{Post.userName}}</span></b>
-
-                  </div>
-
-                  <div class="col-md-8">
-
-
-                    <b>   <span class="card-body" style="color: white;">Creation Date : {{Post.creationDate | date :'medium'}}</span></b>
-
-                  </div>
-                </div>
-
-
-
-                <div class="col-md-4"  >
-                  <img [src]="src+Post.id" alt="Post Image" class="img-fluid rounded-start" />
-                </div>
-                <div class="flex align-items-center justify-content-center mt-2">
-                  <span class=" text-blue-500 font-bold">Likes :{{Post.likes}}</span>
-                  <span class=" text-red-500 font-bold ml-2">DisLikes :{{Post.dislikes}}</span>
-                </div>
-
-
-                <div class="flex align-items-center justify-content-center mt-2">
-                  <button pButton pRipple icon="pi pi-thumbs-up" class="p-button-text" (click)="like(Post.id)"></button>
-                  <button pButton pRipple icon="pi pi-thumbs-down-fill" class="p-button-text" (click)="dislike(Post.id)"></button>
-                </div>
-                <div class="flex align-items-center justify-content-start">
-                  <div class="flex align-items-center justify-content-start mt-2">
-
-
-
-
-
-                    <button type="button" class="btn btn-outline-info" (click)="showComments(Post.comments)">Show Comments</button>
-                  </div>
-                  <div class="flex align-items-center justify-content-start mt-2">
-
-                    <button type="button" class="btn btn-outline-success" (click)="addComment(Post.id)">Add Comment </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-
-        <p-dialog [(visible)]="descriptionDialog" header="Description" [modal]="true" [style]="{width:'450px'}">
-          <div class="flex align-items-center justify-content-center">
-            <span style="font-weight: bold">{{description}}</span>
-          </div>
-          <ng-template >
-            <button pButton pRipple icon="pi pi-times" class="p-button-text" label="Close" (click)="descriptionDialog = false"></button>
-          </ng-template>
-        </p-dialog>
-
-        <p-dialog [(visible)]="commentsDialog" [style]="{width: '600px'}" header="Comments" [closable]="false" [modal]="true" class="p-fluid">
-          <ng-template pTemplate="content">
-            <div *ngIf="comments.length > 0">
-              <div class="card mb-0" style="height: 550px">
-                <div class="mt-3 ml-2" style="height: 450px;overflow-y: auto;">
-                  <ul class="p-0 mx-0 mt-0 mb-4 list-none"   *ngFor="let y of comments">
-                    <li  class="flex align-items-center py-2 border-bottom-1 surface-border">
-                      <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-blue-100 border-circle mr-3 flex-shrink-0">
-                        <span>{{y.userName}}</span>
+                  <div class="card" style="width: 40rem;">
+                    <img [src]="src+Post.id" alt="Post Image" class="card-img-top" />
+                    <div class="card-body">
+                      <h1 class="card-title">{{Post.title}}</h1>
+                      <p class="text-start">{{Post.description}}</p>
+                      <div class="mt-6"> 
+                      <p class="text-sm-end" style="color: #A8043C ;">{{Post.userName}}</p>
+                      <p class="text-sm-end" style="color: #A8043C ;">{{Post.creationDate | date :'medium'}}</p>
                       </div>
-                      <span class="text-900 line-height-3">{{y.text}}
-                        <span class="text-blue-500">{{y.creationDate |date:'dd-MM-yyyy'}}</span>
-                </span>
-                    </li>
-                  </ul>
+                <div class="flex align-items-center justify-content-center mt-2">
+
+                  <div class="flex align-items-center justify-content-center mt-2">
+                    <button pButton pRipple icon="pi pi-thumbs-up" class="p-button-text" style="color: #A8043C ; border-color: pink;" (click)="like(Post.id)"></button>
+                    <span class="ml-1" style="color: #A8043C  ;">{{ Post.likes }}</span>
+                  </div>
+                  
+                  <div class="flex align-items-center justify-content-center mt-2">
+                    <button pButton pRipple icon="pi pi-thumbs-down-fill" class="p-button-text" style="color: black; border-color: black;" (click)="dislike(Post.id)"></button>
+                    <span class="ml-1">{{ Post.dislikes }}</span>
+                  </div>
+                  
+                  </div>
+
+                  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <div class="mt-3"> 
+                      <div class="mt-3"> 
+                      <button class="btn custom-btn-color me-md-2" type="button" (click)="showComments(Post.comments)" >Show Comments</button>
+          
+                      <button class="btn custom-btn-color" type="button" (click)="addComment(Post.id)"  >Add Comment </button>
+                    </div>
+                  </div>
                 </div>
               </div>
+                       </div>
+ 
+
+    <p-dialog [(visible)]="descriptionDialog" header="Description" [modal]="true" [style]="{width:'450px'}">
+      <div class="flex align-items-center justify-content-center">
+        <span style="font-weight: bold">{{description}}</span>
+      </div>
+      <ng-template pTemplate="footer">
+        <button pButton pRipple icon="pi pi-times" class="p-button-text" label="Close" (click)="descriptionDialog = false"></button>
+      </ng-template>
+    </p-dialog>
+
+    <p-dialog [(visible)]="commentsDialog" [style]="{width: '600px'}" header="Comments" [closable]="false" [modal]="true" class="p-fluid">
+      <ng-template pTemplate="content">
+        <div *ngIf="comments.length > 0">
+          <div class="card mb-0" style="height: 550px">
+            <div class="mt-3 ml-2" style="height: 450px;overflow-y: auto;">
+              <ul class="p-0 mx-0 mt-0 mb-4 list-none"   *ngFor="let y of comments">
+                <li class="flex align-items-center py-2 double-border surface-border">
+                  <div class="w-3rem h-3rem flex align-items-center justify-content-center bg-custom-color border-circle mr-3 flex-shrink-0">
+                      <span>{{y.userName}}</span>
+                  </div>
+                  <span class="text-900 line-height-3">{{y.text}}</span>
+                  <div class="ml-auto">
+                      <span class="custom-text-color">{{y.creationDate |date:'dd-MM-yyyy'}}</span>
+                  </div>
+              </li>
+              
+              
+              
+              </ul>
             </div>
-          </ng-template>
-          <ng-template >
-            <button pButton pRipple label="Close" icon="pi pi-times" class="p-button-text" (click)="commentsDialog=false"></button>
-          </ng-template>
-        </p-dialog>
-
-        <p-dialog [(visible)]="addCommentDialog" [style]="{width: '450px'}" header="Comment Details" [closable]="false" [modal]="true" class="p-fluid">
-          <ng-template pTemplate="content">
-            <div class="field">
-              <label>Text</label>
-              <input type="text" pInputText [(ngModel)]="newComment.text" required autofocus [ngClass]="{'ng-invalid ng-dirty' : submitted && !newComment.text}"/>
-              <small class="ng-dirty ng-invalid" *ngIf="submitted && !newComment.text">Text is required.</small>
-            </div>
-          </ng-template>
-          <ng-template >
-            <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="addCommentDialog=false"></button>
-            <button pButton pRipple label="Save" icon="pi pi-check"  class="p-button-text" (click)="createComment()"></button>
-          </ng-template>
-        </p-dialog>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button pButton label="Close" class="custom-button" (click)="commentsDialog=false"></button>
+>
 
 
+      </ng-template>
+    </p-dialog>
 
-
-
+    <p-dialog [(visible)]="addCommentDialog" [style]="{width: '450px', 'background-color': '#E8C4D0'}" header="AComment" [closable]="false" [modal]="true" class="p-fluid">
+      <ng-template pTemplate="content">
+        <div class="form-group">
+          
+          <input type="text" class="form-control" id="commentText" [(ngModel)]="newComment.text" required autofocus [ngClass]="{'is-invalid': submitted && !newComment.text}" style="background-color: #E8C4D0"/>
+          <div class="invalid-feedback" *ngIf="submitted && !newComment.text">Text is required.</div>
+        </div>
+      </ng-template>
+      <ng-template pTemplate="footer">
+        <button type="button" class="btn btn-secondary" style="background-color: #8B0026; color: white;" (click)="addCommentDialog=false">Cancel</button>
+        <button type="button" class="btn btn-primary" style="background-color: #8B0026; color: white;" (click)="createComment()">Save</button>
+      </ng-template>
+    </p-dialog>
+    
+    
+    
+    
+    
+  </div>
+</div>
 
 
