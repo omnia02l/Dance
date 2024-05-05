@@ -17,12 +17,17 @@
   <div class="col-md-4 px-2">
     <div class="card mt-3 mb-3">
       <p-toast></p-toast>
-      <div class="card-body">
-        <h3 class="card-title">Select one category</h3>
-        <p-dropdown [options]="categories" [(ngModel)]="getWithCategory" placeholder="Select category"></p-dropdown>
-        <br>
-        <button pButton pRipple type="button" label="Search" class="p-button-rounded mt-2" (click)="getListWithCategory()"></button>
-      </div>
+      <div class="card card-custom">
+        <div class="card-body">
+            <h1 class="card-title custom-title-color">Training Categories</h1>
+            <p-dropdown [options]="categories" [(ngModel)]="getWithCategory" placeholder="Select category" class="custom-placeholder" [style]="{'color': '#8B0026'}"></p-dropdown>
+            <br>
+            <button pButton pRipple type="button" label="Search" class="p-button-rounded mt-2 custom-search-button" (click)="getListWithCategory()"></button>
+        </div>
+    </div>
+    
+    
+    
     </div>
   </div>
 
@@ -35,15 +40,17 @@
   <div class="col-md-8 px-2">
     <div class="card mt-3 mb-3">
       <p-toast></p-toast>
-      <div class="card-body">
-        <h3 class="card-title">Training Calendar</h3>
-        <p-toolbar styleClass="mb-2">
+      <div class="card-body custom-div-color">
+        
+        <p-toolbar styleClass="mb-2 ">
           <ng-template pTemplate="left">
-            <div class="my-2">
-              <button pButton pRipple type="button" label="Toggle Weekends" class="p-button-rounded" style="width: auto;" (click)="toggleWeekends()"></button>
-            </div>
+            <div class="my-2 ">
+              <h1 class="card-title custom-title-color">Training Calendar</h1>
+          </div>
+          
           </ng-template>
         </p-toolbar>
+        
         <full-calendar [options]="options" style="width: 400px; height: 400px;"></full-calendar>
       </div>
     </div>
