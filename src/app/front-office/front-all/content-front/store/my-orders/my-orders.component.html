@@ -1,7 +1,7 @@
 <div>
     <div *ngIf="orders.length > 0; else noOrders">
       <div *ngFor="let order of orders">
-        <section class="vh-100" style="background-color: #8c9eff;">
+        <section class="vh-100" style="background-color: #d5205d         ;">
           <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
               <div class="col-12">
@@ -55,8 +55,8 @@
                       </div>
                     </div>
                     <!-- Download button -->
-                    <button class="btn btn-primary mt-3" (click)="downloadInvoice(order)">Download Invoice</button>
-                  </div>
+                    <button class="btn btn-primary mt-3" style="background-color: #A8043C; border-color: #A8043C;" (click)="downloadInvoice(order)">Download Invoice</button>
+                </div>
                 </div>
               </div>
             </div>
