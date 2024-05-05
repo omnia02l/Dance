@@ -1,0 +1,11 @@
+button.p-button {
+    background-color: transparent; /* Clear any default background */
+    border: none; /* Remove borders */
+    color: #0D47A1; /* Deep blue color */
+}
+
+button.p-button:hover {
+    background-color: rgba(13, 71, 161, 0.1); /* Lighter blue on hover */
+}
+
+  

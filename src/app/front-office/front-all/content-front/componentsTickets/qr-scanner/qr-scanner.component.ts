@@ -43,6 +43,7 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
     }
     this.isScanning = true;
     this.html5QrcodeScanner.start(
+      
       { facingMode: "environment" },
       { fps: 10, qrbox: { width: 250, height: 250 } },
       (decodedText, decodedResult) => this.onQrCodeSuccess(decodedText, decodedResult),
@@ -75,7 +76,7 @@ export class QrScannerComponent implements AfterViewInit, OnDestroy {
                         this.snackBar.open('Ticket already scanned.', 'Close', { duration: 5000 });
                     }else if(error.status === 200){
                       this.snackBar.open(`Ticket processed successfully: ${refTicket}`, 'Close', { duration: 5000 });
-
+                      this.ngOnDestroy;
                     } else {
                         this.displayError(`Failed to process the ticket: ${error.error}`);
                     }

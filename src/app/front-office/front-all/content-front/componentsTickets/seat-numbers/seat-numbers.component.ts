@@ -12,7 +12,7 @@ import { AccountService } from 'src/app/core/services/account.service';
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { PlaceService } from 'src/app/core/services/place.service';
 import { TicketCardService } from 'src/app/core/services/ticket-card.service';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-seat-numbers',
   templateUrl: './seat-numbers.component.html',
@@ -34,7 +34,8 @@ export class SeatNumbersComponent implements OnInit {
     private cdr: ChangeDetectorRef,
     private route: Router,
     private route1: ActivatedRoute,
-    private competitionService: CompetitionService) {}
+    private competitionService: CompetitionService,
+    private location: Location) {}
 
 
 
@@ -54,6 +55,9 @@ export class SeatNumbersComponent implements OnInit {
       console.log(this.venuePlanId);
       }
     });
+    }
+    goBack(): void {
+      this.location.back();  // Correct usage of the Location service's back method
     }
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({

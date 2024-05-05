@@ -66,11 +66,16 @@
             <!-- Texte cliquable pour ouvrir le dialogue de réduction -->
             <span (click)="openDiscountDialog()" class="discount-code">Enter your discount code here</span>
           </div>
+          <div class="ticket-form-body">
+            <button class="custom-btn" (click)="goBack()">
+              <mat-icon>arrow_back</mat-icon>
+            </button>
+          </div>
+          
+          <div class="ticket-form-body">
+          <button class="custom-btn" (click)="goToPurchaseTransaction()">Go to Purchase Transaction</button>
+            </div>
         </div>  
-        <div class="btn-primary">
-          <button class="custom-btn" (click)="goBack()">Back to Seat Selection</button>
-        </div>
-        <button (click)="goToPurchaseTransaction()">Go to Purchase Transaction</button>
-
+    
         </section>
  

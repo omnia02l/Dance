@@ -1,5 +1,5 @@
 <div class="card">
-  <button pButton label="Ajouter un Lieu" icon="pi pi-plus" class="p-button-success" (click)="addNewPlace()"></button>
+  <button pButton label="Ajouter un Lieu" icon="pi pi-plus" class="p-button-success add-btn" (click)="addNewPlace()"></button>
   <p-table [value]="places" [paginator]="true" [rows]="5" responsiveLayout="scroll">
     <ng-template pTemplate="header">
       <tr>
@@ -17,8 +17,8 @@
         <td>{{ place.isOccupied ? 'Oui' : 'Non' }}</td>
         <td>{{ place.isSelected ? 'Oui' : 'Non' }}</td>
         <td>
-          <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editPlace(i)"></button>
-          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deletePlace(place.idPlace)"></button>
+          <button pButton icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2 edit-btn" (click)="editPlace(i)"></button>
+          <button pButton icon="pi pi-trash" class="p-button-rounded p-button-warning delete-btn" (click)="deletePlace(place.idPlace)"></button>
         </td>
       </tr>
       <ng-template #editMode>

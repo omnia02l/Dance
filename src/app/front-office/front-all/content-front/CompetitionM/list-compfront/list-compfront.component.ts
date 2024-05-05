@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Competition } from 'src/app/core/models/Competition';
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { FileUploadTicketDialogComponent } from '../../componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
-
+import { faTicketAlt } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-list-compfront',
   templateUrl: './list-compfront.component.html',
@@ -12,7 +12,7 @@ import { FileUploadTicketDialogComponent } from '../../componentsTickets/file-up
 })
 export class ListCompfrontComponent implements OnInit {
   competitions: Competition[] = [];
-
+  faTicketAlt = faTicketAlt;
   constructor(
     private competitionService: CompetitionService,
     private router: Router,

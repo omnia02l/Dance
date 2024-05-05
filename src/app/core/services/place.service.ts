@@ -4,6 +4,7 @@ import { Observable, catchError, map } from 'rxjs';
 import { Place } from '../models/Place.model';
 import { SeatNumbersByRow } from '../models/seat-numbers-by-row';
 import { PlaceStatistics } from '../models/PlaceStatistics.model';
+import { SeatStatusDTO } from '../models/SeatStatusDTO';
 
 
 @Injectable({
@@ -101,8 +102,7 @@ export class PlaceService {
     return this.http.put<Place>(`${this.baseUrl}/togglePlaceSelection/${place.idPlace}`, place);
   }
 
-  getPlaceStatistics(venuePlanId: number): Observable<PlaceStatistics> {
-
-    return this.http.get<PlaceStatistics>(`${this.baseUrl}/statistics/${venuePlanId}`);
+  getSeatStatuses(venuePlanId: number): Observable<SeatStatusDTO[]> {
+    return this.http.get<SeatStatusDTO[]>(`${this.baseUrl}/statistics/${venuePlanId}`);
   }
 }

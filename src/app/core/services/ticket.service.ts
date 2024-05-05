@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 // Assuming Ticket is already defined in your Angular app
 import { Ticket } from '../models/ticket.model';
 import { TicketCountByMonthDTO } from '../models/TicketCountByMonthDTO';
+import { TicketStatisticsDTO } from '../models/TicketStatisticsDTO';
 
 @Injectable({
   providedIn: 'root'
@@ -46,11 +47,26 @@ processTicket(refTicket: string): Observable<Ticket> {
 getTicketCountsByStyleAndYearRange(styleName: string, startYear: number, endYear: number): Observable<any[]> {
   return this.http.get<any[]>(`${this.baseUrl}/ticketsByStyleAndYear`, { params: { styleName, startYear, endYear } });
 }
-// In your ticket.service.ts
+
 
 getAllStylesTicketCountsByYear(year: number): Observable<{ [key: number]: { [styleName: string]: TicketCountByMonthDTO[] } }> {
   return this.http.get<{ [key: number]: { [styleName: string]: TicketCountByMonthDTO[] } }>(`${this.baseUrl}/ticketCountsForAllStyles/${year}`);
 }
+getTicketStatistics(competitionId: number): Observable<TicketStatisticsDTO[]> {
+  return this.http.get<TicketStatisticsDTO[]>(`${this.baseUrl}/statistics?competitionId=${competitionId}`);
+}
 
 
+
+getTotalTicketsSold(competitionId: number): Observable<number> {
+  return this.http.get<number>(`${this.baseUrl}/total-sold/${competitionId}`);
+}
+
+getTotalRevenue(competitionId: number): Observable<number> {
+  return this.http.get<number>(`${this.baseUrl}/total-revenue/${competitionId}`);
+}
+
+getOccupancyRate(competitionId: number): Observable<number> {
+  return this.http.get<number>(`${this.baseUrl}/occupancy-rate/${competitionId}`);
+}
 }

@@ -4,9 +4,8 @@
   <p>End Date: {{ competitionPerformance.enddate | date:'shortDate' }}</p>
 
   <ul class="performances-list">
-    <button mat-button (click)="openDialog()" class="ticket-button">
-      <mat-icon>confirmation_number</mat-icon> <!-- Vous pouvez changer l'icône ici -->
-    </button>
+    
+    
     
     
     <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
@@ -15,7 +14,9 @@
       <p>Description: {{ performance.pdescreption }}</p>
       <p>Start Time: {{ performance.starttime }}</p>
       <p>End Time: {{ performance.endtime }}</p>
-      
+      <button mat-icon-button (click)="openDialog()" style="color: #0D47A1;">
+        <mat-icon>how_to_vote</mat-icon> <!-- This assumes you are using a Material Icon named 'how_to_vote' -->
+      </button>
 
     </li>
   </ul>

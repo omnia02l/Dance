@@ -55,6 +55,8 @@
   <mat-sidenav-content class="main-content">
     <!-- Main content here -->
     <div class="body">
+
+ 
 <div class="theater-container">
   <!-- Screen Direction -->
   <div class="screen-direction">
@@ -87,6 +89,12 @@
   <div class="action-buttons">
     <button mat-raised-button class="confirm-btn" (click)="confirmSelectedPlaces()">Confirm Selection</button>
   </div>
+  <div class="action-buttons">
+    <button class="custom-btn" (click)="goBack()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+
 </div>
 
     <!-- Floating Action Button for sidebar -->
@@ -94,6 +102,8 @@
       <mat-icon>menu</mat-icon>
     </button>
   </div>
+  
+
   </mat-sidenav-content>
 
 </mat-sidenav-container>

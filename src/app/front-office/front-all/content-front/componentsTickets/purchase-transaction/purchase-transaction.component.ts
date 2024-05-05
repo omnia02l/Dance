@@ -46,9 +46,7 @@ export class PurchaseTransactionComponent implements OnInit, AfterViewInit {
   private loadTicketCardDetails(userId: number): void {
     this.ticketCardService.getLastTicketCardDetails(userId).subscribe({
       next: (data) => {
-        console.log(data);
         this.ticketCardDetails = data;
-        this.changeDetector.detectChanges(); 
       },
       error: (err) => {
         console.error('Failed to fetch ticket card details', err);

@@ -8,14 +8,14 @@
 }
 
 .title {
-  color: #c16aff; /* Violet color for the title */
+  color: #020066; /* Dark red for titles */
   margin-bottom: 10px;
 }
 
-.dropdown {
+.dropdown, .form-select {
   background-color: #f0f0f7;
-  color: #c16aff;;
-  border: none;
+  color: #020066; /* Very dark red */
+  border: 1px solid #020066;
   padding: 10px;
   border-radius: 15px;
   width: 100%;
@@ -33,15 +33,15 @@
 }
 
 .year-selectors label {
-  color: #c16aff;;
+  color: #660019; /* Consistent with title color */
   margin-bottom: 5px;
   display: block;
 }
 
 select {
   background-color: #f0f0f7;
-  color: #c16aff;;
-  border: none;
+  color: #33000C;
+  border: 1px solid #33000C;
   padding: 10px;
   border-radius: 15px;
   width: 100%;
@@ -53,7 +53,7 @@ select {
 }
 
 .chart-title {
-  color: #c16aff;; /* Violet color for the chart title */
+  color: #660019; /* Dark red for chart title */
   text-align: center;
   margin-bottom: 20px;
 }

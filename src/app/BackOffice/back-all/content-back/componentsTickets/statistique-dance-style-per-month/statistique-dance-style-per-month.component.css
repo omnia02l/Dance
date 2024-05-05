@@ -8,7 +8,7 @@
   }
   
   .title {
-    color: #c16aff; /* Violet color for the title */
+    color: #660019; /* Violet color for the title */
     text-align: center;
   }
   
@@ -18,7 +18,7 @@
   }
   
   .year-btn {
-    background-color: #c16aff; /* Violet color for the buttons */
+    background-color: #660019; /* Violet color for the buttons */
     color: white;
     border: none;
     padding: 10px 20px;
@@ -29,7 +29,7 @@
   }
   
   .year-btn:hover {
-    background-color: #7B68EE; /* A lighter violet for hover effect */
+    background-color: #9c193a; /* A lighter violet for hover effect */
   }
   
   .chart-container {
@@ -38,7 +38,7 @@
   }
   
   .chart-title {
-    color: #c16aff;; /* Violet color for the chart title */
+    color:#660019; /* Violet color for the chart title */
     text-align: center;
     margin-bottom: 20px;
   }
@@ -46,5 +46,13 @@
   canvas {
     max-width: 100%;
     height: auto;
+  }
+  .main-title {
+    color: #000566; /* Violet color for the title */
+    text-align: center;
+  }
+  .description{
+    color: #090a16; /* Violet color for the title */
+    text-align: center;
   }
   
