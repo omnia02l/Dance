@@ -1,0 +1,56 @@
+.competition-container {
+  font-family: 'Arial', sans-serif;
+  padding: 20px;
+}
+
+.competition-card {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.date-badge {
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.performances-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.performance-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px;
+}
+
+.performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-details p {
+  color: #777;
+  margin: 8px 0;
+}
+.red-text {
+  color: red;
+}

@@ -25,6 +25,14 @@ export class ProductListComponent implements OnInit {
 ngOnInit(): void {
   this.productService.getProducts().subscribe(products => {
     this.products = products;
+          this.logImageUrls();
+
+  });
+  
+}
+logImageUrls(): void {
+  this.products.forEach(product => {
+    console.log('Image URL for product', product.productId + ':', product.image);
   });
 }
 }

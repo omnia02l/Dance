@@ -1,0 +1,33 @@
+<div class="competition-container">
+  <div *ngFor="let competitionPerformance of competitionPerformances" class="competition-card">
+    <div class="card-header">
+      <h3>Competition: {{ competitionPerformance.compname }}</h3>
+      <span class="date-badge">
+        {{ competitionPerformance.startdate | date:'shortDate' }} - {{ competitionPerformance.enddate | date:'shortDate' }}
+      </span>
+    </div>
+    <div class="card-body">
+
+      <ul class="performances-list">
+        <ng-container *ngIf="competitionPerformance.performances && competitionPerformance.performances.length > 0; else noPerformances">
+          <li *ngFor="let performance of competitionPerformance.performances" class="performance-item">
+            <div class="performance-header">
+              <h5>Performance: {{ performance.perftitle }}</h5>
+              <span class="date-badge">
+                {{ performance.perfdate | date:'shortDate' }} {{ performance.starttime | date:'HH:mm' }} - {{ performance.endtime | date:'HH:mm' }}
+              </span>
+            </div>
+            <div class="performance-details">
+              <p>Description: {{ performance.pdescreption }}</p>
+            </div>
+          </li>
+        </ng-container>
+        <ng-template #noPerformances>
+          <li class="no-performances-item red-text">
+            No performances have been added yet.
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+  </div>
+</div>

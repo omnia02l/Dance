@@ -1,3 +1,26 @@
+<div class="col-12">
+  <div class="card px-6 py-6">
+    <p-toast></p-toast>
+    <p-toolbar styleClass="mb-4">
+      <h1 class="m-0">Manage Training</h1>
+      <div class="my-2">
+        </div>   
+    </p-toolbar>
+<div class="col-4" style="width: 500px; height: 150px;">
+  <div class="card" >
+    <h1>Select Dance category</h1>
+    <select class="category-dropdown" [(ngModel)]="getWithCategory">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+    <button class="search-button" type="button" (click)="getListWithCategory()">Search</button>
+  </div>
+</div>
+
+
+<br>
+<br>
+<br>
+
  <div class="col-12">
     <div class="card">
       <p-toast></p-toast>
@@ -8,7 +31,8 @@
           </div>
         </ng-template>
       </p-toolbar>
-      <full-calendar  [options]="options"></full-calendar>
+      <full-calendar [options]="options" style="width: 800px; height: 800px;"></full-calendar>
+
 
       <p-dialog [(visible)]="addTrainingDialog" [style]="{width: '450px'}" [closable]="false" header="Training Details" [modal]="true" class="p-fluid">
         <ng-template pTemplate="content">
@@ -23,6 +47,12 @@
             <p-dropdown [options]="hallsNames" [(ngModel)]="newTraining.danceHallName" placeholder="Select dance hall"
                         [showClear]="true" [ngClass]="{'ng-invalid ng-dirty' : submitted && !newTraining.danceHallName}"></p-dropdown>
             <small class="ng-dirty ng-invalid" *ngIf="submitted && !newTraining.danceHallName">Hall name is required.</small>
+          </div>
+          <div class="field col">
+            <label>category</label>
+            <p-dropdown [options]="categories" [(ngModel)]="newTraining.trainingCategory" placeholder="Select category"
+                        [showClear]="true" [ngClass]="{'ng-invalid ng-dirty' : submitted && !newTraining.trainingCategory}"></p-dropdown>
+            <small class="ng-dirty ng-invalid" *ngIf="submitted && !newTraining.trainingCategory">Category is required.</small>
           </div>
           <div class="field">
             <label>Training name</label>
@@ -140,13 +170,21 @@
         </ng-template>
       </p-dialog>
 
-
+      <div class="col-12">
+        <div class="card px-6 py-6">
+          <p-toast></p-toast>
+          <p-toolbar styleClass="mb-4">
+            <h1 class="m-0">Statistic</h1>
+            <div class="my-2">
+              </div>   
+          </p-toolbar>
     </div>
   </div>
- <div class="col-12">
+ <div class="col-4">
    <div class="card">
-     <div class="flex justify-content-center">
+     <div class="flex justify-content-between">
        <p-chart type="pie" [data]="data" [options]="optionsChart" width="200px" height="200px"></p-chart>
+       <p-chart type="pie" [data]="data2" [options]="optionsChart2" width="200px" height="200px"></p-chart>
      </div>
    </div>
  </div>

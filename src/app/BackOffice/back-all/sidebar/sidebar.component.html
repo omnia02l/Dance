@@ -78,7 +78,7 @@
         </a>
       </li>
 
-      <li class="menu-item">
+      <li class="menu-item"  *ngIf="role === 'admin'">
         <a routerLink="/admin/account-management" class="menu-link">
           <i class="menu-icon tf-icons bx bx-collection"></i>
           <div data-i18n="Basic">Account management</div>
@@ -86,7 +86,21 @@
         </a>
       </li>
 
+      <li class="menu-item"  *ngIf="role === 'admin'">
+        <a routerLink="/admin/event-management" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Event management</div>
 
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/my-events" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">My events</div>
+
+        </a>
+      </li>
 
       <li class="menu-item">
         <a routerLink="/admin/profile" class="menu-link">
@@ -104,13 +118,7 @@
         </a>
       </li>
 
-      <li class="menu-item">
-        <a routerLink="/admin/training" class="menu-link">
-          <i class="menu-icon tf-icons bx bx-collection"></i>
-          <div data-i18n="Basic">Training</div>
 
-        </a>
-      </li>
 
       <li class="menu-item">
         <a routerLink="/admin/dance-hall-management" class="menu-link">
@@ -118,7 +126,153 @@
           <div data-i18n="Basic">Dance hall management</div>
 
         </a>
+
+
+              <!-- Place -->
+      <li class="menu-item">
+        <a routerLink="/admin/Place" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Place</div>
+        </a>
       </li>
+        <!-- Price -->
+        <li class="menu-item">
+          <a routerLink="/admin/Price" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-layout"></i>
+            <div data-i18n="Layouts">Price</div>
+          </a>
+        </li>
+         <!-- Ticket -->
+        <li class="menu-item">
+          <a routerLink="/admin/Ticket" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-layout"></i>
+            <div data-i18n="Layouts">Ticket</div>
+          </a>
+        </li>
+                <!-- TicketCard -->
+        <li class="menu-item">
+          <a routerLink="/admin/TicketCard" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-layout"></i>
+            <div data-i18n="Layouts">Ticket Card</div>
+          </a>
+        </li>
+                  <!-- TicketScanner -->
+        <li class="menu-item">
+          <a routerLink="/admin/TicketScanner" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-layout"></i>
+            <div data-i18n="Layouts">Ticket Scanner</div>
+          </a>
+        </li>
+                  <!-- Purchace Transaction -->
+        <li class="menu-item">
+          <a routerLink="/admin/PurchaseTransaction" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-layout"></i>
+            <div data-i18n="Layouts">Purchace Transaction</div>
+          </a>
+        </li>
+      <!-- Venue Plan-->
+      <li class="menu-item">
+        <a routerLink="/admin/VenuePlan" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-layout"></i>
+          <div data-i18n="Layouts">Venue Plan</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a href="/admin/list-registrations" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-file"></i>
+          <div data-i18n="Boxicons">Registrations</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/list-dancecategoryandstyle" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-copy"></i>
+          <div data-i18n="Boxicons">Dance categories</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/list-comp" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Competitions</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/list-compperformances" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Performances</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/list-townsandvenues" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Towns&venues</div>
+        </a>
+      </li>
+
+
+      <li class="menu-item">
+        <a href="/admin/list-teams-comp" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Teams in competitions</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/list-teams-dancers" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Dancers in teams </div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href="/admin/compstat" class="menu-link">
+          <i class="menu-icon tf-icons bx  bx-cube-alt "></i>
+          <div data-i18n="Boxicons">Competition stat</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/coach-management" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Coach management</div>
+
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/post" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">My posts</div>
+
+        </a>
+      </li>
+
+
+      <li class="menu-item">
+        <a routerLink="/admin/products" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">products</div>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a routerLink="/admin/products/add" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">add new products</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/categorys" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Categories</div>
+        </a>
+      </li>
+
+      <li class="menu-item">
+        <a routerLink="/admin/ProductSales" class="menu-link">
+          <i class="menu-icon tf-icons bx bx-collection"></i>
+          <div data-i18n="Basic">Product Sales</div>
+        </a>
+      </li>
+
 
 
 

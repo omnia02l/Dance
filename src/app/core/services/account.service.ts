@@ -7,6 +7,7 @@ import {SignupRequest} from "../models/signupRequest";
 import {EditProfileRequest} from "../models/editProfileRequest";
 import {UpdatePasswordRequest} from "../models/updatePasswordRequest";
 import {Router} from "@angular/router";
+import {AccountStatusStats} from "../models/AccountStatusStats";
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,10 @@ export class AccountService {
 
   public getPrincipal():Observable<UserDTO>{
     return this.http.get<UserDTO>(this.host+"profile");
+  }
+
+  public getAccountStatusStats():Observable<AccountStatusStats>{
+    return this.http.get<AccountStatusStats>(this.host+"get-status-stats");
   }
 
   public editProfile(data:EditProfileRequest):Observable<string>{

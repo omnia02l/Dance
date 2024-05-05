@@ -21,8 +21,18 @@ export class TrainingComponent implements OnInit {
   participationStatus!: boolean;
   message!: string;
   items: MenuItem[];
-
+  categories:string[];
+  getWithCategory!: string;
   constructor(private messageService: MessageService, private trainingService: TrainingService) {
+    this.categories = ['SALSA','URBAIN_DANCE','HIP_HOP','DANCE_CLASSIC'];
+    this.items = [
+      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
+      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
+    ];
     this.listTraining();
     this.options = {
       initialView: 'dayGridMonth',
@@ -42,11 +52,6 @@ export class TrainingComponent implements OnInit {
       slotDuration: '00:15:00',
       snapDuration: '00:05:00'
     };
-    this.items = [
-      { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
-      { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
-      { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
-    ];
   }
 
   ngOnInit(): void {
@@ -126,5 +131,16 @@ export class TrainingComponent implements OnInit {
         this.listTraining();
       }
     });
+  }
+
+  getListWithCategory() {
+    this.trainingService.listTrainingWithCategory(this.getWithCategory).subscribe({
+      next: (data) => {
+        this.options.events=data;
+        this.listTrainings = data;
+      }, error: (err) => {
+        this.messageService.add({severity: 'error', summary: 'Error', detail: 'Server Error', life: 3000});
+      }
+    })
   }
 }

@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MessageService} from "primeng/api";
 import {AuthService} from "../../../../../core/services/auth.service";
+import {AuthResponse} from "../../../../../core/models/authResponse";
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit{
 
   form: FormGroup;
   @ViewChild('userNameRef') usernameElementRef!: ElementRef;
+  authResponse!:AuthResponse;
   constructor(private formBuilder: FormBuilder, private authService: AuthService,private router: Router, private messageService:MessageService) {
     this.form = this.formBuilder.group({
       userName: this.formBuilder.control(null, [Validators.required]),
@@ -32,14 +34,15 @@ export class LoginComponent implements OnInit{
       next:(data) => {
         this.authService.setToLocalStorage('accessToken' , data.accessToken);
         this.authService.setToLocalStorage('role' , data.role);
-      //  this.router.navigate(['admin']);
-
-       if(data.role === 'admin'){
+        if(data.role === 'admin'){
+          if(data.role === 'admin'){
           this.router.navigate(['admin']);
+        }else if(data.role === 'dancer'){
+          this.router.navigate(['calendercomp']);
+        }
         }else {
           this.router.navigate(['home']);
         }
-
       },
       error:(err) => {
         this.messageService.add({ severity: 'error', summary: 'Error', detail: 'Bad credentials' , life: 3000 });

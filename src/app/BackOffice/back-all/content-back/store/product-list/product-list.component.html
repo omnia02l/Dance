@@ -1,7 +1,6 @@
 
-<a routerLink="/admin/products">Product List</a>
 
-<h2>Product List</h2>
+<h2>Our Products</h2>
 <div class="row">
   <!-- Loop through each product in the products array -->
   <div class="col-md-4" *ngFor="let product of products">
@@ -19,9 +18,9 @@
         <!-- Display buttons or links for actions like view details, add to cart, etc. -->
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <a [routerLink]="['/products', product.productId]">View Details</a>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
-          </div>
+            <a [routerLink]="['/admin/products', product.productId]">View Details</a>
+<!--             <button type="button" class="btn btn-sm btn-outline-secondary">Add to Cart</button>
+ -->          </div>
           <!-- Display the product quantity -->
           <small class="text-muted">Quantity: {{ product.quantity }}</small>
         </div>

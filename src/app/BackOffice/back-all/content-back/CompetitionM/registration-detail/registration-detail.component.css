@@ -1,0 +1,24 @@
+/* RegistrationDetail.Component.css */
+
+.card {
+  background-color: #f8f9fa; /* Couleur de fond légèrement grise */
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  color: #333; /* Couleur du titre */
+}
+
+/* Ajoutez des styles supplémentaires au besoin */
+
+.btn {
+  cursor: pointer;
+}

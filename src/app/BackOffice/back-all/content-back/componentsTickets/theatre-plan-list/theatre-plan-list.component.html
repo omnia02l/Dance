@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Liste des Plans de Théâtre</h2>
+  <button class="btn btn-primary" [routerLink]="['/admin/theatre-add']">Ajouter Plan</button>
+  <div class="container">
+  
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>ID Plan</th>
+          <th>Nombre de Sièges</th>
+          <th>Longueur de Siège</th>
+          <th>Largeur de Siège</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let plan of theatrePlans; let i = index">
+          <td>{{ plan.idPlan }}</td>
+          <td>{{ plan.totalSeats }}</td>
+          <td>{{ plan.length_S }}</td> <!-- Assurez-vous que les noms de propriétés correspondent à ceux de votre modèle -->
+          <td>{{ plan.width_S }}</td> <!-- Assurez-vous que les noms de propriétés correspondent à ceux de votre modèle -->
+          <td>
+            <div *ngIf="!plan.isEditing">
+              <button class="btn btn-primary btn-sm" [routerLink]="['/theatre-reserve', plan.idPlan]">Réserver</button>
+              <button class="btn btn-secondary btn-sm" (click)="editPlan(i)">Modifier</button>
+              <button *ngIf="plan.idPlan !== undefined" class="btn btn-danger btn-sm" (click)="deleteTheatrePlan(plan.idPlan)">Supprimer</button>
+            </div>
+            <div *ngIf="plan.isEditing">
+              <!-- Incluez ici vos champs d'édition et le bouton d'enregistrement si nécessaire -->
+              <!-- Par exemple, ajouter des champs de formulaire pour la modification -->
+              <input type="number" [(ngModel)]="plan.totalSeats" name="totalSeats{{i}}" />
+              <input type="number" [(ngModel)]="plan.length_S" name="length_S{{i}}" />
+              <input type="number" [(ngModel)]="plan.width_S" name="width_S{{i}}" />
+              <button class="btn btn-success btn-sm" (click)="savePlan(plan,i)">Enregistrer</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

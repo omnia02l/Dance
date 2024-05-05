@@ -1,15 +1,57 @@
-<p-tabMenu [model]="items"></p-tabMenu>
+
+
 <div class="col-12">
-  <div class="card">
+
+  <div class="card px-6 py-6">
     <p-toast></p-toast>
-    <p-toolbar styleClass="mb-4">
-      <ng-template pTemplate="left">
-        <div class="my-2">
-          <button pButton pRipple type="button" label="Toggle Weekends" class="p-button-rounded" (click)="toggleWeekends()"></button>
-        </div>
-      </ng-template>
-    </p-toolbar>
-    <full-calendar  [options]="options"></full-calendar>
+    <div style="background-color: black; padding: 10px;">
+      <h1 class="m-0" style="color: rgb(183, 39, 39);">Training Calender</h1>
+    </div>
+    <div class="my-2">
+      <!-- Votre contenu ici -->
+    </div>
+  </div>
+</div>
+<div class="container-fluid px-8">
+
+<div class="row">
+  <!-- Carte pour la combobox -->
+  <div class="col-md-4 px-2">
+    <div class="card mt-3 mb-3">
+      <p-toast></p-toast>
+      <div class="card-body">
+        <h3 class="card-title">Select one category</h3>
+        <p-dropdown [options]="categories" [(ngModel)]="getWithCategory" placeholder="Select category"></p-dropdown>
+        <br>
+        <button pButton pRipple type="button" label="Search" class="p-button-rounded mt-2" (click)="getListWithCategory()"></button>
+      </div>
+    </div>
+  </div>
+
+
+<br>
+<br>
+<br>
+
+  <!-- Carte pour le calendrier -->
+  <div class="col-md-8 px-2">
+    <div class="card mt-3 mb-3">
+      <p-toast></p-toast>
+      <div class="card-body">
+        <h3 class="card-title">Training Calendar</h3>
+        <p-toolbar styleClass="mb-2">
+          <ng-template pTemplate="left">
+            <div class="my-2">
+              <button pButton pRipple type="button" label="Toggle Weekends" class="p-button-rounded" style="width: auto;" (click)="toggleWeekends()"></button>
+            </div>
+          </ng-template>
+        </p-toolbar>
+        <full-calendar [options]="options" style="width: 400px; height: 400px;"></full-calendar>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
     <p-dialog header="Training Details"  [(visible)]="displayTrainingInformationDialog" [modal]="true" [style]="{width: '550px'}" [baseZIndex]="10000"
               [draggable]="false" [resizable]="false" [closable]="false">
       <ng-template pTemplate="content">
@@ -75,5 +117,4 @@
       </ng-template>
     </p-dialog>
 
-  </div>
-</div>
+

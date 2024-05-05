@@ -4,6 +4,7 @@ import {AccountService} from "../../../../../core/services/account.service";
 import {UserDTO} from "../../../../../core/models/userDTO";
 import {EditProfileRequest} from "../../../../../core/models/editProfileRequest";
 import {UpdatePasswordRequest} from "../../../../../core/models/updatePasswordRequest";
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -25,7 +26,10 @@ export class ProfileComponent implements OnInit {
     this.getPrincipal();
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
       { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
+      { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
+      { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },
       { label: 'Profile', icon: 'pi pi-fw pi-cog', routerLink: ['/profile'] }
     ];
   }

@@ -1,5 +1,5 @@
 
-<main>
+<main style="background-color: black;">
 
   <header class="site-header">
       <div class="container">
@@ -35,21 +35,38 @@
 
           <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav align-items-lg-center ms-auto me-lg-5">
-                  <li class="nav-item">
-                      <a class="nav-link click-scroll" href="#section_1">Home</a>
-                  </li>
-
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" [routerLink]="['/Place']">Place</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" [routerLink]="['/produits']">Product</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" [routerLink]="['/shopcart']">CartItem</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" [routerLink]="['/recommended']">Recommendation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" [routerLink]="['/payment']">Payement</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link click-scroll" [routerLink]="['/payment']"></a>
+                </li>
                   <li class="nav-item">
                       <a class="nav-link click-scroll" href="#section_2">About</a>
                   </li>
 
                   <li class="nav-item">
-                      <a class="nav-link click-scroll" href="#section_3">Artists</a>
+                      <a class="nav-link click-scroll" href="/listperformances">Performances</a>
                   </li>
 
                   <li class="nav-item">
-                      <a class="nav-link click-scroll" href="#section_4">Schedule</a>
+                      <a class="nav-link click-scroll" href="/calendercomp">Competition's Schedule</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link click-scroll" href="/Songsdetetct">Songs detect</a>
+                </li>
 
                   <li class="nav-item">
                       <a class="nav-link click-scroll" href="#section_5">Pricing</a>
@@ -58,6 +75,13 @@
                   <li class="nav-item">
                       <a class="nav-link click-scroll" href="#section_6">Contact</a>
                   </li>
+                     <!-- Camera Button with Material Icon -->
+                    <button routerLink="/QrScanner" class="btn">
+                    <span class="material-icons">photo_camera</span>
+                    Scan QR
+                    </button>
+
+
               </ul>
 
               <a href="ticket.html" class="btn custom-btn d-lg-block d-none">Buy Ticket</a>

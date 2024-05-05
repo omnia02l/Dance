@@ -2,10 +2,10 @@ import { Orders } from "./Orders.model";
 import { Product } from "./Product.model";
 
 export class ShoppingCart {
-    cartId: number;
-    totalPrice: number;
-    products: Product[]; // Assuming Product is another class/interface
-    order: Orders; // Assuming Orders is another class/interface
+    cartId?: number;
+    totalPrice?: number;
+    products?: Product[]; 
+    order?: Orders; 
   
     constructor(cartId: number, totalPrice: number, products: Product[], order: Orders) {
       this.cartId = cartId;
@@ -13,5 +13,7 @@ export class ShoppingCart {
       this.products = products;
       this.order = order;
     }
+    [key: string]: any;
+
   }
   

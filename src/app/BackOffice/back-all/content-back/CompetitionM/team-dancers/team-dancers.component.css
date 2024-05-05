@@ -1,0 +1,50 @@
+/* team-dancers.component.css */
+.team-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-card {
+  border: 2px solid #f0f0f0;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  padding: 20px;
+  width: 300px;
+  background-color: #fff;
+}
+
+.team-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.team-name {
+  margin: 0;
+}
+
+.dancers-count {
+  font-size: 14px;
+  color: #666;
+}
+
+.dancers-list {
+  padding-left: 0;
+}
+
+.dancer {
+  list-style-type: none;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Hover effect */
+.team-card:hover {
+  border-color: #ddd;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+

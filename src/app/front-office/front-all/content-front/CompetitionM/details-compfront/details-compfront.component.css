@@ -1,0 +1,70 @@
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Hauteur à 100% de la hauteur de la fenêtre */
+}
+
+.card {
+  position: relative;
+  max-width: 600px; /* Largeur maximale de la carte */
+  width: 100%; /* Pour s'adapter à la largeur du conteneur */
+  color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+  margin-top: 50px; /* Ajustement de la marge supérieure */
+}
+
+.card:hover {
+  transform: translateY(-15px);
+}
+
+.card::before,
+.card::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(45deg, #ffbc00, #ff0058);
+  border-radius: 1em; /* Ajustement de la bordure */
+}
+
+.card::after {
+  filter: blur(20px); /* Réduction du flou */
+}
+
+.card span {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  right: 6px;
+  bottom: 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  border-radius: 1em;
+}
+
+.card span::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.card .content {
+  position: relative;
+  padding: 10px;
+  z-index: 10;
+  font-weight: 800;
+  font-size: 1.3em; /* Réduction de la taille de la police */
+}
+
+.no-details {
+  text-align: center;
+  color: #fff;
+}

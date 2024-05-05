@@ -1,0 +1,15 @@
+.graph-card {
+  border: 2px solid #0047ab; /* Couleur rylure */
+  border-radius: 10px; /* Bordure arrondie */
+
+}
+.card-body {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
