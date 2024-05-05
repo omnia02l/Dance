@@ -32,9 +32,7 @@ export class LoginComponent implements OnInit{
       next:(data) => {
         this.authService.setToLocalStorage('accessToken' , data.accessToken);
         this.authService.setToLocalStorage('role' , data.role);
-      //  this.router.navigate(['admin']);
-
-       if(data.role === 'admin'){
+        if(data.role === 'admin'){
           this.router.navigate(['admin']);
         }else {
           this.router.navigate(['home']);

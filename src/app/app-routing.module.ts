@@ -16,19 +16,25 @@ import {
   AccountmanagementComponent
 } from "./BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component";
 import {ProfileComponent} from "./BackOffice/back-all/content-back/accountmanagement/profile/profile.component";
-
+import {EventComponent} from "./BackOffice/back-all/content-back/accountmanagement/event/event.component";
+import {MyeventComponent} from "./BackOffice/back-all/content-back/accountmanagement/myevent/myevent.component";
 import {
   TrainingmanagementComponent
 } from "./BackOffice/back-all/content-back/trainingmanagement/trainingmanagement/trainingmanagement.component";
 import {DancehallComponent} from "./BackOffice/back-all/content-back/trainingmanagement/dancehall/dancehall.component";
 import {TrainingComponent} from "./BackOffice/back-all/content-back/trainingmanagement/training/training.component";
+import {PostComponent} from "./BackOffice/back-all/content-back/trainingmanagement/post/post.component";
+import {AllpostsComponent} from "./BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component";
 import {HomeComponent} from "./BackOffice/back-all/content-back/auth/home/home.component";
 
 const routes: Routes = [
-  {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
-  {path: '', component: FrontAllComponent},
+  {path:'', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
+  {path: 'x', component: FrontAllComponent},
+  {path: 'my-events', component: MyeventComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'training', component: TrainingComponent},
+  {path: 'post', component: PostComponent},
+  {path: 'all-post', component: AllpostsComponent},
   {path: 'home', component: HomeComponent},
   {
     path: "admin", component: BackAllComponent, children: [
@@ -37,6 +43,7 @@ const routes: Routes = [
       {path: 'products/update-product/:productId', component: UpdateProductComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
       {path: 'account-management', component: AccountmanagementComponent},
+      {path: 'event-management', component: EventComponent},
 
       {path: 'training-management', component: TrainingmanagementComponent},
       {path: 'dance-hall-management', component: DancehallComponent},

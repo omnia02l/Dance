@@ -3,3 +3,56 @@
 /* PrimeNG */
 @import "../node_modules/primeflex/primeflex.css";
 @import "../node_modules/primeicons/primeicons.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #E8C4D0; /* Rose */
+  color: #000; /* Noir */
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  background-color: #001F3F; /* Bleu marine */
+  color: #FFF; /* Blanc */
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #000; /* Noir */
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #001F3F; /* Bleu marine */
+}
+
+section {
+  padding: 20px;
+}
+
+footer {
+  background-color: #001F3F; /* Bleu marine */
+  color: #FFF; /* Blanc */
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

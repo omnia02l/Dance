@@ -42,8 +42,8 @@ export class TrainingmanagementComponent implements OnInit {
   stats!:Stats;
   data: any;
   constructor(private trainingService: TrainingService, private messageService: MessageService) {
-    this.listTraining();
     this.getStats();
+    this.listTraining();
     this.options = {
       initialView: 'dayGridMonth',
       plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
