@@ -8,6 +8,7 @@ export interface Training {
   capacity?: number
   danceHallName?: string
   coachName?: string
+  trainingCategory?:string
 }
 
 export interface TrainingResponse {

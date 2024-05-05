@@ -1,7 +1,9 @@
+import { Competition } from "./Competition";
 import { Town } from "./Town";
 
 export interface Venue {
   idvenue?: number;
+  vname?: string ;
   vaddress?: string;
   capacity?: number;
   contact_person?: string;
@@ -10,4 +12,5 @@ export interface Venue {
   facilities?: string;
   venueimage?: string;
   town?: Town;
+  competitions?: Competition[];
 }

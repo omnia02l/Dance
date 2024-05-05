@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {VoteService} from "../../../../../core/services/vote.service";
-import {ChartDataSets, ChartOptions} from "chart.js";
+import {ChartDataset, ChartOptions} from "chart.js";
 import {Label} from "ng2-charts";
 
 
@@ -19,7 +19,7 @@ export class VoteStatisticsComponent implements OnInit {
     responsive: true,
   };
   public barChartLabels: Label[] = [];
-  public barChartData: ChartDataSets[] = [
+  public barChartData: ChartDataset[] = [
     { data: [], label: 'Votes' }
   ];
 

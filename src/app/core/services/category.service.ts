@@ -8,19 +8,19 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CategoryService {
-private apiUrl = 'http://localhost:8089/category';
+  private apiUrl = 'http://localhost:8085/category';
 
   constructor(private http: HttpClient) { }
 
-  // Fetch all products
-  getCategorys(): Observable<Category[]> {
+  // Fetch all categories
+  getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.apiUrl)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  // Fetch a single product by ID
+  // Fetch a single category by ID
   getCategory(id: number): Observable<Category> {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Category>(url)
@@ -29,31 +29,31 @@ private apiUrl = 'http://localhost:8089/category';
       );
   }
 
-  // Create a new product
-  createCategory(Category: Category): Observable<Category> {
-    return this.http.post<Category>('http://localhost:8089/category/add-category', Category)
+  // Create a new category
+  createCategory(category: Category): Observable<Category> {
+    return this.http.post<Category>('http://localhost:8085/category/add-category', category)
       .pipe(
         catchError(this.handleError)
       );
   }
-  
 
-// Update an existing product
-updateCategory(CategoryId: number, Category: Category): Observable<Category> {
-  const url = `http://localhost:8089/category/update/${CategoryId}`;
-  return this.http.put<Category>(url, Category)
-    .pipe(
-      catchError(this.handleError)
-    );
-}
+  // Update an existing category
+  updateCategory(categoryId: number, category: Category): Observable<Category> {
+    const url = `http://localhost:8085/category/update/${categoryId}`;
+    return this.http.put<Category>(url, category)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
 
-deleteCategory(CategoryId: number): Observable<void> {
-  const url = `${this.apiUrl}/${CategoryId}`;
-  return this.http.delete<void>(url)
-    .pipe(
-      catchError(this.handleError)
-    );
-}
+  // Delete a category
+  deleteCategory(categoryId: number): Observable<void> {
+    const url = `${this.apiUrl}/${categoryId}`;
+    return this.http.delete<void>(url)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
   
   // Error handling
   private handleError(error: any) {
@@ -61,8 +61,9 @@ deleteCategory(CategoryId: number): Observable<void> {
     return throwError('An error occurred. Please try again later.');
   }
   
-  getCategorytById(CategoryId: number): Observable<Category> {
-    const url = `${this.apiUrl}/${CategoryId}`;
+  // Get a category by ID
+  getCategoryById(categoryId: number): Observable<Category> {
+    const url = `${this.apiUrl}/${categoryId}`;
     return this.http.get<Category>(url);
   }
 }

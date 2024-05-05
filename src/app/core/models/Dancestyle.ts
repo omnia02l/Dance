@@ -1,6 +1,6 @@
 export interface Dancestyle {
   idstyled?: number;
-  styledname?: string;
+  styledname: string;
   styledesc?: string;
   sadddate?: Date;
 }

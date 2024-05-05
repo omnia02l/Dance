@@ -9,6 +9,8 @@ import { ResetpasswordComponent } from './resetpassword/resetpassword.component'
 import {ButtonModule} from "primeng/button";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ToastModule} from "primeng/toast";
+import { HomeComponent } from './home/home.component';
+import {TabMenuModule} from "primeng/tabmenu";
 
 
 @NgModule({
@@ -16,14 +18,16 @@ import {ToastModule} from "primeng/toast";
     LoginComponent,
     RegisterComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent
+    ResetpasswordComponent,
+    HomeComponent
   ],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    ButtonModule,
-    ReactiveFormsModule,
-    ToastModule
-  ]
+    imports: [
+        CommonModule,
+        AuthRoutingModule,
+        ButtonModule,
+        ReactiveFormsModule,
+        ToastModule,
+        TabMenuModule
+    ]
 })
 export class AuthModule { }

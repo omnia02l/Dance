@@ -1,6 +1,6 @@
 import {Vote} from "./Vote";
-import {ResultComment} from "./ResultComment";
-import {Performance} from "./Performance";
+import {ResultComment} from "../../../../../Dance1/Dance-merge/src/app/core/models/ResultComment";
+import {Performance} from "../../../../../Dance1/Dance-merge/src/app/core/models/Performance";
 
 
 export interface Result {

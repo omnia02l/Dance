@@ -29,6 +29,7 @@ export class ListresultFComponent {
 
   loadCommentsForResult(resultId: number): void {
     this.resultCommentService.getResultCommentById(resultId).subscribe(comments => {
+      this.comments = comments;
     });
   }
 

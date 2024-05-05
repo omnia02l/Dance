@@ -1,3 +1,4 @@
+import { Time } from "@angular/common";
 import { Competition } from "./Competition";
 import { Music } from "./Music";
 import { Reward } from "./Reward";

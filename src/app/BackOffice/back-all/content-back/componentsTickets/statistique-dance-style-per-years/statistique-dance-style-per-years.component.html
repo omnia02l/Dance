@@ -1,0 +1,38 @@
+<!-- Title and Description for the Dance Style Selection -->
+<h2>Select Dance Style</h2>
+<p>Select a dance style to view the ticket statistics. This data can help you make informed decisions regarding the popularity of dance styles over the years.</p>
+<select [(ngModel)]="selectedStyleName" (change)="onStyleChange(selectedStyleName)">
+  <option value="" disabled selected>Select style</option>
+  <option *ngFor="let style of distinctStyles" [ngValue]="style">{{ style }}</option>
+</select>
+
+<!-- Year Selectors with Titles -->
+<h2>Select Year Range</h2>
+<p>Choose a start and end year to narrow down the statistics to a specific time frame.</p>
+<div class="year-selectors">
+  <div>
+    <label for="startYearSelect">Start Year:</label>
+    <select id="startYearSelect" [(ngModel)]="startYear" (change)="onChangeYear('start', startYear)">
+      <option *ngFor="let year of possibleYears" [ngValue]="year">{{ year }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="endYearSelect">End Year:</label>
+    <select id="endYearSelect" [(ngModel)]="endYear" (change)="onChangeYear('end', endYear)">
+      <option *ngFor="let year of possibleYears" [ngValue]="year">{{ year }}</option>
+    </select>
+  </div>
+</div>
+
+<!-- Chart Container -->
+<div class="chart-container">
+  <h3>Ticket Sales Statistics</h3>
+  <canvas baseChart
+          [options]="barChartOptions"
+          [datasets]="barChartData.datasets"
+          [labels]="barChartData.labels"
+          [legend]="barChartLegend"
+          type="bar">
+  </canvas>
+</div>

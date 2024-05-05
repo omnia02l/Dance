@@ -1,0 +1,60 @@
+<!-- Basic Layout -->
+<div class="col-xxl">
+  <div class="card mb-4">
+    <div class="card-header d-flex align-items-center justify-content-between">
+      <h5 class="mb-0">Dance Category Form</h5>
+      <small class="text-muted float-end">Default label</small>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="danceCategoryForm" (ngSubmit)="submitForm()">
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="categdname">Category name</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="categdname" formControlName="categdname" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label class="col-sm-2 col-form-label" for="categdesc">Description</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control" id="categdesc" formControlName="categdesc" />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm-10 offset-sm-2">
+            <button type="button" class="btn btn-primary" (click)="addStyleField()">Add style</button>
+          </div>
+        </div>
+        <div class="row mb-3" formArrayName="dancestyles" *ngFor="let style of dancestyles.controls; let i = index">
+          <div class="col-sm-10 offset-sm-2">
+            <div [formGroupName]="i">
+              <h4>Dance Style {{ i + 1 }}</h4>
+              <div class="mb-3">
+                <label for="styledname">Style name</label>
+                <input type="text" class="form-control" id="styledname" formControlName="styledname" />
+              </div>
+              <div class="mb-3">
+                <label for="styledesc">Description</label>
+                <input type="text" class="form-control" id="styledesc" formControlName="styledesc" />
+              </div>
+              <button type="button" class="btn btn-danger" (click)="removeStyleField(i)">Remove style</button>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Add category</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+<!-- Affichage des messages de succès et d'erreur -->
+<div *ngIf="successMessage" class="alert alert-success" role="alert">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+  {{ errorMessage }}
+</div>
+

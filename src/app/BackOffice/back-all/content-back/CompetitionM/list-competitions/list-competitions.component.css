@@ -1,0 +1,62 @@
+.card-container {
+  margin-top: 20px;
+}
+
+.card {
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 5px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.card-text {
+  font-size: 1rem;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.add-competition-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn-circle {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: #28a745; /* Green color */
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s; /* Add transition */
+}
+
+.btn-circle:hover {
+  background-color: #218838; /* Darker green color on hover */
+  transform: scale(1.1); /* Scale up on hover */
+}
+
+.btn-text {
+  margin-left: 10px; /* Add some space between the button and text */
+}
+
+.btn-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}

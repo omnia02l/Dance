@@ -27,7 +27,7 @@ export class UpdateCategoryComponent  {
   }
 
   getcategoryDetails() {
-    this.categoryService.getCategorytById(this.categoryId).subscribe(
+    this.categoryService.getCategoryById(this.categoryId).subscribe(
       (category: Category) => {
         this.category = category;
       },
