@@ -48,7 +48,7 @@ export class TrainingmanagementComponent implements OnInit {
   updatedTrainingInformation:UpdateTrainingRequest={};
   getWithCategory!:string;
   constructor(private trainingService: TrainingService, private messageService: MessageService) {
-    this.categories = ['A','B','C','D'];
+    this.categories = ['SALSA','URBAIN_DANCE','HIP_HOP','DANCE_CLASSIC'];
     this.getStats();
     this.listTraining();
     this.options = {
@@ -269,7 +269,7 @@ export class TrainingmanagementComponent implements OnInit {
       next:(data)=>{
         this.statsWithCat=data;
         this.data2 = {
-          labels: ['A','B','c','d'],
+          labels: ['SALSA','URBAIN_DANCE','HIP_HOP','DANCE_CLASSIC'],
           datasets: [
             {
               data: [this.statsWithCat.withA,this.statsWithCat.withB,this.statsWithCat.withC,this.statsWithCat.withD],

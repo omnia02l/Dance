@@ -2,11 +2,9 @@
   <div class="card px-6 py-6">
     <p-toast></p-toast>
     <p-toolbar styleClass="mb-4">
-      <h1 class="m-0">Manage Dance Halls</h1>
       <ng-template pTemplate="left">
         <div class="my-2">
-          
-          <button pButton pRipple label="Add New Dancehall" icon="pi pi-plus"
+          <button pButton pRipple label="New" icon="pi pi-plus"
           (click)="newDanceHall = {} ; submitted = false; addDanceHallDialog = true;"></button>
         </div>
       </ng-template>
@@ -17,7 +15,7 @@
              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"  [rowHover]="true" dataKey="id">
       <ng-template pTemplate="caption">
         <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-      
+          <h5 class="m-0">Manage Dance Halls</h5>
           <span class="block mt-2 md:mt-0 p-input-icon-left">
                             <i class="pi pi-search"></i>
                             <input pInputText type="text" (input)="onGlobalFilter(dt, $event)" placeholder="Search..."  class="w-full sm:w-auto"/>
@@ -30,7 +28,6 @@
           <th pSortableColumn="hallAddress">Dance-hall address <p-sortIcon field="hallAddress"></p-sortIcon></th>
           <th pSortableColumn="capacity">Capacity <p-sortIcon field="capacity"></p-sortIcon></th>
           <th pSortableColumn="danceHallStatus">Status <p-sortIcon field="danceHallStatus"></p-sortIcon></th>
-          <th pSortableColumn="danceHallStatus">ChangeStatus <p-sortIcon field="danceHallStatus"></p-sortIcon></th>
           <th></th>
           <th></th>
         </tr>
@@ -51,18 +48,17 @@
             {{dancehall.capacity}}
           </td>
           <td style="width:14%; min-width:10rem;">
-            <span class="p-column-title">AcountStatus</span>
-            <span *ngIf="dancehall.danceHallStatus==='AVAILABLE'"class="badge bg-success">AVAILABLE</span>
-            <span *ngIf="dancehall.danceHallStatus==='NOT_AVAILABLE'" class="badge bg-danger">NOT AVAILABLE</span>
+            <span class="p-column-title">accountStatus</span>
+            <span *ngIf="dancehall.danceHallStatus==='AVAILABLE'" style="color: #146c43; font-size: large">AVAILABLE</span>
+            <span *ngIf="dancehall.danceHallStatus==='NOT_AVAILABLE'" style="color: #d8363a; font-size: large">NOT AVAILABLE</span>
           </td>
-          <td style="width:14%; min-width:10rem;">
-            <span class="p-column-title">ChangeStatus</span>
+          <td>
             <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-text"
             (click)=" danceHallId = dancehall.id; changeStatusDialog = true"></button>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text p-button-red" (click)="danceHallId=dancehall.id; deleteDanceHallDialog = true"></button>
-
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-text"
+            (click)="danceHallId=dancehall.id; deleteDanceHallDialog = true"></button>
           </td>
         </tr>
       </ng-template>

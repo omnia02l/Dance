@@ -9,10 +9,11 @@ import {AllPostStats, MyPostStats} from "../../../../../core/models/MyPostStats"
   templateUrl: './pba.component.html',
   styleUrls: ['./pba.component.css'],
   providers:[MessageService]
+  
 })
 export class PbaComponent implements OnInit{
 
-
+  allPostsStats:AllPostStats={};
   myPosts: Post[] = [];
   descriptionDialog = false;
   description!: string;
@@ -33,6 +34,8 @@ export class PbaComponent implements OnInit{
   path:string = "http://localhost:8085/post/addimage/";
   path2:string = "http://localhost:8085/post/getimage/";
   data: any;
+  data1: any;
+  data2: any;
   optionsChart: any;
   myPostStats:MyPostStats={}
   constructor(private messageService: MessageService, private postService: PostService) {
@@ -50,6 +53,7 @@ export class PbaComponent implements OnInit{
   ngOnInit(): void {
     this.myPost();
     this.MyPostStats();
+    this.AllPostStats();
   }
 
   errorUplodingImgae() {
@@ -202,11 +206,49 @@ export class PbaComponent implements OnInit{
     this.postService.myPostStats().subscribe({
       next:(data)=>{
         this.myPostStats=data;
-        this.data = {
+        this.data1 = {
           labels: ['Total','Likes','Dislikes'],
           datasets: [
             {
               data: [this.myPostStats.postNumber,this.myPostStats.likesNumber,this.myPostStats.dislikesNumber],
+              backgroundColor: [
+                "#0000FF",
+                "#800080",
+                "#026678"
+              ],
+              hoverBackgroundColor: [
+                "#0000FF",
+                "#800080",
+                "#026678"
+              ]
+            }
+          ]
+        };
+        this.optionsChart = {
+          plugins: {
+            title: {
+              display: true,
+              fontSize: 25
+            },
+            legend: {
+              position: 'top'
+            }
+          }
+        };
+      },error:(err)=>{
+        console.log(err);
+      }
+    })
+  }
+  AllPostStats(){
+    this.postService.myPostStats().subscribe({
+      next:(data)=>{
+        this.allPostsStats=data;
+        this.data2 = {
+          labels: ['Total','Likes','Dislikes'],
+          datasets: [
+            {
+              data: [this.allPostsStats.postNumber,this.allPostsStats.likesNumber,this.allPostsStats.dislikesNumber],
               backgroundColor: [
                 "#0000FF",
                 "#800080",
