@@ -44,7 +44,6 @@ const routes: Routes = [
       {path: 'products/:productId', component: ProductDetailComponent},
       {path: 'account-management', component: AccountmanagementComponent},
       {path: 'event-management', component: EventComponent},
-
       {path: 'training-management', component: TrainingmanagementComponent},
       {path: 'dance-hall-management', component: DancehallComponent},
 

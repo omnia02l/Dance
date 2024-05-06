@@ -1,10 +1,13 @@
-<div class="col-12">
+<div class="col-12" >
   <div class="card px-6 py-6">
     <p-toast></p-toast>
-    <p-toolbar styleClass="mb-4">
+    <p-toolbar styleClass="mb-4" >
       <ng-template pTemplate="left">
-        <div class="my-2">
-          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="signupDialog = true; signupRequest = {}"></button>
+        <div class="my-2" >
+
+          <!--<button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" (click)="signupDialog = true; signupRequest = {}"></button>-->
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" style="background-color: #A8043C; border-color: #A8043C;" (click)="signupDialog = true; signupRequest = {}"></button>
+
         </div>
       </ng-template>
     </p-toolbar>
@@ -23,13 +26,13 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="userName">Username <p-sortIcon field="userName"></p-sortIcon></th>
-          <th pSortableColumn="firstName">First name <p-sortIcon field="firstName"></p-sortIcon></th>
-          <th pSortableColumn="lastName">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
-          <th pSortableColumn="phoneNumber">Phone number <p-sortIcon field="phoneNumber"></p-sortIcon></th>
-          <th pSortableColumn="email">Email address <p-sortIcon field="email"></p-sortIcon></th>
-          <th>Role</th>
-          <th>Account status</th>
+          <th pSortableColumn="userName" style="color: #A8043C;">Username <p-sortIcon field="userName"></p-sortIcon></th>
+          <th pSortableColumn="firstName" style="color: #A8043C;">First name <p-sortIcon field="firstName"></p-sortIcon></th>
+          <th pSortableColumn="lastName" style="color: #A8043C;">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+          <th pSortableColumn="phoneNumber" style="color: #A8043C;">Phone number <p-sortIcon field="phoneNumber"></p-sortIcon></th>
+          <th pSortableColumn="email" style="color: #A8043C;">Email address <p-sortIcon field="email"></p-sortIcon></th>
+          <th style="color: #A8043C;">Role</th>
+          <th style="color: #A8043C;">Account status</th>
           <th></th>
           <th></th>
         </tr>
@@ -38,7 +41,7 @@
       <ng-template pTemplate="body" let-user>
         <tr>
           <td style="width:14%; min-width:10rem;">
-            <span class="p-column-title">Username</span>
+            <span class="p-column-title" style="color: #A8043C;">Username</span>
             {{user.userName}}
           </td>
           <td style="width:14%; min-width:10rem;">
@@ -63,14 +66,14 @@
           </td>
           <td style="width:14%; min-width:10rem;">
             <span class="p-column-title">accountStatus</span>
-            <span *ngIf="user.status===false" style="color: #007bff; font-size: large">Enable</span>
-            <span *ngIf="user.status===true" style="color: #d8363a; font-size: large">Disable</span>
+            <span *ngIf="user.status===false" style="color: #001F3F; font-size: large">Enable</span>
+            <span *ngIf="user.status===true" style="color: #A8043C; font-size: large">Disable</span>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-ban" class="p-button-rounded p-button-warning" (click)="displayBanAccount = true; userName = user.userName"></button>
+            <button pButton pRipple icon="pi pi-ban" class="p-button-rounded p-button-warning" style="background-color: #A8043C; border-color: #A8043C;" (click)="displayBanAccount = true; userName = user.userName"></button>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-success" (click)="displayEnableAccount = true; userName = user.userName"></button>
+            <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-success" style="background-color: #001F3F; border-color: #001F3F;" (click)="displayEnableAccount = true; userName = user.userName"></button>
           </td>
         </tr>
       </ng-template>
@@ -145,7 +148,7 @@
   <div class="card px-6 py-6">
     <h2>Account status stats</h2>
     <div class="flex justify-content-center">
-      <p-chart type="bar" [data]="data" [options]="optionsChart" width="200px" height="200px"></p-chart>
+      <p-chart type="bar" [data]="data" [options]="optionsChart" width="400px" height="400px"></p-chart>
     </div>
   </div>
 </div>

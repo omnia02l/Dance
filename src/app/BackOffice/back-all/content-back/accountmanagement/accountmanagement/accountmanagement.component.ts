@@ -105,12 +105,12 @@ export class AccountmanagementComponent implements OnInit {
             {
               data: [this.accontStatusStats.disable,this.accontStatusStats.enable],
               backgroundColor: [
-                "#800080",
-                "#0000FF"
+                "#201C2C",
+                "#A8043C"
               ],
               hoverBackgroundColor: [
-                "#800080",
-                "#0000FF"
+                "#201C2C",
+                "#A8043C"
               ]
             }
           ]
