@@ -4,7 +4,7 @@
     <p-toolbar styleClass="mb-4">
       <ng-template pTemplate="left">
         <div class="my-2">
-          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2"
+          <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" style="background-color: #A8043C; border-color: #A8043C;"
                   (click)="eventDialog = true; event = {}; submitted = false"></button>
         </div>
       </ng-template>
@@ -21,17 +21,17 @@
       </ng-template>
       <ng-template pTemplate="header">
         <tr>
-          <th pSortableColumn="eventName">Event name
-            <p-sortIcon field="eventName"></p-sortIcon>
+          <th pSortableColumn="eventName" style="color: #A8043C;">Event name
+            <p-sortIcon field="eventName" style="color: #A8043C;"></p-sortIcon>
           </th>
-          <th pSortableColumn="eventDate">Event Date
+          <th pSortableColumn="eventDate" style="color: #A8043C;">Event Date
             <p-sortIcon field="eventDate"></p-sortIcon>
           </th>
-          <th>Event description</th>
-          <th>Event address</th>
-          <th>Participants</th>
-          <th>Update participants</th>
-          <th>Rate</th>
+          <th style="color: #A8043C;">Event description</th>
+          <th style="color: #A8043C;">Event address</th>
+          <th style="color: #A8043C;">Participants</th>
+          <th style="color: #A8043C;">Update participants</th>
+          <th style="color: #A8043C;">Rate</th>
           <th></th>
           <th></th>
         </tr>
@@ -208,9 +208,9 @@
 
 <div class="col-12">
   <div class="card px-6 py-6">
-    <h2>Event stats</h2>
+    <h2 style="color: #A8043C; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);">Event stats</h2>
     <div class="flex justify-content-center">
-      <p-chart type="bar" [data]="data" [options]="optionsChart" width="200px" height="200px"></p-chart>
+      <p-chart type="bar" [data]="data" [options]="optionsChart" width="400px" height="400px"></p-chart>
     </div>
   </div>
 </div>
