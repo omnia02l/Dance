@@ -133,6 +133,7 @@ import { StatcompComponent } from './BackOffice/back-all/content-back/Competitio
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 import { FrontTemplateComponent } from './front-template/front-template.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -214,14 +215,12 @@ import { FrontTemplateComponent } from './front-template/front-template.componen
       ListtownsandvenuesComponent,
       StatcompComponent,
       SongsdetetctComponent,
-
-PostComponent,
+     PostComponent,
     AllpostsComponent,
     CoachComponent,
     PbaComponent,
     FrontTemplateComponent,
-
-  ],
+    ],
     imports: [
         BrowserModule,
         HttpClientModule,

@@ -81,6 +81,7 @@ import { StatcompComponent } from './BackOffice/back-all/content-back/Competitio
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 import {FrontTemplateComponent} from "./front-template/front-template.component";
 
+
 const routes: Routes = [
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
   { path: '', component:FrontTemplateComponent,children:[
@@ -130,6 +131,7 @@ const routes: Routes = [
       {path: 'dance-hall-management', component: DancehallComponent},
       {path: 'coach-management', component: CoachComponent},
       {path: 'post', component: PbaComponent},
+   
 
 ]
   },

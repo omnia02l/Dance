@@ -53,7 +53,7 @@ export class PbaComponent implements OnInit{
   ngOnInit(): void {
     this.myPost();
     this.MyPostStats();
-    this.AllPostStats();
+    this.AllPostStats()
   }
 
   errorUplodingImgae() {
