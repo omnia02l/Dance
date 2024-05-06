@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+
+import { ChartModule } from 'primeng/chart';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -113,31 +116,39 @@ import { UpdatecompComponent } from './BackOffice/back-all/content-back/Competit
 
 import { DetailsCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/details-compfront/details-compfront.component';
 import { ListCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/list-compfront/list-compfront.component';
+
+
+
+
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
-import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
+
 
 import { MatButtonModule } from '@angular/material/button';
-import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
+
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
-import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
-import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
-import { OccupancyDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/occupancy-dialog/occupancy-dialog.component';
-import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
+
+
+
 import { MatTabsModule } from '@angular/material/tabs';
+
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
-import { ChartModule } from 'primeng/chart';
 import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
-import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
+import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
+import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
+import { OccupancyDialogComponent } from './BackOffice/back-all/content-back/componentsTickets/occupancy-dialog/occupancy-dialog.component';
 import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
-import { MenubarModule } from 'primeng/menubar';
+import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
 import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
+import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
+import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -168,7 +179,7 @@ import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/co
     RecommendedProductsComponent,
     UpdateCategoryComponent,
     TheatrePlanListComponent,
-  
+
     PriceListComponent,
     TicketListComponent,
     TicketCardListComponent,
@@ -184,9 +195,9 @@ import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/co
     QrScannerComponent,
     PurchaseTransactionComponent,
    // MaterialFileInputeModule,
-   
+
     ConfirmationComponent,
-    
+
  EventComponent,
     MyeventComponent,
     TrainingmanagementComponent,
@@ -225,6 +236,7 @@ import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/co
       ListtownsandvenuesComponent,
       StatcompComponent,
       SongsdetetctComponent,
+      FrontTemplateComponent,
 
 PostComponent,
     AllpostsComponent,
@@ -233,57 +245,34 @@ PostComponent,
     MyOrdersComponent,
     FrontTemplateComponent,
   ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        AppRoutingModule,
-            ButtonModule,
-        ToastModule,
-        ToolbarModule,
-        RippleModule,
-        MenubarModule ,
-        TableModule,
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
     FormsModule,
-        InputTextModule,
-        DataViewModule,
-        DialogModule,
-        InputMaskModule,
-        DropdownModule,
-        CalendarModule,
-    MatCardModule,
-    MatIconModule,
-        InputTextareaModule,
-        MultiSelectModule,
-        FullCalendarModule,
-    UcWidgetModule,
-        InputNumberModule,
-        TabMenuModule,
-        ChartModule,
-        RatingModule,
-        FileUploadModule,
+    ButtonModule,
+    ToastModule,
+    ToolbarModule,
+    RippleModule,
+    TableModule,
+    InputTextModule,
+    DataViewModule,
+    DialogModule,
+    InputMaskModule,
+    DropdownModule,
+    CalendarModule,
+    InputTextareaModule,
+    MultiSelectModule,
+    FullCalendarModule,
+    InputNumberModule,
     ReactiveFormsModule,
-    MatDialogModule,
-    MatSnackBarModule,
-    FontAwesomeModule,
-    CommonModule,
-    MatButtonModule,
-    
-    MatFormFieldModule,
-    MatProgressSpinnerModule,
-    MatDividerModule,
-    MatProgressBarModule,
-    MatSidenavModule,
     NgChartsModule,
- 
-    MatTableModule,
-    MatTabsModule,
-   
-    MenubarModule ,
-  
-   
-    TabMenuModule,
-    ],
+    CommonModule,
+    ChartModule,
+    FontAwesomeModule,
+    UcWidgetModule
+  ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

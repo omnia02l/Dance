@@ -1,3 +1,5 @@
+
+
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { UserDTO } from 'src/app/core/models/userDTO';
@@ -9,44 +11,70 @@ import { AccountService } from 'src/app/core/services/account.service';
   styleUrls: ['./front-template.component.css']
 })
 export class FrontTemplateComponent {
-  
+
+
   principal!: UserDTO;
   items: MenuItem[];
 
   constructor(private accountService: AccountService) {
     this.getPrincipal();
-    
+
     this.items = [
-      { 
-        label: 'Home', 
-        icon: 'pi pi-fw pi-home', 
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
+
+    this.items = [
+      {
+        label: 'Home',
+        icon: 'pi pi-fw pi-home',
         routerLink: ['/home'],
         items: [
           { label: 'Sub Item 1', icon: 'pi pi-fw pi-plus', routerLink: ['/home/subitem1'] },
           { label: 'Sub Item 2', icon: 'pi pi-fw pi-plus', routerLink: ['/home/subitem2'] }
         ]
       },
-      { 
-        label: 'Profile', 
-        icon: 'pi pi-fw pi-cog', 
+      {
+        label: 'Profile',
+        icon: 'pi pi-fw pi-cog',
+
+      {
+        label: 'Profile',
+        icon: 'pi pi-fw pi-cog',
         routerLink: ['/profile'],
         items: [
           { label: 'Edit Profile', icon: 'pi pi-fw pi-user-edit', routerLink: ['/profile/edit'] },
           { label: 'Settings', icon: 'pi pi-fw pi-cog', routerLink: ['/profile/settings'] }
         ]
       },
-      { 
-        label: 'Camera', 
-        icon: 'pi pi-fw pi-camera', 
+      {
+        label: 'Camera',
+        icon: 'pi pi-fw pi-camera',
+
+      {
+        label: 'Competitions',
+        icon: 'pi pi-fw pi-flag-fill',
+
+        items: [
+          { label: 'Calender', icon: 'pi pi-fw pi-calendar', routerLink: ['/calendercomp'] },
+          { label: 'List', icon: 'pi pi-fw pi-bolt', routerLink: ['/list-compfront'] },
+          { label: 'Performances', icon: 'pi pi-fw pi-hourglass', routerLink: ['/listperformances'] },
+          { label: 'Songs', icon: 'pi pi-fw pi-heart', routerLink: ['/Songsdetetct'] }
+        ]
+      },
+
+      {
+        label: 'Camera',
+        icon: 'pi pi-fw pi-camera',
         routerLink: ['/QrScanner'],
         items: [
           { label: 'Gallery', icon: 'pi pi-fw pi-image', routerLink: ['/QrScanner/gallery'] },
           { label: 'Capture', icon: 'pi pi-fw pi-video', routerLink: ['/QrScanner/capture'] }
         ]
       },
-      { 
-        label: 'Store', 
-        icon: 'pi pi-shopping-cart', 
+      {
+        label: 'Store',
+        icon: 'pi pi-shopping-cart',
         //routerLink: ['/produits'],
         items: [
           { label: 'Products', icon: 'pi pi-shopping-cart', routerLink: ['/produits'] },
@@ -68,4 +96,4 @@ export class FrontTemplateComponent {
     });
   }
 }
-
+}

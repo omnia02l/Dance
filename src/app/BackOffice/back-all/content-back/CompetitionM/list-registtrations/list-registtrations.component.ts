@@ -39,5 +39,22 @@ export class ListRegisttrationsComponent implements OnInit {
       this.pendingRegistrationsCount = count;
     });
   }
+  getStatusClass(status: string | undefined): string {
+    switch (status) {
+      case 'Approved':
+        return 'status-approved';
+      case 'Pending':
+        return 'status-pending';
+      case 'Rejected':
+        return 'status-rejected';
+      default:
+        return ''; // Retourne une chaîne vide pour les états non reconnus
+    }
+  }
+
+
+
+
+
 
 }

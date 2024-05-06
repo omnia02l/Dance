@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { RegistrationService } from 'src/app/core/services/registration.service';
 import { RegistrationDTO } from 'src/app/core/models/RegistrationDTO';
 import { ActivatedRoute } from '@angular/router'; // Importation de ActivatedRoute
+import { CloudinaryService } from 'src/app/core/services/cloudinary-service.service';
 
 @Component({
   selector: 'app-add-registration',
@@ -18,10 +19,11 @@ export class AddRegistrationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private registrationService: RegistrationService,
-    private route: ActivatedRoute // Injection de ActivatedRoute
+    private route: ActivatedRoute,
+    private cloudinaryService: CloudinaryService
   ) {
     this.registrationForm = this.formBuilder.group({
-      videolink: ['', [Validators.required]],
+      videolink: [''],
       amountpaid: [''],
       team: this.formBuilder.group({
         teamname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(10), Validators.pattern('^[a-zA-Z]+$')]],
@@ -44,6 +46,19 @@ export class AddRegistrationComponent implements OnInit {
     });
   }
 
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    this.cloudinaryService.uploadFile(file).subscribe(
+      (response) => {
+        console.log('Image uploaded successfully:', response);
+        this.registrationForm.patchValue({ videolink: response.secure_url });
+      },
+      (error) => {
+        console.error('Error uploading image:', error);
+      }
+    );
+  }
   onSubmit(): void {
     if (this.registrationForm.valid) {
       this.updateNbDancers(); // Update nbdancers before submitting
@@ -53,7 +68,7 @@ export class AddRegistrationComponent implements OnInit {
       const newRegistrationDTO: RegistrationDTO = {
         registration: {
           videolink: this.registrationForm.value.videolink,
-          
+
           registration_date: this.currentDate
         },
         team: {

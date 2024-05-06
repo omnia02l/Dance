@@ -1,72 +1,91 @@
 /* Style pour le conteneur principal */
 .container {
-  margin: 20px;
-}
-
-/* Style pour le bouton "Detect song" */
-.detect-button {
-  background-color: #4CAF50; /* Couleur de fond */
-  border: none; /* Supprimer la bordure */
-  color: white; /* Couleur du texte */
-  padding: 10px 20px; /* Espacement intérieur */
-  text-align: center; /* Centrer le texte */
-  text-decoration: none; /* Supprimer la décoration du texte */
-  display: inline-block; /* Affichage en ligne */
-  font-size: 16px; /* Taille de la police */
-  cursor: pointer; /* Curseur pointeur */
-  border-radius: 5px; /* Coins arrondis */
-}
-
-.detect-button:hover {
-  background-color: #45a049; /* Changement de couleur au survol */
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: center; /* Centrer le contenu */
 }
 
 /* Style pour le champ de saisie et le bouton de recherche */
 .search-container {
-  margin-top: 20px; /* Marge supérieure */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrer les éléments horizontalement */
 }
 
 .search-input {
-  padding: 10px; /* Espacement intérieur */
-  border: 1px solid #ccc; /* Bordure grise */
-  border-radius: 5px; /* Coins arrondis */
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #8B0026; /* Rouge foncé */
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 .search-button {
-  background-color: #008CBA; /* Couleur de fond */
-  border: none; /* Supprimer la bordure */
-  color: white; /* Couleur du texte */
-  padding: 10px 20px; /* Espacement intérieur */
-  text-align: center; /* Centrer le texte */
-  text-decoration: none; /* Supprimer la décoration du texte */
-  display: inline-block; /* Affichage en ligne */
-  font-size: 16px; /* Taille de la police */
-  cursor: pointer; /* Curseur pointeur */
-  border-radius: 5px; /* Coins arrondis */
+  background-color: #A8043C; /* Rouge */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .search-button:hover {
-  background-color: #005f6b; /* Changement de couleur au survol */
+  background-color: #660019; /* Rouge foncé */
 }
 
-/* Style pour la liste de suggestions */
-.suggestions {
-  margin-top: 20px; /* Marge supérieure */
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center; /* Centrer les cartes verticalement */
 }
 
-.suggestions ul {
-  list-style-type: none; /* Supprimer les puces de la liste */
-  padding: 0; /* Supprimer les marges internes de la liste */
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 100px;
+  width: 250px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 400ms;
 }
 
-.suggestions li {
-  padding: 5px 0; /* Espacement intérieur */
-  font-size: 16px; /* Taille de la police */
+.cards .card p.tip {
+  font-size: 1em;
+  font-weight: 700;
 }
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(10px);
+  transform: scale(0.9, 0.9);
+}
+
+/* Colors for the cards */
+.cards .red {
+  background-color: #A8043C; /* Rouge */
+}
+
+
 
 /* Style pour le message "No suggestions found" */
 .no-suggestions {
+  margin-top: 20px;
+  color: #660019; /* Rouge foncé */
+  font-size: 16px;
+}
+h3 {
+  color: #001F3F; /* Couleur du texte */
+  font-size: 24px; /* Taille de la police */
+  text-align: center; /* Alignement du texte */
   margin-top: 20px; /* Marge supérieure */
-  color: #FF0000; /* Couleur rouge pour attirer l'attention */
-  font-size: 16px; /* Taille de la police */
 }

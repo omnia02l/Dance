@@ -6,6 +6,7 @@ import { Competition } from 'src/app/core/models/Competition';
 import { Dancecategory } from 'src/app/core/models/Dancecategory';
 import { Dancestyle } from 'src/app/core/models/Dancestyle';
 import { Venue } from 'src/app/core/models/Venue';
+import { CloudinaryService } from 'src/app/core/services/cloudinary-service.service';
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { DancecategoryandstyleService } from 'src/app/core/services/dancecategoryandstyle.service';
 import { TownandvenueserviceService } from 'src/app/core/services/townandvenueservice.service';
@@ -30,7 +31,7 @@ export class UpdatecompComponent implements OnInit {
     private competitionService: CompetitionService,
     private danceCategoryService: DancecategoryandstyleService,
     private townService: TownandvenueserviceService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private cloudinaryService: CloudinaryService // Injecter le service CloudinaryService ici
   ) { }
 
   ngOnInit(): void {
@@ -138,43 +139,55 @@ export class UpdatecompComponent implements OnInit {
       this.venueId = 0;
     }
   }
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    this.competitionForm.patchValue({ compimage: file });
+  }
 
 
   onSubmit(): void {
-    console.log('Formulaire soumis');
-    console.log('Valeur du formulaire :', this.competitionForm.value);
-    console.log('ID de la catégorie sélectionnée :', this.selectedCategoryId);
-    console.log('ID du style sélectionné :', this.selectedStyleId);
-
-    // Afficher l'état de chaque contrôle
-    console.log('Validité du formulaire :', this.competitionForm.valid);
-    console.log('Validité du contrôle de catégorie :', this.competitionForm.controls['dancecateg'].valid);
-    console.log('Validité du contrôle de style :', this.competitionForm.controls['style'].valid);
-
     if (this.competitionForm.valid && this.selectedCategoryId !== 0 && this.selectedStyleId !== 0 && this.venueId !== 0) {
-      const competitionData: Competition = {
-        ...this.competitionForm.value,
-        idcomp: this.competitionId,
-        dancecateg: this.selectedCategoryId,
-        style: this.selectedStyleId
-      };
-
-      this.competitionService.updateCompetitionWithCategoryAndStyle(
-        this.competitionId,
-        competitionData,
-        this.selectedCategoryId!,
-        this.selectedStyleId!,
-        this.venueId  // Ajoutez l'ID de la venue ici
-      ).subscribe(
-        (response) => {
-          console.log('Compétition mise à jour avec succès :', response);
-        },
-        (error) => {
-          console.error('Erreur lors de la mise à jour de la compétition :', error);
-        }
-      );
+      const imageFile = this.competitionForm.get('compimage')?.value;
+      if (imageFile) {
+        this.cloudinaryService.uploadFile(imageFile).subscribe(
+          (response) => {
+            this.competitionForm.patchValue({ compimage: response.secure_url });
+            this.submitForm();
+          },
+          (error) => {
+            console.error('Erreur lors de l\'upload de l\'image :', error);
+          }
+        );
+      } else {
+        this.submitForm();
+      }
     } else {
       console.log('Le formulaire est invalide ou la catégorie/style/venue n\'a pas été sélectionnée');
     }
+  }
+
+  private submitForm(): void {
+    const competitionData: Competition = {
+      ...this.competitionForm.value,
+      idcomp: this.competitionId,
+      dancecateg: this.selectedCategoryId!,
+      style: this.selectedStyleId!,
+      venue: this.venueId
+    };
+
+    this.competitionService.updateCompetitionWithCategoryAndStyle(
+      this.competitionId,
+      competitionData,
+      this.selectedCategoryId!,
+      this.selectedStyleId!,
+      this.venueId
+    ).subscribe(
+      (response) => {
+        console.log('Compétition mise à jour avec succès :', response);
+      },
+      (error) => {
+        console.error('Erreur lors de la mise à jour de la compétition :', error);
+      }
+    );
   }
 }

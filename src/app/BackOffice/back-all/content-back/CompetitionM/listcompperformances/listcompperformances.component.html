@@ -11,7 +11,7 @@
 
   <div *ngFor="let competitionPerformance of competitionPerformances" class="competition-card">
     <div class="card-header">
-      <h3>Competition: {{ competitionPerformance.compname }}</h3>
+      <h3 class="competition-name">Competition: {{ competitionPerformance.compname }}</h3>
       <span class="date-badge">
         {{ competitionPerformance.startdate | date:'shortDate' }} - {{ competitionPerformance.enddate | date:'shortDate' }}
       </span>

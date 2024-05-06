@@ -15,18 +15,22 @@ import {
 import { ProductDetailComponent } from './BackOffice/back-all/content-back/store/product-detail/product-detail.component';
 import { ProductListComponent } from './BackOffice/back-all/content-back/store/product-list/product-list.component';
 import { UpdateProductComponent } from './BackOffice/back-all/content-back/store/update-product/update-product.component';
-import { FrontAllComponent } from './front-office/front-all/front-all.component';
 
 import { AddDancestyleToCategoryComponent } from './BackOffice/back-all/content-back/CompetitionM/add-dancestyle-to-category/add-dancestyle-to-category.component';
 import { AddcompetitionComponent } from './BackOffice/back-all/content-back/CompetitionM/addcompetition/addcompetition.component';
 import { AdddancecategoryandstyleComponent } from './BackOffice/back-all/content-back/CompetitionM/adddancecategoryandstyle/adddancecategoryandstyle.component';
+import { AddperformanceComponent } from './BackOffice/back-all/content-back/CompetitionM/addperformance/addperformance.component';
+import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
 import { CalenderbackcompComponent } from './BackOffice/back-all/content-back/CompetitionM/calenderbackcomp/calenderbackcomp.component';
 import { CompetitionDetailsComponent } from './BackOffice/back-all/content-back/CompetitionM/competition-details/competition-details.component';
 import { ListCompetitionsComponent } from './BackOffice/back-all/content-back/CompetitionM/list-competitions/list-competitions.component';
 import { ListDancecategoriesandstylesComponent } from './BackOffice/back-all/content-back/CompetitionM/list-dancecategoriesandstyles/list-dancecategoriesandstyles.component';
 import { ListRegisttrationsComponent } from './BackOffice/back-all/content-back/CompetitionM/list-registtrations/list-registtrations.component';
 import { ListTeamsCompComponent } from './BackOffice/back-all/content-back/CompetitionM/list-teams-comp/list-teams-comp.component';
+import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
+import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
 import { RegistrationDetailComponent } from './BackOffice/back-all/content-back/CompetitionM/registration-detail/registration-detail.component';
+import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
 import { TeamDancersComponent } from './BackOffice/back-all/content-back/CompetitionM/team-dancers/team-dancers.component';
 import { UpdateDancecategoryComponent } from './BackOffice/back-all/content-back/CompetitionM/update-dancecategory/update-dancecategory.component';
 import { UpdatecompComponent } from './BackOffice/back-all/content-back/CompetitionM/updatecomp/updatecomp.component';
@@ -65,31 +69,27 @@ import { QrScannerComponent } from './front-office/front-all/content-front/compo
 import { PurchaseTransaction } from './core/models/purchase-transaction.model';
 import { PurchaseTransactionComponent } from './front-office/front-all/content-front/componentsTickets/purchase-transaction/purchase-transaction.component';
 import { AddRegistrationComponent } from './front-office/front-all/content-front/CompetitionM/add-registration/add-registration.component';
-import { ListCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/list-compfront/list-compfront.component';
-import { DetailsCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/details-compfront/details-compfront.component';
-import { CalendercompComponent } from './front-office/front-all/content-front/CompetitionM/calendercomp/calendercomp.component';
-import { ListperformanceComponent } from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
-import { AddperformanceComponent } from './BackOffice/back-all/content-back/CompetitionM/addperformance/addperformance.component';
-import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
-import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
-import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
-import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
-import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
-import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
-import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
 
-import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
-import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
+import { DetailsCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/details-compfront/details-compfront.component';
+import { ListCompfrontComponent } from './front-office/front-all/content-front/CompetitionM/list-compfront/list-compfront.component';
+import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
+
 
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
-import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
-import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+
+
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
 import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
 import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
+import { FrontAllComponent } from './front-office/front-all/front-all.component';
+import { CalendercompComponent } from './front-office/front-all/content-front/CompetitionM/calendercomp/calendercomp.component';
+import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
+import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
 const routes: Routes = [
+
+
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
-  { path: '', component:FrontTemplateComponent,children:[
+  { path: '', component:FrontAllComponent,children:[
 
 
     { path: 'add-registration/:id', component: AddRegistrationComponent },
@@ -102,7 +102,7 @@ const routes: Routes = [
     {path:'produits',component: ProductListFrontComponent},
     { path: 'shopcart', component: ShopcartComponent },
     { path: 'file', component: FileUploaderComponent },
-{ path: 'recommended', component: RecommendedProductsComponent },  
+{ path: 'recommended', component: RecommendedProductsComponent },
 { path: 'ReserverPlace', component: ReservationPlaceComponent},
 { path: 'Place', component: SeatNumbersComponent},
 { path: 'ticket-card/:userId', component: TicketCardComponent },
@@ -142,7 +142,7 @@ const routes: Routes = [
       { path: 'ProductSales', component: ProductSalesComponent },
       { path: 'coach-management', component: CoachComponent },
 
-      
+
       { path: 'list-registrations', component: ListRegisttrationsComponent },
       { path: 'registration-detail/:registrationId', component: RegistrationDetailComponent },
       { path: 'add-dancecategoryandstyle', component: AdddancecategoryandstyleComponent },
