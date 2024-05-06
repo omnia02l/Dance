@@ -1,36 +1,41 @@
 <!-- list-registrations.component.html -->
-<div class="registration-list">
-  <h2>Registration List</h2>
-  <h4>Number of Pending Registrations: {{ pendingRegistrationsCount }}</h4>
-
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Date</th>
-          <th>Status</th>
-          <th>Amount to pay</th>
-          <th>Details</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let registration of registrations">
-          <td>{{ registration.username }}</td>
-          <td>{{ registration.registration_date }}</td>
-          <td>{{ registration.statusreg }}</td>
-          <td>{{ registration.amountpaid }}</td>
-          <td>
-            <a class="view-details-link" routerLink="/admin/registration-detail/{{ registration.idreg }}">View Details</a>
-          </td>
-          <td>
-            <button class="delete-button" (click)="deleteRegistration(registration.idreg)">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container">
+  <div class="card" style="background-color: #f5f5f5; color: #fff;">
+    <div class="card-body">
+      <h2 class="card-title" style="color: #A8043C;">Registrations</h2>
+      <div class="pending-registrations">
+        <h4 class="card-subtitle">Nb Pending Registrations: {{ pendingRegistrationsCount }}</h4>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead style="background-color: #84022d; color: #fff;">
+            <tr>
+              <th>Username</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Amount to pay</th>
+              <th>Details</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let registration of registrations">
+              <td>{{ registration.username }}</td>
+              <td>{{ registration.registration_date }}</td>
+              <td [ngClass]="{'status-approved': registration.statusreg === 'approved',
+                            'status-pending': registration.statusreg === 'pending',
+                            'status-rejected': registration.statusreg === 'rejected'}">{{ registration.statusreg }}</td>
+              <td>{{ registration.amountpaid }}</td>
+              <td>
+                <a class="view-details-link" routerLink="/admin/registration-detail/{{ registration.idreg }}">View Details</a>
+              </td>
+              <td>
+                <button class="delete-button" (click)="deleteRegistration(registration.idreg)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
-
-  <!-- Other content goes here -->
 </div>

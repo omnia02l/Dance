@@ -5,7 +5,7 @@
 
 .competition-card {
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 2px solid #A8043C; /* Rouge */
   margin-bottom: 20px;
   background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -16,7 +16,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #660019; /* Rouge foncé */
 }
 
 .card-body {
@@ -24,7 +24,7 @@
 }
 
 .date-badge {
-  background-color: #007bff;
+  background-color: #8B0026; /* Rouge foncé */
   color: #fff;
   padding: 5px 10px;
   border-radius: 5px;
@@ -37,7 +37,7 @@
 }
 
 .performance-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #660019; /* Rouge foncé */
   padding: 15px;
 }
 
@@ -48,9 +48,10 @@
 }
 
 .performance-details p {
-  color: #777;
+  color: #33000C; /* Rouge plus foncé */
   margin: 8px 0;
 }
+
 .red-text {
-  color: red;
+  color: #33000C; /* Rouge plus foncé */
 }

@@ -36,7 +36,6 @@ export class CalendercompComponent implements OnInit {
       }
     );
   }
-
   prepareCalendarEvents() {
     const events = this.competitions.map(competition => ({
       id: competition.idcomp?.toString(),
@@ -44,7 +43,7 @@ export class CalendercompComponent implements OnInit {
       start: competition.startdate ? new Date(competition.startdate) : new Date(),
       end: competition.enddate ? new Date(competition.enddate) : new Date(),
       display: 'auto',
-      color: '#cccccc', // Couleur de fond des événements (gris)
+      color: '#E8C4D0', // Rose (harmonise avec la couleur de section de votre template)
       extendedProps: {
         competitionId: competition.idcomp // Ajouter l'ID de la compétition aux propriétés étendues de l'événement
       }
@@ -57,20 +56,18 @@ export class CalendercompComponent implements OnInit {
         left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
-
       },
       eventDisplay: 'block',
-      eventBackgroundColor: 'rgba(255, 255, 255, 0.8)',
-      eventBorderColor: 'rgb(0, 0, 0)',
-      eventTextColor: 'rgb(0, 0, 0)',
+
+
+      eventTextColor: '#001F3F', // Bleu marine (pour contraste)
       events: events,
       eventDidMount: this.eventStyle.bind(this),
       height: 'auto', // Ajuster la hauteur automatiquement en fonction du contenu
-
     };
-  }
+}
 
-  eventStyle(info: any) {
+eventStyle(info: any) {
     const event = info.event;
     const eventEl = info.el;
     const competitionId = event.extendedProps.competitionId;
@@ -86,8 +83,8 @@ export class CalendercompComponent implements OnInit {
     const registerButton = document.createElement('button');
     registerButton.textContent = 'Register';
     registerButton.className = 'register-button';
-    registerButton.style.backgroundColor = '#FFFF99'; // Jaune
-    registerButton.style.color = 'rgb(0, 0, 0)';
+    registerButton.style.backgroundColor = '#A8043C'; // Rouge (harmonise avec la couleur de fond différente pour le titre de l'événement)
+    registerButton.style.color = '#fff'; // Blanc (pour contraste)
     registerButton.style.border = 'none';
     registerButton.style.padding = '5px 10px';
     registerButton.style.borderRadius = '5px';
@@ -98,8 +95,8 @@ export class CalendercompComponent implements OnInit {
     const detailsButton = document.createElement('button');
     detailsButton.textContent = 'Details';
     detailsButton.className = 'details-button';
-    detailsButton.style.backgroundColor = '#FFFF99'; // Jaune
-    detailsButton.style.color ='rgb(0, 0, 0)';
+    detailsButton.style.backgroundColor = '#660019'; // Rouge (harmonise avec la couleur de fond différente pour le titre de l'événement)
+    detailsButton.style.color = '#fff'; // Blanc (pour contraste)
     detailsButton.style.border = 'none';
     detailsButton.style.padding = '5px 10px';
     detailsButton.style.borderRadius = '5px';
@@ -116,13 +113,13 @@ export class CalendercompComponent implements OnInit {
     // Appliquer le style au titre de l'événement
     const titleEl = eventEl.querySelector('.fc-title');
     if (titleEl) {
-      titleEl.style.backgroundColor = '#FF6347'; // Couleur de fond différente pour le titre de l'événement
-      titleEl.style.padding = '5px'; // Espacement intérieur
+      titleEl.style.backgroundColor = '#4D0013'; // Rouge foncé (harmonise avec la couleur de fond différente pour le titre de l'événement)
+      titleEl.style.padding = '10px'; // Espacement intérieur
       titleEl.style.borderRadius = '5px'; // Rayon de bordure
-      titleEl.style.color = '#fff'; // Couleur du texte
+      titleEl.style.color = '#fff'; // Blanc (pour contraste)
       titleEl.style.marginBottom = '5px'; // Ajouter un espace entre le titre et les boutons
     }
-  }
+}
 
 
 

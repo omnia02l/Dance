@@ -66,16 +66,19 @@ import { ListCompfrontComponent } from './front-office/front-all/content-front/C
 
 import { CalendercompComponent } from './front-office/front-all/content-front/CompetitionM/calendercomp/calendercomp.component';
 
-import { AddperformanceComponent } from './BackOffice/back-all/content-back/CompetitionM/addperformance/addperformance.component';
-import { CalenderbackcompComponent } from './BackOffice/back-all/content-back/CompetitionM/calenderbackcomp/calenderbackcomp.component';
-import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
+import { ChartModule } from 'primeng/chart';
+import { TabMenuModule } from "primeng/tabmenu";
+import { AddperformanceComponent } from './BackOffice/back-all/content-back/CompetitionM/addperformance/addperformance.component';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
+import { CalenderbackcompComponent } from './BackOffice/back-all/content-back/CompetitionM/calenderbackcomp/calenderbackcomp.component';
 import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 import { ListtownsandvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/listtownsandvenues/listtownsandvenues.component';
-import { ChartModule } from 'primeng/chart';
 import { StatcompComponent } from './BackOffice/back-all/content-back/CompetitionM/statcomp/statcomp.component';
+import { ListperformanceComponent } from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
+import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
+import { MenubarModule } from 'primeng/menubar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -125,36 +128,40 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
       ListcompperformancesComponent,
       ListtownsandvenuesComponent,
       StatcompComponent,
-      SongsdetetctComponent
+      SongsdetetctComponent,
+      FrontTemplateComponent
 
 
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-    ButtonModule,
-    ToastModule,
-    ToolbarModule,
-    RippleModule,
-    TableModule,
-    InputTextModule,
-    DataViewModule,
-    DialogModule,
-    InputMaskModule,
-    DropdownModule,
-    CalendarModule,
-    InputTextareaModule,
-    MultiSelectModule,
-    FullCalendarModule,
-    InputNumberModule,
-    ReactiveFormsModule,
-    NgChartsModule,
-    CommonModule,
-    ChartModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        FormsModule,
+        ButtonModule,
+        ToastModule,
+        ToolbarModule,
+        RippleModule,
+        TableModule,
+        InputTextModule,
+        DataViewModule,
+        DialogModule,
+        InputMaskModule,
+        DropdownModule,
+        CalendarModule,
+        InputTextareaModule,
+        MultiSelectModule,
+        FullCalendarModule,
+        InputNumberModule,
+        ReactiveFormsModule,
+        NgChartsModule,
+        CommonModule,
+        ChartModule,
+        TabMenuModule,
+        MenubarModule
+
+    ],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

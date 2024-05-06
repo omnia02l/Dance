@@ -54,6 +54,9 @@ export class CompetitionDetailsComponent implements OnInit {
     const labels = ['Male', 'Female'];
     const counts = [genderStats.totalMaleDancers, genderStats.totalFemaleDancers];
 
+    const maleColor = '#001F3F'; // Utilisez la couleur de votre palette pour les hommes
+    const femaleColor = '#A8043C'; // Utilisez la couleur de votre palette pour les femmes
+
     const chart = new Chart('genderStatsCanvas', {
       type: 'bar',
       data: {
@@ -62,12 +65,12 @@ export class CompetitionDetailsComponent implements OnInit {
           label: 'Gender Stats',
           data: counts,
           backgroundColor: [
-            'rgba(128, 0, 128, 0.7)', // Mauve foncé pour male
-            'rgba(220, 180, 220, 0.7)'  // Lilas clair pour female
+            maleColor,
+            femaleColor
           ],
           borderColor: [
-            'rgba(128, 0, 128, 1)', // Mauve foncé pour male
-            'rgba(220, 180, 220, 1)'  // Lilas clair pour female
+            maleColor,
+            femaleColor
           ],
           borderWidth: 1
         }]
@@ -95,7 +98,4 @@ export class CompetitionDetailsComponent implements OnInit {
         }
       }
     });
-  }
-
-
-}
+  }}

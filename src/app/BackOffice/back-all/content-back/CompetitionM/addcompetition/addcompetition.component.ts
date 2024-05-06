@@ -8,6 +8,9 @@ import { TownandvenueserviceService } from 'src/app/core/services/townandvenuese
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { DancecategoryandstyleService } from 'src/app/core/services/dancecategoryandstyle.service';
 import { Venue } from 'src/app/core/models/Venue';
+import { CloudinaryService } from 'src/app/core/services/cloudinary-service.service';
+
+
 
 @Component({
   selector: 'app-addcompetition',
@@ -27,7 +30,8 @@ export class AddcompetitionComponent implements OnInit {
     private formBuilder: FormBuilder,
     private competitionService: CompetitionService,
     private danceCategoryService: DancecategoryandstyleService,
-    private townService: TownandvenueserviceService
+    private townService: TownandvenueserviceService,
+    private cloudinaryService: CloudinaryService
   ) {}
 
 
@@ -91,6 +95,11 @@ export class AddcompetitionComponent implements OnInit {
       this. selectedvenueId= 0;
     }
   }
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    this.competitionForm.patchValue({ compimage: file });
+  }
+
 
   onSubmit(): void {
     console.log('Formulaire soumis');
@@ -98,14 +107,28 @@ export class AddcompetitionComponent implements OnInit {
     console.log('ID de la catégorie sélectionnée :', this.selectedCategoryId);
     console.log('ID du style sélectionné :', this.selectedStyleId);
 
+    // Uploader l'image avant de soumettre le formulaire
+    const imageFile = this.competitionForm.get('compimage')?.value;
+    if (imageFile) {
+      this.cloudinaryService.uploadFile(imageFile).subscribe(
+        (response) => {
+          console.log('Image uploadée avec succès :', response);
+          // Mettre à jour la valeur de l'image dans le formulaire avec l'URL de l'image uploadée
+          this.competitionForm.patchValue({ compimage: response.secure_url });
+          // Soumettre le formulaire une fois que l'image est uploadée
+          this.submitForm();
+        },
+        (error) => {
+          console.error('Erreur lors de l\'upload de l\'image :', error);
+        }
+      );
+    } else {
+      // Si aucun fichier n'est sélectionné, soumettre le formulaire directement
+      this.submitForm();
+    }
+  }
 
-
-
-
-
-
-
-
+  private submitForm(): void {
     console.log('Validité du formulaire :', this.competitionForm.valid);
     console.log('Validité du contrôle de catégorie :', this.competitionForm.controls['dancecateg'].valid);
     console.log('Validité du contrôle de style :', this.competitionForm.controls['style'].valid);
@@ -115,7 +138,6 @@ export class AddcompetitionComponent implements OnInit {
         ...this.competitionForm.value,
         dancecateg: this.selectedCategoryId,
         style: this.selectedStyleId,
-
       };
 
       this.competitionService.addCompetitionWithCategoryAndStyle(competitionData, this.selectedCategoryId,

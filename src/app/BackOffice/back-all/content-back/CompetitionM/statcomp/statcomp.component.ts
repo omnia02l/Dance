@@ -1,4 +1,3 @@
-
 import { CompetitionService } from 'src/app/core/services/competition.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -33,8 +32,8 @@ export class StatcompComponent implements OnInit {
           datasets: [{
             label: 'Number of Competitions in each Dancestyle ',
             data: counts,
-            backgroundColor: 'rgba(75, 192, 192, 0.7)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            backgroundColor: '#660019',
+            borderColor: '#8B0026',
             borderWidth: 1
           }]
         },
@@ -87,10 +86,10 @@ export class StatcompComponent implements OnInit {
             label: 'Total Participants in each competition',
             data: totalParticipants,
             fill: false,
-            borderColor: 'rgba(255, 99, 132, 1)',
+            borderColor: '#A8043C',
             borderWidth: 3,
-            pointBackgroundColor: 'yellow',
-            pointBorderColor: 'yellow'
+            pointBackgroundColor: '#8B0026',
+            pointBorderColor: '#8B0026'
           }]
         },
         options: {
@@ -122,6 +121,4 @@ export class StatcompComponent implements OnInit {
       });
     });
   }
-
-
 }
