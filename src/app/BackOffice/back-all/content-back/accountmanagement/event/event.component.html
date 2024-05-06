@@ -1,8 +1,7 @@
-<section>
-<div class="col-12">
+<section><div class="col-12">
   <div class="card px-6 py-6">
     <p-toast></p-toast>
-    <p-toolbar styleClass="mb-4">
+    <p-toolbar styleClass="mb-4" >
       <ng-template pTemplate="left">
         <div class="my-2">
           <button pButton pRipple label="New" icon="pi pi-plus" class="p-button-success mr-2" style="background-color: #A8043C; border-color: #A8043C;"
@@ -66,7 +65,7 @@
                     (click)="eventId = event.id ; addParticipantDialog= true; submitted=false; participantsList = []"></button>
           </td>
           <td>
-           <!-- <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false"></p-rating>-->
+            <!-- <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false"></p-rating>-->
             <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false" class="filled-star"></p-rating>
 
           </td>
@@ -209,13 +208,13 @@
   </div>
 </div>
 
-<div class="col-12">
-  <div class="card px-6 py-6">
-    <h2 style="color: #A8043C; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);">Event stats</h2>
-    <div class="flex justify-content-center">
-      <p-chart type="bar" [data]="data" [options]="optionsChart" width="400px" height="400px"></p-chart>
+  <div class="col-12">
+    <div class="card px-6 py-6">
+      <h2 style="color: #A8043C; text-shadow: 3px 3px 10px rgba(0,0,0,0.5);">Event stats</h2>
+      <div class="flex justify-content-center">
+        <p-chart type="bar" [data]="data" [options]="optionsChart" width="400px" height="400px"></p-chart>
+      </div>
     </div>
   </div>
-</div>
 
 </section>
