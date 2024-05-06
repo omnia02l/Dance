@@ -13,6 +13,7 @@ import { CompetitionService } from 'src/app/core/services/competition.service';
 import { PlaceService } from 'src/app/core/services/place.service';
 import { TicketCardService } from 'src/app/core/services/ticket-card.service';
 import { Location } from '@angular/common';
+
 @Component({
   selector: 'app-seat-numbers',
   templateUrl: './seat-numbers.component.html',
@@ -62,7 +63,7 @@ export class SeatNumbersComponent implements OnInit {
     getPrincipal() {
       this.accountService.getPrincipal().subscribe({
         next: (data) => {
-          this.userId = data.id; 
+          this.userId = data.id;
           console.log(this.userId);
         },
         error: (err) => {
@@ -70,18 +71,18 @@ export class SeatNumbersComponent implements OnInit {
         }
       });
     }
-  
+
     ngOnDestroy(): void {
       this.clearRefreshInterval(); // Stops the refreshing when the component is destroyed
     }
-  
+
     private restoreSelectedSeats(): void {
       const savedSelection = sessionStorage.getItem('selectedSeats');
       if (savedSelection) {
         this.selectSeatsFromSession(savedSelection);
       }
     }
-  
+
     private selectSeatsFromSession(savedSelection: string): void {
       const seats = JSON.parse(savedSelection) as Place[];
       seats.forEach(seat => {
@@ -94,31 +95,31 @@ export class SeatNumbersComponent implements OnInit {
         }
       });
     }
-  
+
     private setupRefreshInterval(planId: number): void {
       this.refreshIntervalId = setInterval(() => this.refreshSeatNumbers(planId), 6000);
     }
-  
+
     private clearRefreshInterval(): void {
       if (this.refreshIntervalId) {
         clearInterval(this.refreshIntervalId);
       }
     }
-  
+
     private refreshSeatNumbers(planId: number): void {
       this.placeService.getSeatNumbersByRow(planId).subscribe((data: any) => {
         this.transformSeatData(data);
       });
     }
-  
+
     private transformSeatData(data: { [row: string]: Array<{ seatNumber: string, isSelected: boolean, isOccupied: boolean, idPlace?: number }> }): void {
       const transformedData: SeatNumbersByRow = {};
-  
+
   // Assume data structure to be the same as provided by the backend:
   // { [row: string]: Array<{ seatNumber: string, isSelected: boolean, isOccupied: boolean }> }
   Object.entries(data).forEach(([row, seatInfos]: [string, Array<{ seatNumber: string, isSelected: boolean, isOccupied: boolean }>]) => {
     transformedData[row] = seatInfos.map(seatInfo => ({
-      
+
       seatNumber: seatInfo.seatNumber,
       row: row, // Assuming the row is a string that can be used directly
       isOccupied: seatInfo.isOccupied,
@@ -137,10 +138,10 @@ export class SeatNumbersComponent implements OnInit {
       console.error(`Place not found for seatNumber ${seatNumber} and row ${row}, or it is already occupied.`);
       return;
     }
-  
+
     const isSelected = !localPlace.isSelected;
     localPlace.isSelected = isSelected;
-  
+
     if (isSelected) {
       // Ajouter la place sélectionnée au tableau s'il est sélectionné
       localPlace.temporaryId = localPlace.idPlace; // Stocker l'ID dans la propriété temporaire
@@ -149,7 +150,7 @@ export class SeatNumbersComponent implements OnInit {
       // Retirer la place du tableau s'il est désélectionné
       this.selectedSeats = this.selectedSeats.filter(place => place !== localPlace);
     }
-  
+
     // Si localPlace a un id, mettre à jour directement, sinon récupérer depuis le backend
     if (localPlace.idPlace) {
       this.updatePlace(localPlace);
@@ -166,17 +167,17 @@ export class SeatNumbersComponent implements OnInit {
         error: (error) => console.error('Error fetching place:', error)
       });
     }
-  
+
     // Enregistrement des ID des places sélectionnées dans une liste
     const selectedPlaceIds = this.selectedSeats.map(place => place.idPlace);
     console.log('Selected place IDs:', selectedPlaceIds);
-  
+
     this.cdr.detectChanges();
     console.log(this.selectedSeats); // Add this line to debug
     sessionStorage.setItem('selectedSeats', JSON.stringify(this.selectedSeats));
   }
-  
-  
+
+
   updatePlace(place: Place): void {
     this.placeService.togglePlaceSelection(place).subscribe({
       next: (updatedPlace) => {
@@ -185,7 +186,7 @@ export class SeatNumbersComponent implements OnInit {
         const updatedPlaceId = updatedPlace.idPlace;
         if (updatedPlaceId !== undefined) {
           console.log('Updated place ID:', updatedPlaceId);
-    
+
           // Ajouter l'ID de la place mise à jour à la liste partagée
           this.selectedPlaceIds.push(updatedPlaceId);
         }
@@ -194,7 +195,7 @@ export class SeatNumbersComponent implements OnInit {
       error: (error) => console.error('Error updating place:', error)
     });
   }
-  
+
   confirmSelectedPlaces(): void {
     if (this.userId) {
     this.placeService.confirmPlaces(this.venuePlanId,this.userId,this.selectedPlaceIds)
@@ -203,7 +204,7 @@ export class SeatNumbersComponent implements OnInit {
           // Logique exécutée après la confirmation des places
           console.log('Les places ont été confirmées avec succès.', response);
           // Supposons que userId est déterminé de manière dynamique
-        
+
           // Retourne l'Observable de la création du panier
           return this.ticketCardService.createTicketCardForUser(this.userId!);
         })

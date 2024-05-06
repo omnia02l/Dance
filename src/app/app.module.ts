@@ -149,6 +149,11 @@ import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/co
 import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
 import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
 import { FileUploadTicketDialogComponent } from './front-office/front-all/content-front/componentsTickets/file-upload-ticket-dialog/file-upload-ticket-dialog.component';
+import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
+import { MenubarModule } from 'primeng/menubar';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -250,29 +255,52 @@ PostComponent,
     HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule,
-    ButtonModule,
+        ButtonModule,
     ToastModule,
     ToolbarModule,
     RippleModule,
+    MenubarModule ,
     TableModule,
+FormsModule,
     InputTextModule,
     DataViewModule,
     DialogModule,
     InputMaskModule,
     DropdownModule,
     CalendarModule,
+MatCardModule,
+MatIconModule,
     InputTextareaModule,
     MultiSelectModule,
     FullCalendarModule,
+UcWidgetModule,
     InputNumberModule,
-    ReactiveFormsModule,
-    NgChartsModule,
-    CommonModule,
+    TabMenuModule,
     ChartModule,
-    FontAwesomeModule,
-    UcWidgetModule
-  ],
+    RatingModule,
+    FileUploadModule,
+ReactiveFormsModule,
+MatDialogModule,
+MatSnackBarModule,
+FontAwesomeModule,
+CommonModule,
+MatButtonModule,
+
+MatFormFieldModule,
+MatProgressSpinnerModule,
+MatDividerModule,
+MatProgressBarModule,
+MatSidenavModule,
+NgChartsModule,
+
+MatTableModule,
+MatTabsModule,
+
+MenubarModule ,
+
+
+TabMenuModule,
+],
   providers: [{provide:HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}],
   bootstrap: [AppComponent]
 })

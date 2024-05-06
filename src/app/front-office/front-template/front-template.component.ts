@@ -1,5 +1,3 @@
-
-
 import { Component } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { UserDTO } from 'src/app/core/models/userDTO';
@@ -12,17 +10,11 @@ import { AccountService } from 'src/app/core/services/account.service';
 })
 export class FrontTemplateComponent {
 
-
   principal!: UserDTO;
   items: MenuItem[];
 
   constructor(private accountService: AccountService) {
     this.getPrincipal();
-
-    this.items = [
-      {
-        label: 'Home',
-        icon: 'pi pi-fw pi-home',
 
     this.items = [
       {
@@ -37,19 +29,12 @@ export class FrontTemplateComponent {
       {
         label: 'Profile',
         icon: 'pi pi-fw pi-cog',
-
-      {
-        label: 'Profile',
-        icon: 'pi pi-fw pi-cog',
         routerLink: ['/profile'],
         items: [
           { label: 'Edit Profile', icon: 'pi pi-fw pi-user-edit', routerLink: ['/profile/edit'] },
           { label: 'Settings', icon: 'pi pi-fw pi-cog', routerLink: ['/profile/settings'] }
         ]
       },
-      {
-        label: 'Camera',
-        icon: 'pi pi-fw pi-camera',
 
       {
         label: 'Competitions',
@@ -95,5 +80,4 @@ export class FrontTemplateComponent {
       }
     });
   }
-}
 }

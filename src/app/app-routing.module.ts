@@ -75,7 +75,6 @@ import { ListCompfrontComponent } from './front-office/front-all/content-front/C
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 
 
-import { ListcompperformancesComponent } from './BackOffice/back-all/content-back/CompetitionM/listcompperformances/listcompperformances.component';
 
 
 import { SongsdetetctComponent } from './front-office/front-all/content-front/CompetitionM/songsdetetct/songsdetetct.component';
@@ -85,11 +84,18 @@ import { FrontAllComponent } from './front-office/front-all/front-all.component'
 import { CalendercompComponent } from './front-office/front-all/content-front/CompetitionM/calendercomp/calendercomp.component';
 import { ConfirmationComponent } from './front-office/front-all/content-front/store/confirmation/confirmation.component';
 import { PaymentFormComponent } from './front-office/front-all/content-front/store/payment-form/payment-form.component';
+import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
+import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
+import { SeatStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-statistics/seat-statistics.component';
+import { TicketPerCompetitionStatisticsComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-per-competition-statistics/ticket-per-competition-statistics.component';
+import { TicketKpiCopetitionStatComponent } from './BackOffice/back-all/content-back/componentsTickets/ticket-kpi-copetition-stat/ticket-kpi-copetition-stat.component';
+import { StaisticMultiViewComponent } from './BackOffice/back-all/content-back/componentsTickets/staistic-multi-view/staistic-multi-view.component';
+
 const routes: Routes = [
 
 
   {path:'auth', loadChildren:()=> import('./BackOffice/back-all/content-back/auth/auth.module').then(m => m .AuthModule)},
-  { path: '', component:FrontAllComponent,children:[
+  { path: '', component:FrontTemplateComponent,children:[
 
 
     { path: 'add-registration/:id', component: AddRegistrationComponent },
@@ -158,6 +164,9 @@ const routes: Routes = [
       { path: 'calendercompback', component: CalenderbackcompComponent },
       { path: 'add-performance', component: AddperformanceComponent },
       { path: 'add-town-and-venues', component: AddtownwithvenuesComponent },
+      { path: 'list-townsandvenues', component: ListtownsandvenuesComponent },
+      { path: 'compstat', component: StatcompComponent },
+
 
 
       { path: 'VenuePlan', component: VenuePlanListComponent},
