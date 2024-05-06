@@ -116,7 +116,6 @@ import { ListCompfrontComponent } from './front-office/front-all/content-front/C
 import {ListperformanceComponent} from './front-office/front-all/content-front/CompetitionM/listperformance/listperformance.component';
 import { CommonModule } from '@angular/common';
 import { AddtownwithvenuesComponent } from './BackOffice/back-all/content-back/CompetitionM/addtownwithvenues/addtownwithvenues.component';
-import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 import { StatistiqueDanceStylePerMonthComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-month/statistique-dance-style-per-month.component';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -138,6 +137,7 @@ import { SongsdetetctComponent } from './front-office/front-all/content-front/Co
 import { MyOrdersComponent } from './front-office/front-all/content-front/store/my-orders/my-orders.component';
 import { FrontTemplateComponent } from './front-office/front-template/front-template.component';
 import { MenubarModule } from 'primeng/menubar';
+import { StatistiqueDanceStylePerYearsComponent } from './BackOffice/back-all/content-back/componentsTickets/statistique-dance-style-per-years/statistique-dance-style-per-years.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -216,7 +216,7 @@ import { MenubarModule } from 'primeng/menubar';
       FileUploadTicketDialogComponent,
       SeatStatisticsComponent,
       TicketPerCompetitionStatisticsComponent,
-
+      StatistiqueDanceStylePerYearsComponent,
       TicketKpiCopetitionStatComponent,
       FrontTemplateComponent,
       OccupancyDialogComponent,

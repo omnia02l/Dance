@@ -42,7 +42,7 @@ import {AllpostsComponent} from "./BackOffice/back-all/content-back/trainingmana
 import {HomeComponent} from "./BackOffice/back-all/content-back/auth/home/home.component";
 import {CoachComponent} from "./BackOffice/back-all/content-back/trainingmanagement/coach/coach.component";
 import {PbaComponent} from "./BackOffice/back-all/content-back/trainingmanagement/pba/pba.component";
-import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
+//import { SeatSelectorComponent } from './BackOffice/back-all/content-back/componentsTickets/seat-selector/seat-selector.component';
 import { VenuePlanListComponent } from './BackOffice/back-all/content-back/componentsTickets/venue-plan-list/venue-plan-list.component';
 
 import { PriceListComponent } from './BackOffice/back-all/content-back/componentsTickets/price-list/price-list.component';
@@ -119,7 +119,6 @@ const routes: Routes = [
     { path: 'QrScanner', component: QrScannerComponent },
     {path: 'my-events', component: MyeventComponent},
   {path: 'training', component: TrainingComponent},
-  {path: 'post', component: PostComponent},
   {path: 'all-post', component: AllpostsComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
@@ -132,14 +131,16 @@ const routes: Routes = [
       {path: 'products/update-product/:productId', component: UpdateProductComponent},
       {path: 'products/:productId', component: ProductDetailComponent},
       {path: 'account-management', component: AccountmanagementComponent},
-    
+      {path: 'post', component: PostComponent},
+
       {path: 'profile', component: ProfileComponent},
       {path: 'training-management', component: TrainingmanagementComponent},
       {path: 'dance-hall-management', component: DancehallComponent},
-      {path: 'training', component: TrainingComponent},
+     // {path: 'training', component: TrainingComponent},
       { path: 'categorys', component: CategoryListComponent },
       { path: 'category/update/:categoryId', component: UpdateCategoryComponent },
       { path: 'ProductSales', component: ProductSalesComponent },
+      { path: 'coach-management', component: CoachComponent },
 
       
       { path: 'list-registrations', component: ListRegisttrationsComponent },

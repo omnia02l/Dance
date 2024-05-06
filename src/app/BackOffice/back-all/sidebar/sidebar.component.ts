@@ -71,7 +71,18 @@ export class SidebarComponent {
        
       ]
     },
-    
+    {
+      label: 'Training', icon: 'pi pi-fw pi-cog', 
+      items: [
+        { label: 'Training', icon: 'pi pi-fw pi-building', routerLink: ['/admin/training-management'] },
+        { label: 'Dance Hall', icon: 'pi pi-fw pi-sitemap', routerLink: ['/admin/dance-hall-management'] },
+        { label: 'Coach ', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/coach-management'] },
+        { label: 'Post', icon: 'pi pi-fw pi-map-marker', routerLink: ['/admin/post'] },
+       
+       
+       
+      ]
+    },
   ];
 
 
