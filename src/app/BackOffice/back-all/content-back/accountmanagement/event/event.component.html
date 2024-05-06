@@ -16,7 +16,7 @@
              dataKey="id">
       <ng-template pTemplate="caption">
         <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-          <h5 class="m-0">Manage Events</h5>
+          <h3 class="m-0" style="color: #001F3F">Manage Events</h3>
         </div>
       </ng-template>
       <ng-template pTemplate="header">
@@ -49,7 +49,7 @@
           </td>
           <td style="width:14%; min-width:10rem;">
             <span class="p-column-title">Event description</span>
-            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-secondary"
+            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-secondary" style="background-color: #001F3F; border-color: #001F3F;"
                     (click)="showDescription(event.eventDescription)"></button>
           </td>
           <td style="width:14%; min-width:8rem;">
@@ -57,22 +57,24 @@
             {{event.eventAddress}}
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-secondary"
+            <button pButton pRipple icon="pi pi-users" class="p-button-rounded p-button-secondary" style="background-color: #001F3F; border-color: #001F3F;"
                     (click)="listEventParticipants(event.id)"></button>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-secondary"
+            <button pButton pRipple icon="pi pi-plus" class="p-button-rounded p-button-secondary" style="background-color: #001F3F; border-color: #001F3F;"
                     (click)="eventId = event.id ; addParticipantDialog= true; submitted=false; participantsList = []"></button>
           </td>
           <td>
-            <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false"></p-rating>
+           <!-- <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false"></p-rating>-->
+            <p-rating [(ngModel)]="event.rateX" [readonly]="true" [cancel]="false" class="filled-star"></p-rating>
+
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger" style="background-color: #A8043C; border-color: #A8043C;"
                     (click)="deleteEvent(event.id)"></button>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-secondary"
+            <button pButton pRipple icon="pi pi-eye" class="p-button-rounded p-button-secondary" style="background-color: #001F3F; border-color: #001F3F;"
                     (click)="getEventStatsById(event.id)"></button>
           </td>
         </tr>

@@ -137,12 +137,12 @@ export class EventComponent implements OnInit {
             {
               data: [this.eventStats.rejected,this.eventStats.accepted],
               backgroundColor: [
-                "#956850",
-                "#0000FF"
+                "#A8043C",
+                "#001F3F"
               ],
               hoverBackgroundColor: [
-                "#956850",
-                "#0000FF"
+                "#A8043C",
+                "#001F3F"
               ]
             }
           ]
@@ -175,12 +175,12 @@ export class EventComponent implements OnInit {
             {
               data: [this.eventStats.rejected,this.eventStats.accepted],
               backgroundColor: [
-                "#956850",
-                "#0000FF"
+                "#A8043C",
+                "#001F3F"
               ],
               hoverBackgroundColor: [
-                "#956850",
-                "#0000FF"
+                "#A8043C",
+                "#001F3F"
               ]
             }
           ]

@@ -1,0 +1,4 @@
+/* Définition de la couleur de remplissage des étoiles */
+.filled-star .ui-rating-star.ui-rating-star-on {
+  color: yellow;
+}
