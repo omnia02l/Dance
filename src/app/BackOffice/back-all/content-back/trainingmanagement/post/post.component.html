@@ -1,83 +1,93 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="titre-container">
+        <h1 class="titre m-0">Post</h1>
+      </div>
+    </div>
+  </div>
+</div>
 
+  <div class="col-12">
+    <div class="card mb-3 mx-auto text-center" style="width: 800px; height: 150px;">
 
-<p-tabMenu [model]="items"></p-tabMenu>
-<div class="col-12">
-  <div class="card mb-3 mx-auto text-center" style="width: 800px; height: 150px;">
-  
-  
-  
-    <div class="row g-0">
+      <div class="row g-0">
+        <p-toast></p-toast>
+        <p-dataView #dv [value]="myPosts"  [paginator]="true" [rows]="4" layout="grid">
+          <ng-template let-Post pTemplate="gridItem">
+            <div class="col-12 md:col-4 mt-2 px-2">
+              <div class="card-body" style="background-color:  #E8C4D0;">
+                <div class="col-md-8">
+                  <div class="container">
+                    <div class="row">
+                     
+                      
+                  
+                    </div>
+                  </div>
+              <div class="card-body" style="background-color:  #E8C4D0;">
+                <div class="col-md-8">
+                  <div class="container">
+                    <div class="row">
+                     
+                      
+                  
+                    </div>
+                  </div>
 
-      <p-toast></p-toast>
-      <p-dataView #dv [value]="myPosts"  [paginator]="true" [rows]="4" layout="grid">
+                  <!-- Contenu de chaque poste -->
+                  </div>
+
         <ng-template pTemplate="header">
           <div class="flex align-items-center">
-          
+
             <button type="button" class="btn btn-outline-primary" (click)="newPost={};
                     submitted=false;addNewPostDialog=true;updateOption=false">Add New Post</button>
           </div>
         </ng-template>
-        <ng-template let-Post pTemplate="gridItem">
-          <div class="col-12 md:col-4 mt-2 px-2">
-            <div class="card-body" style="background-color: #181717c3">
-              <div class="col-md-8">
+        <div class="card" style="width: 40rem;">
+         
+          <img [src]="src2+Post.id" alt="Post Image" class="card-img-top" />
+          <div class="card-body">
+            <h1 class="card-title">{{Post.title}}</h1>
+            <p class="text-start">{{Post.description}}</p>
+            <div class="mt-6"> 
+            <p class="text-sm-end" style="color: #A8043C ;">{{Post.userName}}</p>
+            <p class="text-sm-end" style="color: #A8043C ;">{{Post.creationDate | date :'medium'}}</p>
 
-             <h2> <span class="card-body" style="color: white;">{{Post.title}}</span></h2>  
-               
-              </div>
-            
-              <div class="card-body">
-                <div class="col-md-8">
-                  <div class="col-md-8">
+   
+</div>
+<div class="flex align-items-center justify-content-center mt-2">
 
-                     <span class="card-body" style="color: white;">{{Post.description}}</span>
-                    
-                  </div>
-                 <b> <span class="card-body" style="color: white;">User : {{Post.userName}}</span></b>
- 
-                </div>
-              
-                <div class="col-md-8">
+  <div class="flex align-items-center justify-content-center mt-2">
+    <button pButton pRipple icon="pi pi-thumbs-up" class="p-button-text" style="color: #A8043C ; border-color: pink;" (click)="like(Post.id)"></button>
+    <span class="ml-1" style="color: #A8043C  ;">{{ Post.likes }}</span>
+  </div>
+  
+  <div class="flex align-items-center justify-content-center mt-2">
+    <button pButton pRipple icon="pi pi-thumbs-down-fill" class="p-button-text" style="color: black; border-color: black;" (click)="dislike(Post.id)"></button>
+    <span class="ml-1">{{ Post.dislikes }}</span>
+  </div>
+  
+  </div>
+  <div class="d-grid gap-2 d-md-block">
+    <button class="btn btn-primary" type="button" (click)="showComments(Post.comments)">Show Comments</button>
+    <button class="btn btn-primary" type="button"(click)="addComment(Post.id)">Add Comment </button>
+    <button class="btn btn-primary" type="button"(click)="deletePost(Post.id)">Delete</button>
+    <button class="btn btn-primary" type="button"(click)="updatePost(Post)">Update</button>
+  </div>
+  
 
-                  
-                  <b>   <span class="card-body" style="color: white;">Creation Date : {{Post.creationDate | date :'medium'}}</span></b>
-                  
-                </div>
-              </div>
-              <div class="col-md-4"  >
 
-                <img [src]="src2+Post.id" alt="Post Image" class="img-fluid rounded-start" />
-              </div>
-              <div class="flex align-items-center justify-content-center mt-2">
-                <span class=" text-blue-500 font-bold">Likes :{{Post.likes}}</span>
-                <span class=" text-red-500 font-bold ml-2">DisLikes :{{Post.dislikes}}</span>
-              </div>
-              <div class="flex align-items-center justify-content-center mt-2">
-                <button pButton pRipple icon="pi pi-thumbs-up" class="p-button-text" (click)="like(Post.id)"></button>
-                <button pButton pRipple icon="pi pi-thumbs-down-fill" class="p-button-text" (click)="dislike(Post.id)"></button>
-              </div>
-              
-             
-              
                 <div class="flex align-items-center justify-content-start mt-2">
-                  
-                  
-                  <button type="button" class="btn btn-outline-info" (click)="showComments(Post.comments)">Show Comments</button>
-                
-                  <button type="button" class="btn btn-outline-success" (click)="addComment(Post.id)">Add Comment </button>
-              
-                  <button type="button" class="btn btn-outline-danger" (click)="deletePost(Post.id)">Delete</button>
-               
-                  <button type="button" class="btn btn-outline-warning" (click)="updatePost(Post)">Update</button>
-                </div>
-                <div>
+
                   <p-fileUpload mode="basic" name="image" chooseLabel="Add Image" accept="image/*" (onUpload)="onUpload(Post.id)" (onError)="errorUplodingImgae()" [auto]="true" [url]="path+Post.id"></p-fileUpload>
                 </div>
-              
+
             </div>
           </div>
-        </ng-template>
-      </p-dataView>
+ 
+    
 
       <p-dialog [(visible)]="addNewPostDialog" [style]="{width: '450px'}" header="Post Details" [closable]="false" [modal]="true" class="p-fluid">
         <ng-template pTemplate="content">
@@ -172,7 +182,8 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 </div>
+
 

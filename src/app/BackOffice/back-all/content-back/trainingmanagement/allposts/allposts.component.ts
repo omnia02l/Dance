@@ -26,6 +26,8 @@ export class AllpostsComponent implements OnInit{
   optionsChart: any;
   allPostsStats:AllPostStats={};
   src: any = "http://localhost:8085/post/getimage/";
+  top3Posts: Post[] = [];
+
   constructor(private messageService: MessageService, private postService: PostService) {
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
@@ -40,6 +42,7 @@ export class AllpostsComponent implements OnInit{
   ngOnInit(): void {
     this.listPost()
     this.AllPostStats()
+    this.getTop3Posts()
   }
 
   addComment(id: number) {
@@ -156,4 +159,19 @@ export class AllpostsComponent implements OnInit{
       }
     })
   }
+
+  async getTop3Posts(): Promise<void> {
+    try {
+      const result = await this.postService.getTop3PostsByLikes().toPromise();
+      if (result) {
+        this.top3Posts = result;
+      } else {
+        this.top3Posts = []; // Initialiser avec un tableau vide si le résultat est undefined
+      }
+    } catch (error) {
+      console.error('Erreur lors de la récupération des 3 premiers posts :', error);
+    }
+  }
+
+
 }

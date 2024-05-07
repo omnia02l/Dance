@@ -24,7 +24,7 @@ export class TrainingComponent implements OnInit {
   categories:string[];
   getWithCategory!: string;
   constructor(private messageService: MessageService, private trainingService: TrainingService) {
-    this.categories = ['A','B','C','D'];
+    this.categories = ['SALSA','URBAIN_DANCE','HIP_HOP','DANCE_CLASSIC'];
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
       { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},

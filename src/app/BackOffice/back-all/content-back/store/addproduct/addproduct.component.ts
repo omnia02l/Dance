@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/core/models/Category.model';
+import { Component, OnInit } from '@angular/core';
+import { Category } from 'src/app/core/models/Category.model';
 import { Product } from 'src/app/core/models/Product.model';
 import { SizeType } from 'src/app/core/models/SizeType.model';
 import { CategoryService } from 'src/app/core/services/category.service';
@@ -12,6 +14,8 @@ import { ImageStore } from 'src/app/core/models/ImageStore';
 @Component({
   selector: 'app-addproduct',
   templateUrl: './addproduct.component.html',
+  styleUrls: ['./addproduct.component.css'],  
+
   styleUrls: ['./addproduct.component.css'],  
 
 })

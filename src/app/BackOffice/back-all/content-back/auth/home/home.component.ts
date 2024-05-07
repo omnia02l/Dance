@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit{
     this.items = [
       { label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
       { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
+      { label: 'My-events', icon: 'pi pi-fw pi-calendar', routerLink: ['/my-events']},
       { label: 'Training', icon: 'pi pi-fw pi-pencil',  routerLink: ['/training']},
       { label: 'My Post', icon: 'pi pi-fw pi-file', routerLink: ['/post'] },
       { label: 'All posts', icon: 'pi pi-fw pi-cog', routerLink: ['/all-post'] },

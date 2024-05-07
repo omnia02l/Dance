@@ -1,8 +1,11 @@
-<div class="col-12">
-  <div class="card px-6 py-6">
+<div class="col-12" >
+ 
+
+  <div class="card px-6 py-6" style="background-color: #8B0026  ;">
     <p-toast></p-toast>
     <p-toolbar styleClass="mb-4">
-      <h1 class="m-0">Manage Coach</h1>
+      <h1 class="m-0" style="color: #001F3F;">Manage Coach</h1>
+
       <div class="my-2">
         </div>   
     </p-toolbar>
@@ -17,7 +20,7 @@
             
              <ng-template pTemplate="caption">
         <div class="flex flex-column md:flex-row md:justify-content-between md:align-items-center">
-          <h5 class="m-0">Manage Coach</h5>
+          <h3 class="m-0" style="color: #001F3F;">Manage Coach</h3>
         </div>
       </ng-template>
       <ng-template pTemplate="header">
@@ -41,8 +44,11 @@
             <span *ngIf="c.status==false" class="badge bg-danger">NOT AVAILABLE</span>
           </td>
           <td>
-            <button pButton pRipple icon="pi pi-check" class="p-button-rounded p-button-text"
-                    (click)="changeStatus(c.id)"></button>
+            <button pButton pRipple icon="pi pi-check" class="p-button-circle"
+            style="background-color: #8B0026; border: none;"
+            (click)="changeStatus(c.id)">
+    </button>
+    
           </td>
         </tr>
       </ng-template>

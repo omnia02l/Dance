@@ -22,49 +22,49 @@ export class PostService {
     return this.http.get<Post[]>(this.host + "list-posts")
   }
 
-  public createPost(post:Post): Observable<string> {
-    return this.http.post<string>(this.host + "create-post", post,{
-      responseType:'text' as 'json'
+  public createPost(post: Post): Observable<string> {
+    return this.http.post<string>(this.host + "create-post", post, {
+      responseType: 'text' as 'json'
     })
   }
 
-  public addComment(id:number, comment:Comment): Observable<string> {
+  public addComment(id: number, comment: Comment): Observable<string> {
     const params = new HttpParams().set('id', id);
-    return this.http.post<string>(this.host + "add-comment", comment,{
+    return this.http.post<string>(this.host + "add-comment", comment, {
       params,
-      responseType:'text' as 'json'
+      responseType: 'text' as 'json'
     })
   }
 
-  public like(id:number): Observable<string> {
+  public like(id: number): Observable<string> {
     const params = new HttpParams().set('id', id);
-    return this.http.post<string>(this.host + "like",null,{
+    return this.http.post<string>(this.host + "like", null, {
       params,
-      responseType:'text' as 'json'
+      responseType: 'text' as 'json'
     })
   }
 
-  public dislike(id:number): Observable<string> {
+  public dislike(id: number): Observable<string> {
     const params = new HttpParams().set('id', id);
-    return this.http.post<string>(this.host + "dislike",null,{
+    return this.http.post<string>(this.host + "dislike", null, {
       params,
-      responseType:'text' as 'json'
+      responseType: 'text' as 'json'
     })
   }
 
-  public deletePost(id:number): Observable<string> {
+  public deletePost(id: number): Observable<string> {
     const params = new HttpParams().set('id', id);
-    return this.http.delete<string>(this.host + "delete-post",{
+    return this.http.delete<string>(this.host + "delete-post", {
       params,
-      responseType:'text' as 'json'
+      responseType: 'text' as 'json'
     })
   }
 
-  public deleteComment(id:number): Observable<string> {
+  public deleteComment(id: number): Observable<string> {
     const params = new HttpParams().set('id', id);
-    return this.http.delete<string>(this.host + "delete-comment",{
+    return this.http.delete<string>(this.host + "delete-comment", {
       params,
-      responseType:'text' as 'json'
+      responseType: 'text' as 'json'
     })
   }
 
@@ -76,4 +76,7 @@ export class PostService {
     return this.http.get<AllPostStats>(this.host + "all-post-stats")
   }
 
+  public getTop3PostsByLikes(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.host + "top-3-posts-by-likes");
+  }
 }
