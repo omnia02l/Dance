@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/core/models/Category.model';
+
+
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/core/models/Category.model';
 import { Product } from 'src/app/core/models/Product.model';
@@ -16,7 +16,7 @@ import { ImageStore } from 'src/app/core/models/ImageStore';
   templateUrl: './addproduct.component.html',
   styleUrls: ['./addproduct.component.css'],  
 
-  styleUrls: ['./addproduct.component.css'],  
+  
 
 })
 export class AddproductComponent implements OnInit {

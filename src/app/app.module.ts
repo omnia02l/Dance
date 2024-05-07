@@ -11,19 +11,17 @@ import { FrontAllComponent } from './front-office/front-all/front-all.component'
 import { FooterFrontComponent } from './front-office/front-all/footer-front/footer-front.component';
 import { ContentFrontComponent } from './front-office/front-all/content-front/content-front.component';
 import { HeaderFrontComponent } from './front-office/front-all/header-front/header-front.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ButtonModule } from "primeng/button";
-import { DataViewModule } from "primeng/dataview";
-import { DialogModule } from "primeng/dialog";
-import { DropdownModule } from "primeng/dropdown";
-import { InputMaskModule } from "primeng/inputmask";
-import { InputTextModule } from "primeng/inputtext";
-import { RippleModule } from "primeng/ripple";
-import { TableModule } from "primeng/table";
-import { ToastModule } from "primeng/toast";
-import { ToolbarModule } from "primeng/toolbar";
+
+
+
+
+
+
+
+
+
+
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
@@ -48,7 +46,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { UpdateProductComponent } from './BackOffice/back-all/content-back/store/update-product/update-product.component';
 import { ProductDetailComponent } from './BackOffice/back-all/content-back/store/product-detail/product-detail.component';
 
-import { AddCategoryComponent } from './BackOffice/back-all/content-back/store/category/add-category/add-category.component';
 
 import { AddCategoryComponent } from './BackOffice/back-all/content-back/store/category/add-category/add-category.component';
 import { CategoryListComponent } from './BackOffice/back-all/content-back/store/category/category-list/category-list.component';
@@ -57,14 +54,14 @@ import { CategoryListComponent } from './BackOffice/back-all/content-back/store/
 import { AccountmanagementComponent } from './BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component';
 import {AuthInterceptor} from "./core/services/Auth.interceptor";
 import { ProfileComponent } from './BackOffice/back-all/content-back/accountmanagement/profile/profile.component';
-import { EventComponent } from './BackOffice/back-all/content-back/accountmanagement/event/event.component';
-import { CalendarModule } from "primeng/calendar";
-import { InputTextareaModule } from "primeng/inputtextarea";
-import { MultiSelectModule } from "primeng/multiselect";
-import { MyeventComponent } from './BackOffice/back-all/content-back/accountmanagement/myevent/myevent.component';
-import { FullCalendarModule } from "@fullcalendar/angular";
-import { NgChartsModule } from 'ng2-charts';
-import { InputNumberModule } from "primeng/inputnumber";
+
+
+
+
+
+
+
+
 import { EventComponent } from './BackOffice/back-all/content-back/accountmanagement/event/event.component';
 import { CalendarModule } from "primeng/calendar";
 import { InputTextareaModule } from "primeng/inputtextarea";

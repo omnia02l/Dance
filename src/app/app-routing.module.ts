@@ -6,6 +6,11 @@ import {
 } from "./BackOffice/back-all/content-back/accountmanagement/accountmanagement/accountmanagement.component";
 import { ProfileComponent } from "./BackOffice/back-all/content-back/accountmanagement/profile/profile.component";
 import { AddproductComponent } from './BackOffice/back-all/content-back/store/addproduct/addproduct.component';
+
+
+
+
+  
 import {
   CategoryListComponent
 } from './BackOffice/back-all/content-back/store/category/category-list/category-list.component';
@@ -43,6 +48,8 @@ import {DancehallComponent} from "./BackOffice/back-all/content-back/trainingman
 import {TrainingComponent} from "./BackOffice/back-all/content-back/trainingmanagement/training/training.component";
 import {PostComponent} from "./BackOffice/back-all/content-back/trainingmanagement/post/post.component";
 import {AllpostsComponent} from "./BackOffice/back-all/content-back/trainingmanagement/allposts/allposts.component";
+
+
 import {HomeComponent} from "./BackOffice/back-all/content-back/auth/home/home.component";
 import {CoachComponent} from "./BackOffice/back-all/content-back/trainingmanagement/coach/coach.component";
 import {PbaComponent} from "./BackOffice/back-all/content-back/trainingmanagement/pba/pba.component";
@@ -139,6 +146,7 @@ const routes: Routes = [
       {path: 'account-management', component: AccountmanagementComponent},
       {path: 'post', component: PostComponent},
 
+      {path: 'profile', component: ProfileComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'training-management', component: TrainingmanagementComponent},
       {path: 'dance-hall-management', component: DancehallComponent},
